@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Present — Entendendo de vez 🎯</title>
+    <style>
+        /* Estilos e Cores */
+        :root {
+            --primary: #4F46E5;
+            --secondary: #E0E7FF;
+            --text: #1F2937;
+            --bg: #F9FAFB;
+            --correct: #10B981;
+            --wrong: #EF4444;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3 { color: var(--primary); }
+        h1 { text-align: center; border-bottom: 2px solid var(--secondary); padding-bottom: 10px; }
+        
+        .box {
+            background-color: white; border-radius: 8px; padding: 20px; margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .highlight { background-color: #FEF3C7; padding: 15px; border-left: 4px solid #F59E0B; border-radius: 4px; font-weight: bold; }
+        .rule { background-color: #FEE2E2; padding: 15px; border-left: 4px solid #EF4444; border-radius: 4px; margin: 15px 0;}
+
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; background-color: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #E5E7EB; padding: 10px; text-align: left; }
+        th { background-color: var(--primary); color: white; }
+
+        /* Botão de Áudio */
+        .btn-audio {
+            background: none; border: none; cursor: pointer; font-size: 1.2rem;
+            margin-left: 5px; padding: 0; vertical-align: middle; transition: transform 0.2s;
+        }
+        .btn-audio:hover { transform: scale(1.2); }
+
+        /* Estilos dos Exercícios */
+        .exercise-section { background-color: #EEF2FF; padding: 25px; border-radius: 10px; border: 2px dashed var(--primary); }
+        
+        .question { margin-bottom: 20px; }
+        .question p { font-weight: 500; margin-bottom: 8px; }
+        
+        input[type="text"] { width: 100%; max-width: 400px; padding: 10px; border: 1px solid #D1D5DB; border-radius: 4px; font-size: 16px; }
+        
+        .btn-submit {
+            background-color: var(--primary); color: white; border: none; padding: 12px 24px;
+            font-size: 18px; border-radius: 6px; cursor: pointer; width: 100%; font-weight: bold; transition: background 0.3s;
+        }
+        .btn-submit:hover { background-color: #4338CA; }
+
+        .feedback { margin-top: 8px; padding: 10px; border-radius: 4px; display: none; font-size: 14px; }
+        .feedback.correct { background-color: #D1FAE5; color: #065F46; border-left: 4px solid var(--correct); display: block;}
+        .feedback.wrong { background-color: #FEE2E2; color: #991B1B; border-left: 4px solid var(--wrong); display: block;}
+        .feedback.info { background-color: #DBEAFE; color: #1E40AF; border-left: 4px solid #3B82F6; display: block;}
+
+        @media (max-width: 600px) { table { font-size: 14px; } th, td { padding: 8px 4px; } input[type="text"] { width: 90%; } }
+    </style>
+</head>
+<body>
+
+    <h1>Simple Present — Entendendo de vez 🎯</h1>
+    
+    <div class="box">
+        <p><strong>Ideia central:</strong> O Simple Present é o tempo da <strong>ROTINA</strong> e dos <strong>FATOS</strong>.</p>
+        <p>É o que você usa para falar daquilo que sempre acontece ou que é verdade. Se cabe um "geralmente", "todo dia", "sempre" ou "é assim mesmo" → é Simple Present.</p>
+    </div>
+
+    <h2>1. Quando eu uso o Simple Present?</h2>
+    <p>Use sempre que a ação for:</p>
+    <div style="overflow-x:auto;">
+        <table>
+            <tr><th>Situação</th><th>Exemplo em inglês</th><th>Tradução</th></tr>
+            <tr>
+                <td>🔁 Rotina / hábito</td>
+                <td>I work every day. <button type="button" class="btn-audio" onclick="speak('I work every day.')">🔊</button></td>
+                <td>Eu trabalho todo dia.</td>
+            </tr>
+            <tr>
+                <td>🌍 Fato / verdade geral</td>
+                <td>Water boils at 100°C. <button type="button" class="btn-audio" onclick="speak('Water boils at 100 degrees Celsius.')">🔊</button></td>
+                <td>A água ferve a 100°C.</td>
+            </tr>
+            <tr>
+                <td>⏰ Horários fixos</td>
+                <td>The bus leaves at 7. <button type="button" class="btn-audio" onclick="speak('The bus leaves at 7.')">🔊</button></td>
+                <td>O ônibus sai às 7.</td>
+            </tr>
+            <tr>
+                <td>❤️ Gostos e opiniões</td>
+                <td>She likes coffee. <button type="button" class="btn-audio" onclick="speak('She likes coffee.')">🔊</button></td>
+                <td>Ela gosta de café.</td>
+            </tr>
+        </table>
+    </div>
+    
+    <p><strong>Palavrinhas que entregam o Simple Present (advérbios de frequência):</strong><br> 
+    always <button type="button" class="btn-audio" onclick="speak('always')">🔊</button> (sempre), 
+    usually <button type="button" class="btn-audio" onclick="speak('usually')">🔊</button> (geralmente), 
+    often <button type="button" class="btn-audio" onclick="speak('often')">🔊</button> (frequentemente), 
+    sometimes <button type="button" class="btn-audio" onclick="speak('sometimes')">🔊</button> (às vezes), 
+    never <button type="button" class="btn-audio" onclick="speak('never')">🔊</button> (nunca), 
+    every day <button type="button" class="btn-audio" onclick="speak('every day')">🔊</button> (todo dia).</p>
+
+    <div class="highlight">
+        💡 <strong>Dica de ouro:</strong> se na frase em português dá pra encaixar "todo dia" sem ficar estranho, você está no Simple Present.
+    </div>
+
+    <h2>2. A forma afirmativa e o "S MÁGICO" 🪄</h2>
+    <p>Essa é a parte que mais derruba o brasileiro. Preste atenção:<br>O verbo fica igual para quase todo mundo... <strong>MENOS para he, she, it.</strong><br>Para esses três, o verbo ganha um -S no final.</p>
+
+    <div style="overflow-x:auto;">
+        <table>
+            <tr><th>Pronome</th><th>Verbo</th></tr>
+            <tr><td>I / You / We / They</td><td>work <button type="button" class="btn-audio" onclick="speak('work')">🔊</button></td></tr>
+            <tr><td>He / She / It</td><td><strong>works ✅</strong> <button type="button" class="btn-audio" onclick="speak('works')">🔊</button></td></tr>
+        </table>
+    </div>
+
+    <p>🎵 <strong>O bizu pra nunca esquecer:</strong> "HE, SHE, IT — não esquece o S no fim!"</p>
+
+    <h2>3. As regrinhas de ortografia do -S</h2>
+    <div style="overflow-x:auto;">
+        <table>
+            <tr><th>Termina em...</th><th>O que fazer</th><th>Exemplo</th></tr>
+            <tr>
+                <td>Quase tudo</td><td>+ s</td>
+                <td>run → runs <button type="button" class="btn-audio" onclick="speak('run, runs')">🔊</button></td>
+            </tr>
+            <tr>
+                <td>-o, -ss, -sh, -ch, -x</td><td>+ es</td>
+                <td>go → goes / watch → watches <button type="button" class="btn-audio" onclick="speak('go, goes, watch, watches')">🔊</button></td>
+            </tr>
+            <tr>
+                <td>consoante + -y</td><td>tira o y, põe ies</td>
+                <td>study → studies <button type="button" class="btn-audio" onclick="speak('study, studies')">🔊</button></td>
+            </tr>
+        </table>
+    </div>
+    <p>⚠️ <strong>Cuidado:</strong> se for vogal + y, é só o -s normal! play → plays <button type="button" class="btn-audio" onclick="speak('play, plays')">🔊</button> (não "plaies").</p>
+
+    <h2>4. A forma NEGATIVA — entra o ajudante don't / doesn't</h2>
+    <p>Em português, pra negar a gente só joga um "não" (Eu não trabalho). No inglês, precisamos de um verbo ajudante (auxiliar):</p>
+    <ul>
+        <li><strong>I / You / We / They</strong> → don't + verbo → I don't work <button type="button" class="btn-audio" onclick="speak('I don\'t work')">🔊</button></li>
+        <li><strong>He / She / It</strong> → doesn't + verbo → She doesn't work <button type="button" class="btn-audio" onclick="speak('She doesn\'t work')">🔊</button></li>
+    </ul>
+
+    <div class="rule">
+        🔥 <strong>A REGRA DE OURO (cole isso na parede da sala):</strong><br>
+        Quando o DOESN'T aparece, ele "ROUBA" o S do verbo. O -S é tipo uma batata quente: só uma pessoa pode segurar. Se o doesn't já está segurando o S (do-es), o verbo fica limpo.
+        <br><br>
+        ❌ She doesn't likes coffee. (dois S? batata quente em duas mãos! errado)<br>
+        ✅ She doesn't like coffee. <button type="button" class="btn-audio" onclick="speak('She doesn\'t like coffee.')">🔊</button> (o S já está no "does", o verbo descansa)
+    </div>
+
+    <h2>5. As PERGUNTAS — o mesmo ajudante, agora na frente</h2>
+    <p>Pra perguntar, o do/does vai lá pro começo da frase:</p>
+    <ul>
+        <li><strong>Do</strong> you work here? <button type="button" class="btn-audio" onclick="speak('Do you work here?')">🔊</button></li>
+        <li><strong>Does</strong> she work here? <button type="button" class="btn-audio" onclick="speak('Does she work here?')">🔊</button></li>
+    </ul>
+    <p>A mesma regra de ouro vale: o Does já tem o S, então o verbo NÃO leva S.</p>
+    <p>❌ Does he plays soccer?<br>✅ Does he play soccer? <button type="button" class="btn-audio" onclick="speak('Does he play soccer?')">🔊</button></p>
+    
+    <p><strong>Respostas curtas (short answers):</strong><br>
+    Do you like pizza? → Yes, I do. / No, I don't. <button type="button" class="btn-audio" onclick="speak('Do you like pizza? Yes I do. No I don\'t')">🔊</button><br>
+    Does she dance? → Yes, she does. / No, she doesn't. <button type="button" class="btn-audio" onclick="speak('Does she dance? Yes she does. No she doesn\'t')">🔊</button></p>
+
+    <h2>6. Os 4 erros clássicos do brasileiro (e como matar cada um) 💀</h2>
+    <ul>
+        <li>Esquecer o S na terceira pessoa: <br>❌ <em>He play games.</em> → ✅ <strong>He plays games.</strong> <button type="button" class="btn-audio" onclick="speak('He plays games.')">🔊</button></li>
+        <li>Botar S no verbo depois de doesn't/does: <br>❌ <em>She doesn't works.</em> → ✅ <strong>She doesn't work.</strong> <button type="button" class="btn-audio" onclick="speak('She doesn\'t work.')">🔊</button></li>
+        <li>Negar sem o ajudante: <br>❌ <em>I not like fish.</em> → ✅ <strong>I don't like fish.</strong> <button type="button" class="btn-audio" onclick="speak('I don\'t like fish.')">🔊</button></li>
+        <li>Perguntar sem o do/does: <br>❌ <em>You like music?</em> → ✅ <strong>Do you like music?</strong> <button type="button" class="btn-audio" onclick="speak('Do you like music?')">🔊</button></li>
+    </ul>
+
+    <hr>
+
+    <!-- ÁREA INTERATIVA DO ALUNO -->
+    <div class="exercise-section">
+        <h2 style="text-align: center;">✍️ EXERCÍCIOS (do fácil ao avançado)</h2>
+        <p style="text-align: center;">Responda as questões abaixo e clique em "Corrigir Minhas Respostas" no final!</p>
+
+        <form id="quizForm">
+            
+            <h3>Nível 1 — O S mágico</h3>
+            <p>Complete com a forma certa do verbo.</p>
+            <div class="question">
+                <p>1. They ________ (live) in São Paulo.</p>
+                <input type="text" id="q1" autocomplete="off">
+                <div id="fb-q1" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>2. My brother ________ (watch) TV every night.</p>
+                <input type="text" id="q2" autocomplete="off">
+                <div id="fb-q2" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>3. We ________ (study) English on Mondays.</p>
+                <input type="text" id="q3" autocomplete="off">
+                <div id="fb-q3" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>4. The cat ________ (sleep) all day.</p>
+                <input type="text" id="q4" autocomplete="off">
+                <div id="fb-q4" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>5. She ________ (go) to school by bus.</p>
+                <input type="text" id="q5" autocomplete="off">
+                <div id="fb-q5" class="feedback"></div>
+            </div>
+
+            <h3>Nível 2 — Do ou Does?</h3>
+            <p>Complete com do ou does.</p>
+            <div class="question">
+                <p>6. ________ you like chocolate?</p>
+                <input type="text" id="q6" autocomplete="off">
+                <div id="fb-q6" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>7. ________ he speak Spanish?</p>
+                <input type="text" id="q7" autocomplete="off">
+                <div id="fb-q7" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>8. ________ they work here?</p>
+                <input type="text" id="q8" autocomplete="off">
+                <div id="fb-q8" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>9. ________ your mom cook on Sundays?</p>
+                <input type="text" id="q9" autocomplete="off">
+                <div id="fb-q9" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>10. ________ we have class today?</p>
+                <input type="text" id="q10" autocomplete="off">
+                <div id="fb-q10" class="feedback"></div>
+            </div>
+
+            <h3>Nível 3 — Transforme a frase</h3>
+            <p>Reescreva na negativa e na pergunta.</p>
+            <div class="question">
+                <p>11. He plays the guitar.<br>→ Negativa:</p>
+                <input type="text" id="q11" autocomplete="off">
+                <div id="fb-q11" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>12. He plays the guitar.<br>→ Pergunta:</p>
+                <input type="text" id="q12" autocomplete="off">
+                <div id="fb-q12" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>13. They drink coffee.<br>→ Negativa:</p>
+                <input type="text" id="q13" autocomplete="off">
+                <div id="fb-q13" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>14. They drink coffee.<br>→ Pergunta:</p>
+                <input type="text" id="q14" autocomplete="off">
+                <div id="fb-q14" class="feedback"></div>
+            </div>
+
+            <h3>Nível 4 — Caça ao erro 🔍</h3>
+            <p>Encontre e corrija o erro de cada frase.</p>
+            <div class="question">
+                <p>15. She don't like vegetables.</p>
+                <input type="text" id="q15" autocomplete="off">
+                <div id="fb-q15" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>16. Does he plays football?</p>
+                <input type="text" id="q16" autocomplete="off">
+                <div id="fb-q16" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>17. I works at a school.</p>
+                <input type="text" id="q17" autocomplete="off">
+                <div id="fb-q17" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>18. We not study on weekends.</p>
+                <input type="text" id="q18" autocomplete="off">
+                <div id="fb-q18" class="feedback"></div>
+            </div>
+
+            <h3>Nível 5 — Fale de você (produção livre)</h3>
+            <p>Escreva frases verdadeiras sobre você e sua família.</p>
+            <div class="question">
+                <p>19. Uma rotina sua (com every day ou always):</p>
+                <input type="text" id="q19" autocomplete="off">
+                <div id="fb-q19" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>20. Algo que você não faz (negativa com don't):</p>
+                <input type="text" id="q20" autocomplete="off">
+                <div id="fb-q20" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>21. Algo que um familiar faz (3ª pessoa, com o -S!):</p>
+                <input type="text" id="q21" autocomplete="off">
+                <div id="fb-q21" class="feedback"></div>
+            </div>
+            <div class="question">
+                <p>22. Uma pergunta para um colega:</p>
+                <input type="text" id="q22" autocomplete="off">
+                <div id="fb-q22" class="feedback"></div>
+            </div>
+
+            <button type="submit" class="btn-submit" id="btnSubmit">Corrigir Minhas Respostas ✅</button>
+        </form>
+    </div>
+
+    <!-- JAVASCRIPT: Áudio, Correção Automática e Envio Silencioso -->
+    <script>
+        // Função do Áudio (Lê as frases em inglês)
+        function speak(text) {
+            let utterance = new SpeechSynthesisUtterance();
+            utterance.text = text;
+            utterance.lang = 'en-US'; // Sotaque americano
+            utterance.rate = 0.9;     // Velocidade um pouquinho mais lenta para alunos
+            window.speechSynthesis.speak(utterance);
+        }
+
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Impede a página de recarregar
+            
+            let btn = document.getElementById('btnSubmit');
+            btn.innerText = "Corrigindo...";
+            btn.disabled = true;
+
+            // Gabarito do Professor
+            const gabarito = {
+                q1: { answer: "live", feedback: "↳ they não é he/she/it → verbo sem S." },
+                q2: { answer: "watches", feedback: "↳ my brother = he → leva S. Termina em -ch, então é +es." },
+                q3: { answer: "study", feedback: "↳ we não é he/she/it → sem S." },
+                q4: { answer: "sleeps", feedback: "↳ the cat = it → leva S. Só colar o -s normal." },
+                q5: { answer: "goes", feedback: "↳ she → leva S. Termina em -o, então é +es." },
+                q6: { answer: "do", feedback: "↳ you → Do." },
+                q7: { answer: "does", feedback: "↳ he → Does." },
+                q8: { answer: "do", feedback: "↳ they → Do." },
+                q9: { answer: "does", feedback: "↳ your mom = she → Does." },
+                q10: { answer: "do", feedback: "↳ we → Do." },
+                q11: { answer: "he doesn't play the guitar", feedback: "↳ O doesn't pegou o S, então play fica limpo." },
+                q12: { answer: "does he play the guitar", feedback: "↳ O does pegou o S, então play fica limpo. Não esqueça a interrogação!" },
+                q13: { answer: "they don't drink coffee", feedback: "↳ they → don't, sem S no verbo." },
+                q14: { answer: "do they drink coffee", feedback: "↳ they → Do. Não esqueça a interrogação!" },
+                q15: { answer: "she doesn't like vegetables", feedback: "↳ she exige doesn't, não don't." },
+                q16: { answer: "does he play football", feedback: "↳ O Does já tem o S → o verbo fica sem S." },
+                q17: { answer: "i work at a school", feedback: "↳ I nunca leva S." },
+                q18: { answer: "we don't study on weekends", feedback: "↳ precisa do ajudante: nega-se com don't." }
+            };
+
+            function cleanText(text) {
+                return text.toLowerCase().trim().replace(/[.,!?]/g, ""); // Ignora pontuação pra facilitar
+            }
+
+            // Prepara os dados para o e-mail da professora
+            let emailData = new FormData();
+            emailData.append("_subject", "Nova Resposta - Exercício Simple Present");
+            emailData.append("_template", "table");
+            emailData.append("_captcha", "false"); // Remove o captcha para ser silencioso
+
+            // 1. PRIMEIRO: Corrige e mostra para o aluno na hora
+            for (let i = 1; i <= 18; i++) {
+                let inputEl = document.getElementById('q' + i);
+                let feedbackEl = document.getElementById('fb-q' + i);
+                let rawAnswer = inputEl.value;
+                let userAnswer = cleanText(rawAnswer);
+                let correctAnswer = cleanText(gabarito['q' + i].answer);
+
+                // Adiciona na "caixa" do e-mail
+                emailData.append(`Questão ${i}`, rawAnswer || "(Em branco)");
+
+                feedbackEl.className = 'feedback'; // Reseta visual
+
+                if (userAnswer === "") {
+                    feedbackEl.innerHTML = "⚠️ Você deixou em branco. A resposta certa era: <strong>" + gabarito['q' + i].answer + "</strong><br>" + gabarito['q' + i].feedback;
+                    feedbackEl.classList.add('wrong');
+                } else if (userAnswer === correctAnswer || (i === 12 && userAnswer === correctAnswer + "?") || (i === 14 && userAnswer === correctAnswer + "?") || (i === 16 && userAnswer === correctAnswer + "?")) {
+                    feedbackEl.innerHTML = "✅ Acertou! <br>" + gabarito['q' + i].feedback;
+                    feedbackEl.classList.add('correct');
+                } else {
+                    feedbackEl.innerHTML = "❌ Quase lá! A resposta correta é: <strong>" + gabarito['q' + i].answer + "</strong><br>" + gabarito['q' + i].feedback;
+                    feedbackEl.classList.add('wrong');
+                }
+            }
+
+            // Nível 5 - Feedbacks abertos e salvar no e-mail
+            for (let i = 19; i <= 22; i++) {
+                let inputEl = document.getElementById('q' + i);
+                emailData.append(`Questão ${i} (Produção Livre)`, inputEl.value || "(Em branco)");
+            }
+
+            document.getElementById('fb-q19').innerHTML = "👩‍🏫 <strong>Comentário:</strong> Confira se usou o verbo sem S (ex: I wake up at 7). O professor vai analisar sua resposta!";
+            document.getElementById('fb-q19').className = 'feedback info';
+            document.getElementById('fb-q20').innerHTML = "👩‍🏫 <strong>Comentário:</strong> Confira se você usou 'don't' e o verbo normal. (ex: I don't eat meat).";
+            document.getElementById('fb-q20').className = 'feedback info';
+            document.getElementById('fb-q21').innerHTML = "👩‍🏫 <strong>Comentário:</strong> Sendo he ou she, confira se botou o S no verbo! (ex: My mother cooks).";
+            document.getElementById('fb-q21').className = 'feedback info';
+            document.getElementById('fb-q22').innerHTML = "👩‍🏫 <strong>Comentário:</strong> Tem que começar com Do ou Does! (ex: Do you like music?).";
+            document.getElementById('fb-q22').className = 'feedback info';
+
+            // 2. SEGUNDO: Tenta enviar o e-mail em silêncio
+            fetch("https://formsubmit.co/ajax/analicepessoa@gmail.com", {
+                method: "POST",
+                body: emailData
+            })
+            .then(response => {
+                btn.innerText = "Respostas Corrigidas! ✅";
+                btn.disabled = false; // Destrava o botão
+            })
+            .catch(error => {
+                console.error("Erro no envio do email (Antivírus/Rede)", error);
+                // Mesmo se der erro no envio, avisa ao aluno que foi corrigido
+                btn.innerText = "Respostas Corrigidas! ✅"; 
+                btn.disabled = false; // Destrava o botão para ele poder tentar de novo se quiser
+            });
+        });
+    </script>
+</body>
+</html>
