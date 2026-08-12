@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia — Final Oral Exam B</title>
+<style>
+  :root{
+    --blue:#1d4ed8;
+    --blue-dark:#13309e;
+    --orange:#f97316;
+    --paper:#f5f7fb;
+    --ink:#1b2537;
+    --line:#d9e2f2;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    max-width:720px;
+    margin:0 auto;
+    padding:1.1rem 1rem 3rem;
+  }
+  header.top{
+    background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dark) 100%);
+    color:#fff;
+    border-radius:14px;
+    padding:1.5rem 1.2rem;
+    text-align:center;
+    margin-bottom:1.4rem;
+  }
+  header.top .tag{
+    display:inline-block;
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.4);
+    border-radius:999px;
+    padding:.2rem .8rem;
+    font-size:.78rem;
+    letter-spacing:.04em;
+    margin-bottom:.6rem;
+  }
+  header.top h1{
+    margin:0 0 .3rem;
+    font-size:clamp(1.4rem,6vw,2rem);
+    line-height:1.2;
+  }
+  header.top p{
+    margin:0;
+    font-size:.95rem;
+    opacity:.92;
+  }
+  .banner{
+    background:var(--orange);
+    color:#fff;
+    border-radius:12px;
+    padding:.8rem 1rem;
+    text-align:center;
+    font-weight:600;
+    margin-bottom:1.6rem;
+    font-size:.98rem;
+  }
+  .banner small{
+    display:block;
+    font-weight:400;
+    opacity:.92;
+    margin-top:.2rem;
+    font-size:.8rem;
+  }
+  .step{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:1.2rem 1.1rem;
+    margin-bottom:1.2rem;
+  }
+  .step-head{
+    display:flex;
+    align-items:flex-start;
+    gap:.7rem;
+    margin-bottom:.7rem;
+  }
+  .badge{
+    flex:0 0 auto;
+    width:2.1rem;
+    height:2.1rem;
+    border-radius:50%;
+    background:var(--blue);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:1rem;
+  }
+  .step-head h2{
+    margin:0;
+    font-size:1.1rem;
+    color:var(--blue-dark);
+    line-height:1.25;
+  }
+  .step-head span.sub{
+    display:block;
+    font-size:.78rem;
+    color:#5c6b8a;
+    font-weight:400;
+    margin-top:.15rem;
+  }
+  .item{
+    border-left:3px solid var(--orange);
+    background:#fff7ef;
+    padding:.65rem .8rem;
+    border-radius:0 8px 8px 0;
+    margin-bottom:.6rem;
+    font-size:.94rem;
+  }
+  .item:last-child{margin-bottom:0;}
+  .item b{color:#c2410c;}
+  .tip{
+    background:#eef4ff;
+    border-radius:8px;
+    padding:.6rem .8rem;
+    font-size:.87rem;
+    color:#25407a;
+    margin-top:.6rem;
+  }
+  .tip b{color:var(--blue-dark);}
+  .model{
+    background:#f0fdf4;
+    border:1px dashed #16a34a;
+    border-radius:10px;
+    padding:.8rem .9rem;
+    font-size:.92rem;
+    color:#14532d;
+    margin-top:.6rem;
+  }
+  .model b{color:#166534;}
+  table.voc{
+    width:100%;
+    border-collapse:collapse;
+    font-size:.88rem;
+    margin-top:.4rem;
+  }
+  table.voc th{
+    background:var(--blue);
+    color:#fff;
+    text-align:left;
+    padding:.4rem .5rem;
+    font-size:.82rem;
+  }
+  table.voc td{
+    padding:.4rem .5rem;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  table.voc tr:nth-child(even){background:#f8fafc;}
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem;
+    margin-top:.4rem;
+  }
+  .chip{
+    background:#eef4ff;
+    color:var(--blue-dark);
+    border-radius:999px;
+    padding:.28rem .7rem;
+    font-size:.82rem;
+    border:1px solid #c7d7f7;
+  }
+  ul.plain{margin:.3rem 0 0; padding-left:1.2rem;}
+  ul.plain li{margin-bottom:.3rem; font-size:.92rem;}
+  .checklist{
+    background:var(--card);
+    border:2px dashed var(--orange);
+    border-radius:14px;
+    padding:1.1rem;
+  }
+  .checklist h2{
+    margin-top:0;
+    font-size:1.1rem;
+    color:#c2410c;
+  }
+  .checklist label{
+    display:flex;
+    align-items:flex-start;
+    gap:.55rem;
+    font-size:.92rem;
+    margin-bottom:.55rem;
+  }
+  .checklist input{
+    margin-top:.2rem;
+    flex:0 0 auto;
+    width:1.05rem;
+    height:1.05rem;
+  }
+  footer{
+    text-align:center;
+    font-size:.78rem;
+    color:#6b7a99;
+    margin-top:1.6rem;
+  }
+  @media (max-width:400px){
+    .wrap{padding:.8rem .7rem 2.5rem;}
+    .step{padding:1rem .85rem;}
+    table.voc{font-size:.82rem;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <span class="tag">FINAL ORAL EXAM B · Basic 1</span>
+    <h1>Guia para a Prova Oral — Talk about your house</h1>
+    <p>Um passo a passo pra você chegar preparado(a) e falar com confiança.</p>
+  </header>
+
+  <div class="banner">
+    🎤 A professora vai pedir: "Talk about your house"
+    <small>São 4 pontos obrigatórios — não pode esquecer nenhum!</small>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">1</div>
+      <h2>Say the type of house it is
+        <span class="sub">Diga que tipo de casa você mora</span>
+      </h2>
+    </div>
+    <table class="voc">
+      <tr><th>Inglês</th><th>Português</th></tr>
+      <tr><td>house</td><td>casa</td></tr>
+      <tr><td>apartment / flat</td><td>apartamento</td></tr>
+      <tr><td>studio apartment</td><td>kitnet / studio</td></tr>
+      <tr><td>townhouse</td><td>sobrado/casa geminada</td></tr>
+      <tr><td>farmhouse</td><td>casa de fazenda/sítio</td></tr>
+    </table>
+    <div class="model"><b>Frase pronta:</b> "I live in a house." / "I live in an apartment."</div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">2</div>
+      <h2>Say how many rooms there are
+        <span class="sub">Quantos cômodos tem na sua casa</span>
+      </h2>
+    </div>
+    <div class="chips">
+      <span class="chip">bedroom</span>
+      <span class="chip">bathroom</span>
+      <span class="chip">kitchen</span>
+      <span class="chip">living room</span>
+      <span class="chip">dining room</span>
+      <span class="chip">garage</span>
+      <span class="chip">backyard / garden</span>
+      <span class="chip">laundry room</span>
+    </div>
+    <div class="model"><b>Frase pronta:</b> "My house has 5 rooms: 2 bedrooms, 1 bathroom, a kitchen and a living room."</div>
+    <div class="tip"><b>Dica:</b> "There is/There are" também funciona — "There are 2 bedrooms in my house."</div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">3</div>
+      <h2>Say what your favorite room is
+        <span class="sub">Qual cômodo você mais gosta — e por quê</span>
+      </h2>
+    </div>
+    <div class="model"><b>Frase pronta:</b> "My favorite room is the kitchen because I like cooking."</div>
+    <div class="tip"><b>Dica:</b> use "because" pra justificar. Não precisa ser complicado: "...because it's cozy / because I relax there / because I sleep there."</div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">4</div>
+      <h2>Describe the furniture and its position
+        <span class="sub">O ponto mais importante — móveis + preposições de lugar</span>
+      </h2>
+    </div>
+
+    <p style="margin:.2rem 0 .5rem;font-size:.93rem;"><b>Vocabulário de móveis:</b></p>
+    <div class="chips">
+      <span class="chip">bed</span>
+      <span class="chip">wardrobe / closet</span>
+      <span class="chip">desk</span>
+      <span class="chip">chair</span>
+      <span class="chip">sofa / couch</span>
+      <span class="chip">table</span>
+      <span class="chip">TV</span>
+      <span class="chip">shelf / bookshelf</span>
+      <span class="chip">nightstand</span>
+      <span class="chip">mirror</span>
+      <span class="chip">lamp</span>
+      <span class="chip">rug</span>
+    </div>
+
+    <p style="margin:.8rem 0 .3rem;font-size:.93rem;"><b>Preposições de lugar (essa é a parte que mais cai!):</b></p>
+    <table class="voc">
+      <tr><th>Preposição</th><th>Significado</th><th>Exemplo</th></tr>
+      <tr><td>in / inside</td><td>dentro de</td><td>The clothes are in the wardrobe.</td></tr>
+      <tr><td>on</td><td>em cima de</td><td>The lamp is on the nightstand.</td></tr>
+      <tr><td>under</td><td>embaixo de</td><td>The shoes are under the bed.</td></tr>
+      <tr><td>next to</td><td>ao lado de</td><td>The chair is next to the desk.</td></tr>
+      <tr><td>in front of</td><td>na frente de</td><td>The TV is in front of the sofa.</td></tr>
+      <tr><td>behind</td><td>atrás de</td><td>The mirror is behind the door.</td></tr>
+      <tr><td>between</td><td>entre</td><td>The table is between two chairs.</td></tr>
+      <tr><td>near / close to</td><td>perto de</td><td>The desk is near the window.</td></tr>
+    </table>
+
+    <div class="model">
+      <b>Modelo de resposta completo:</b><br>
+      "My favorite room is my bedroom. There is a bed, a wardrobe, and a desk. The bed is next to the window. The wardrobe is in front of the bed. There is a lamp on the nightstand, and my shoes are under the bed."
+    </div>
+
+    <div class="tip"><b>Dica de pronúncia:</b> preste atenção no som do "th" em <i>"the"</i> — a língua encosta de leve nos dentes. E "next to" soa mais junto: "nex-tu".</div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">5</div>
+      <h2>Estrutura da resposta completa
+        <span class="sub">A ordem que você vai seguir na hora de falar</span>
+      </h2>
+    </div>
+    <ul class="plain">
+      <li><b>1.</b> "I live in a..." (tipo de casa)</li>
+      <li><b>2.</b> "My house has... rooms" (quantidade e quais)</li>
+      <li><b>3.</b> "My favorite room is... because..." (cômodo favorito + motivo)</li>
+      <li><b>4.</b> "There is/are... The [móvel] is [preposição] the [móvel/lugar]." (descrição dos móveis com posição)</li>
+    </ul>
+    <div class="tip"><b>Dica:</b> treine essa ordem em voz alta várias vezes em casa — quando você já sabe a estrutura, só precisa trocar as palavras pela sua realidade.</div>
+  </div>
+
+  <div class="checklist">
+    <h2>✅ Checklist antes da prova</h2>
+    <label><input type="checkbox"> Sei dizer o tipo da minha casa</label>
+    <label><input type="checkbox"> Sei listar os cômodos da minha casa</label>
+    <label><input type="checkbox"> Escolhi meu cômodo favorito e o motivo</label>
+    <label><input type="checkbox"> Listei os móveis do meu cômodo favorito</label>
+    <label><input type="checkbox"> Sei pelo menos 4 preposições de lugar (in, on, under, next to...)</label>
+    <label><input type="checkbox"> Treinei a resposta completa em voz alta</label>
+  </div>
+
+  <footer>All Net Educação · Basic 1 — Final Oral Exam B</footer>
+</div>
+</body>
+</html>
