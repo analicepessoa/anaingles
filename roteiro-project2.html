@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roteiro — Project 2 (Units 3 e 4)</title>
+<style>
+  :root{
+    --blue:#1d4ed8;
+    --blue-dark:#13309e;
+    --orange:#f97316;
+    --paper:#f5f7fb;
+    --ink:#1b2537;
+    --line:#d9e2f2;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    max-width:720px;
+    margin:0 auto;
+    padding:1.1rem 1rem 3rem;
+  }
+  header.top{
+    background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dark) 100%);
+    color:#fff;
+    border-radius:14px;
+    padding:1.5rem 1.2rem;
+    text-align:center;
+    margin-bottom:1.4rem;
+  }
+  header.top .tag{
+    display:inline-block;
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.4);
+    border-radius:999px;
+    padding:.2rem .8rem;
+    font-size:.78rem;
+    letter-spacing:.04em;
+    margin-bottom:.6rem;
+  }
+  header.top h1{
+    margin:0 0 .3rem;
+    font-size:clamp(1.5rem,6vw,2.1rem);
+    line-height:1.15;
+  }
+  header.top p{
+    margin:0;
+    font-size:.95rem;
+    opacity:.92;
+  }
+  .deadline{
+    background:var(--orange);
+    color:#fff;
+    border-radius:12px;
+    padding:.8rem 1rem;
+    text-align:center;
+    font-weight:600;
+    margin-bottom:1.6rem;
+    font-size:1rem;
+  }
+  .deadline small{
+    display:block;
+    font-weight:400;
+    opacity:.9;
+    margin-top:.2rem;
+    font-size:.82rem;
+  }
+  .step{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:1.2rem 1.1rem;
+    margin-bottom:1.2rem;
+  }
+  .step-head{
+    display:flex;
+    align-items:flex-start;
+    gap:.7rem;
+    margin-bottom:.7rem;
+  }
+  .badge{
+    flex:0 0 auto;
+    width:2.1rem;
+    height:2.1rem;
+    border-radius:50%;
+    background:var(--blue);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:1rem;
+  }
+  .step-head h2{
+    margin:0;
+    font-size:1.15rem;
+    color:var(--blue-dark);
+    line-height:1.25;
+  }
+  .step-head span.sub{
+    display:block;
+    font-size:.78rem;
+    color:#5c6b8a;
+    font-weight:400;
+    margin-top:.15rem;
+  }
+  .item{
+    border-left:3px solid var(--orange);
+    background:#fff7ef;
+    padding:.65rem .8rem;
+    border-radius:0 8px 8px 0;
+    margin-bottom:.7rem;
+    font-size:.95rem;
+  }
+  .item:last-child{margin-bottom:0;}
+  .item b{color:#c2410c;}
+  .tip{
+    background:#eef4ff;
+    border-radius:8px;
+    padding:.6rem .8rem;
+    font-size:.88rem;
+    color:#25407a;
+    margin-top:.5rem;
+  }
+  .tip b{color:var(--blue-dark);}
+  ul.plain{margin:.3rem 0 0; padding-left:1.2rem;}
+  ul.plain li{margin-bottom:.25rem; font-size:.92rem;}
+  .checklist{
+    background:var(--card);
+    border:2px dashed var(--orange);
+    border-radius:14px;
+    padding:1.1rem;
+  }
+  .checklist h2{
+    margin-top:0;
+    font-size:1.1rem;
+    color:#c2410c;
+  }
+  .checklist label{
+    display:flex;
+    align-items:flex-start;
+    gap:.55rem;
+    font-size:.93rem;
+    margin-bottom:.55rem;
+  }
+  .checklist input{
+    margin-top:.2rem;
+    flex:0 0 auto;
+    width:1.05rem;
+    height:1.05rem;
+  }
+  footer{
+    text-align:center;
+    font-size:.78rem;
+    color:#6b7a99;
+    margin-top:1.6rem;
+  }
+  @media (max-width:400px){
+    .wrap{padding:.8rem .7rem 2.5rem;}
+    .step{padding:1rem .85rem;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <span class="tag">PROJECT 2 · Units 3 e 4</span>
+    <h1>Vamos criar o Flyer da nossa cidade!</h1>
+    <p>Um roteiro passo a passo para você não se perder em nenhuma etapa.</p>
+  </header>
+
+  <div class="deadline">
+    📅 Entrega: até TERÇA-FEIRA
+    <small>Livro respondido sempre traz no dia. Vídeo/apresentação online: envie ANTES da aula (vai pro cinema). Cartolina/folha: traz no dia e apresenta ao vivo.</small>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">1</div>
+      <h2>Gathering Information
+        <span class="sub">Responda direto no livro, nas linhas do Project 2</span>
+      </h2>
+    </div>
+
+    <div class="item">
+      <b>1. O que tem ao redor do curso de inglês?</b><br>
+      Pense em lugares próximos à escola (padaria, farmácia, praça, mercado...). Escreva pelo menos 3 frases simples, em inglês. Ex.: <i>"There is a supermarket near the school."</i>
+    </div>
+
+    <div class="item">
+      <b>2. Nomeie as fotos de transporte</b><br>
+      Escreva o nome de cada meio de transporte na linha (taxi, bus, subway/metro, tram, train, airplane) e marque com <b>(✓)</b> só os que existem na sua cidade.
+    </div>
+
+    <div class="item">
+      <b>3. Clima nas 4 estações</b><br>
+      Escreva 2–3 frases para cada estação (spring, summer, winter, autumn) descrevendo o clima. Use adjetivos: <i>hot, cold, rainy, sunny, windy, cool.</i>
+    </div>
+
+    <div class="item">
+      <b>4. Qualidades e problemas da cidade</b><br>
+      Escreva frases usando adjetivos para descrever pontos bons e pontos ruins da sua cidade ou bairro. Ex.: <i>"The city is safe, but the traffic is bad."</i>
+    </div>
+
+    <div class="tip"><b>Dica:</b> essas respostas do livro são o material bruto — você vai usar tudo isso na Etapa 2.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">2</div>
+      <h2>Creating the Script
+        <span class="sub">O rascunho do flyer, ainda no livro</span>
+      </h2>
+    </div>
+    <p style="margin:.2rem 0 .6rem;font-size:.93rem;">Agora junte as respostas da Etapa 1 e escreva um rascunho com estas informações:</p>
+    <ul class="plain">
+      <li>Uma descrição curta da sua cidade/bairro</li>
+      <li>Uma atração turística (tourist attraction)</li>
+      <li>Lugares ao redor dessa atração</li>
+      <li>Direções para chegar lá, usando <b>Imperative</b> (Go, Turn, Take...) e citando o transporte público</li>
+      <li>Menção de uma foto da cidade</li>
+      <li>Menção de uma foto da atração turística</li>
+    </ul>
+    <div class="tip"><b>Dica:</b> escreva como se estivesse explicando para um turista chegando na sua cidade pela primeira vez.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">3</div>
+      <h2>Writing the Flyer
+        <span class="sub">O produto final — o que você entrega valendo nota</span>
+      </h2>
+    </div>
+    <p style="margin:.2rem 0 .6rem;font-size:.93rem;">Transforme o rascunho da Etapa 2 num flyer de verdade. O conteúdo é o mesmo em qualquer formato — o que muda é como você apresenta. Escolha uma opção:</p>
+
+    <div class="item">
+      <b>🎬 Vídeo (estilo repórter/youtuber)</b><br>
+      Grave um vídeo falando sobre a cidade como se fosse um repórter ou youtuber apresentando o lugar. Mostre as informações do script (descrição, atração turística, como chegar, transporte público).<br>
+      <span style="color:#c2410c;font-weight:600;">Envie o vídeo antes da aula</span> — a apresentação será feita no cinema da escola, então preciso do arquivo com antecedência para projetar.
+    </div>
+
+    <div class="item">
+      <b>✋ Feito à mão (cartolina ou folha)</b><br>
+      Monte o flyer em cartolina ou folha A4, com fotos/desenhos e o texto do script. Nesse formato, você apresenta ao vivo, na aula, mostrando o conteúdo visual para a turma.
+    </div>
+
+    <div class="item">
+      <b>💻 Virtual (Canva, PowerPoint ou similar)</b><br>
+      Monte o flyer digitalmente. Pode apresentar ao vivo na aula (projetando na tela) ou, se preferir, gravar/enviar como no formato vídeo — qualquer forma de apresentação online também vale, desde que me envie o conteúdo antes da aula.
+    </div>
+
+    <p style="margin:.6rem 0 0;font-size:.93rem;">Em todos os formatos, o flyer precisa conter:</p>
+    <ul class="plain">
+      <li>Título e descrição curta da cidade</li>
+      <li>1 foto (ou desenho) da cidade</li>
+      <li>1 atração turística com foto (ou desenho)</li>
+      <li>Direções em inglês usando Imperative + transporte público</li>
+      <li>Boa organização visual — é um flyer, precisa ser convidativo!</li>
+    </ul>
+
+    <div class="tip"><b>Resumindo a entrega:</b> vídeo ou apresentação online → me enviar antes da aula (vai pro cinema). Cartolina/folha → traz no dia e apresenta ao vivo.</div>
+  </div>
+
+  <div class="checklist">
+    <h2>✅ Checklist antes de entregar</h2>
+    <label><input type="checkbox"> Respondi as 4 perguntas da Etapa 1 no livro</label>
+    <label><input type="checkbox"> Escrevi o script completo na Etapa 2</label>
+    <label><input type="checkbox"> Escolhi o formato: vídeo, cartolina/folha ou virtual</label>
+    <label><input type="checkbox"> Meu flyer tem foto da cidade e da atração</label>
+    <label><input type="checkbox"> Usei Imperative nas direções</label>
+    <label><input type="checkbox"> Mencionei o transporte público</label>
+    <label><input type="checkbox"> Se for vídeo/online: já enviei antes da aula</label>
+    <label><input type="checkbox"> Se for cartolina/folha: está pronto para apresentar ao vivo</label>
+  </div>
+
+  <footer>All Net Educação · Basic 1 — Project 2 (Units 3 e 4)</footer>
+</div>
+</body>
+</html>
