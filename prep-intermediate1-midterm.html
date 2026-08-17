@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revisão — Intermediate 1 Mid-term Exam</title>
+<style>
+  :root{
+    --blue:#1d4ed8;
+    --blue-dark:#13309e;
+    --orange:#f97316;
+    --paper:#f5f7fb;
+    --ink:#1b2537;
+    --line:#d9e2f2;
+    --card:#ffffff;
+    --green:#16a34a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:1.1rem 1rem 3rem;}
+  header.top{
+    background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dark) 100%);
+    color:#fff;border-radius:14px;padding:1.5rem 1.2rem;text-align:center;margin-bottom:1.4rem;
+  }
+  header.top .tag{
+    display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);
+    border-radius:999px;padding:.2rem .8rem;font-size:.78rem;letter-spacing:.04em;margin-bottom:.6rem;
+  }
+  header.top h1{margin:0 0 .3rem;font-size:clamp(1.35rem,5.6vw,1.9rem);line-height:1.2;}
+  header.top p{margin:0;font-size:.93rem;opacity:.92;}
+  .banner{
+    background:var(--orange);color:#fff;border-radius:12px;padding:.8rem 1rem;
+    text-align:center;font-weight:600;margin-bottom:1.6rem;font-size:.95rem;
+  }
+  .banner small{display:block;font-weight:400;opacity:.92;margin-top:.2rem;font-size:.8rem;}
+  .structure{
+    display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.6rem;
+  }
+  .structure .box{
+    background:#fff;border:1px solid var(--line);border-radius:10px;
+    padding:.6rem .8rem;text-align:center;flex:1 1 130px;
+  }
+  .structure .box b{display:block;color:var(--blue-dark);font-size:1rem;}
+  .structure .box span{font-size:.75rem;color:#5c6b8a;}
+  .step{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:1.2rem 1.1rem;margin-bottom:1.2rem;
+  }
+  .step-head{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:.7rem;}
+  .badge{
+    flex:0 0 auto;width:2.1rem;height:2.1rem;border-radius:50%;background:var(--blue);
+    color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;
+  }
+  .step-head h2{margin:0;font-size:1.08rem;color:var(--blue-dark);line-height:1.25;}
+  .step-head span.sub{display:block;font-size:.78rem;color:#5c6b8a;font-weight:400;margin-top:.15rem;}
+  .item{
+    border-left:3px solid var(--orange);background:#fff7ef;padding:.65rem .8rem;
+    border-radius:0 8px 8px 0;margin-bottom:.6rem;font-size:.93rem;
+  }
+  .item:last-child{margin-bottom:0;}
+  .item b{color:#c2410c;}
+  .tip{
+    background:#eef4ff;border-radius:8px;padding:.6rem .8rem;font-size:.86rem;
+    color:#25407a;margin-top:.6rem;
+  }
+  .tip b{color:var(--blue-dark);}
+  table.voc{width:100%;border-collapse:collapse;font-size:.86rem;margin-top:.4rem;}
+  table.voc th{background:var(--blue);color:#fff;text-align:left;padding:.4rem .5rem;font-size:.8rem;}
+  table.voc td{padding:.4rem .5rem;border-bottom:1px solid var(--line);vertical-align:top;}
+  table.voc tr:nth-child(even){background:#f8fafc;}
+  ul.plain{margin:.3rem 0 0; padding-left:1.2rem;}
+  ul.plain li{margin-bottom:.3rem; font-size:.91rem;}
+  .practice{
+    background:#f8fafc;border:1px dashed var(--blue);border-radius:10px;
+    padding:.8rem .9rem;margin-top:.7rem;font-size:.92rem;
+  }
+  .practice .q{margin-bottom:.5rem;}
+  .reveal-btn{
+    background:var(--blue);color:#fff;border:none;border-radius:8px;
+    padding:.35rem .8rem;font-size:.82rem;cursor:pointer;margin-top:.3rem;
+  }
+  .answer{
+    display:none;margin-top:.5rem;background:#f0fdf4;border:1px dashed var(--green);
+    border-radius:8px;padding:.5rem .7rem;color:#166534;font-size:.87rem;
+  }
+  .answer.show{display:block;}
+  .checklist{
+    background:var(--card);border:2px dashed var(--orange);border-radius:14px;padding:1.1rem;
+  }
+  .checklist h2{margin-top:0;font-size:1.05rem;color:#c2410c;}
+  .checklist label{display:flex;align-items:flex-start;gap:.55rem;font-size:.9rem;margin-bottom:.5rem;}
+  .checklist input{margin-top:.2rem;flex:0 0 auto;width:1.05rem;height:1.05rem;}
+  footer{text-align:center;font-size:.78rem;color:#6b7a99;margin-top:1.6rem;}
+  @media (max-width:400px){
+    .wrap{padding:.8rem .7rem 2.5rem;}
+    .step{padding:1rem .85rem;}
+    table.voc{font-size:.8rem;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <span class="tag">Turma IS08/0008 · Intermediate 1</span>
+    <h1>Revisão para a Mid-term Exam</h1>
+    <p>Vamos relembrar o que pode cair e treinar no mesmo estilo da prova de sábado.</p>
+  </header>
+
+  <div class="banner">
+    🗓️ Prova: SÁBADO
+    <small>Revise com calma esse material antes do dia — foque no que você ainda erra.</small>
+  </div>
+
+  <div class="structure">
+    <div class="box"><b>Reading &amp; Writing</b><span>/ 35 pontos</span></div>
+    <div class="box"><b>Writing</b><span>/ 35 pontos</span></div>
+    <div class="box"><b>Listening</b><span>/ 30 pontos</span></div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">1</div>
+      <h2>Simple Past (verbos regulares e irregulares)
+        <span class="sub">Vai cair para completar um texto — narrar fatos passados</span>
+      </h2>
+    </div>
+    <div class="item"><b>Regulares:</b> verbo + <b>-ed</b> (start → started, arrive → arrived, realize → realized)</div>
+    <div class="item"><b>Irregulares:</b> forma própria, precisa decorar (go → went, leave → left, take → took, find → found, think → thought, get → got, miss → missed é regular, ter cuidado!)</div>
+
+    <table class="voc">
+      <tr><th>Base</th><th>Simple Past</th><th>Base</th><th>Simple Past</th></tr>
+      <tr><td>go</td><td>went</td><td>have</td><td>had</td></tr>
+      <tr><td>leave</td><td>left</td><td>see</td><td>saw</td></tr>
+      <tr><td>take</td><td>took</td><td>buy</td><td>bought</td></tr>
+      <tr><td>find</td><td>found</td><td>come</td><td>came</td></tr>
+      <tr><td>think</td><td>thought</td><td>say</td><td>said</td></tr>
+      <tr><td>get</td><td>got</td><td>make</td><td>made</td></tr>
+    </table>
+
+    <div class="practice">
+      <div class="q">Treino: complete com o Simple Past correto. <i>"Yesterday, I ___ (wake) up late and ___ (miss) the bus, so I ___ (have) to walk to work."</i></div>
+      <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Ver resposta</button>
+      <div class="answer">woke / missed / had</div>
+    </div>
+
+    <div class="tip"><b>Dica:</b> leia a frase toda antes de responder — o contexto (today, yesterday, last week...) confirma que é passado.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">2</div>
+      <h2>Resumindo um texto (summary)
+        <span class="sub">Vai cair pra ler um perfil/currículo e resumir</span>
+      </h2>
+    </div>
+    <p style="margin:.2rem 0 .5rem;font-size:.9rem;">A ideia é pegar as informações (nome, formação, trabalho) e transformar em um parágrafo corrido, no Simple Past, usando conectores.</p>
+    <div class="chips" style="display:flex;flex-wrap:wrap;gap:.4rem;">
+      <span class="item" style="border-left-color:var(--blue);background:#eef4ff;">and</span>
+      <span class="item" style="border-left-color:var(--blue);background:#eef4ff;">but</span>
+      <span class="item" style="border-left-color:var(--blue);background:#eef4ff;">also</span>
+      <span class="item" style="border-left-color:var(--blue);background:#eef4ff;">among other things</span>
+      <span class="item" style="border-left-color:var(--blue);background:#eef4ff;">after that</span>
+    </div>
+    <div class="tip"><b>Estrutura sugerida:</b> "[Nome] studied [curso] at [instituição]. He/She worked at [empresa] as [cargo] and, among other things, he/she [uma ou duas responsabilidades]."</div>
+    <div class="tip"><b>Dica:</b> não precisa copiar tudo do texto — escolha as informações principais e escreva com suas palavras, em frases completas.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">3</div>
+      <h2>Used to (hábitos do passado que não existem mais)
+        <span class="sub">Vai cair para falar de infância/adolescência</span>
+      </h2>
+    </div>
+    <div class="item"><b>Forma:</b> <i>subject + used to + verb (base form)</i><br>"I used to play outside every day." (Eu costumava brincar/jogar lá fora todo dia — e não faço mais isso.)</div>
+    <div class="item"><b>Negativa:</b> <i>didn't use to</i> — "I didn't use to like vegetables."</div>
+    <div class="item"><b>Cuidado:</b> "used to" só serve para hábitos/estados do passado que <b>mudaram</b>. Para uma ação pontual, usa-se Simple Past normal ("I visited my grandma" ≠ "I used to visit my grandma").</div>
+
+    <div class="practice">
+      <div class="q">Treino: escreva uma frase com "used to" sobre algo que você fazia na infância e não faz mais.</div>
+      <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Ver exemplo</button>
+      <div class="answer">"I used to watch cartoons every Saturday morning, but I don't anymore."</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">4</div>
+      <h2>Modal verbs — dando conselhos (advice)
+        <span class="sub">Vai cair como situações-problema pedindo sua opinião</span>
+      </h2>
+    </div>
+    <table class="voc">
+      <tr><th>Expressão</th><th>Uso</th></tr>
+      <tr><td>You should...</td><td>conselho direto</td></tr>
+      <tr><td>You shouldn't...</td><td>conselho negativo</td></tr>
+      <tr><td>You could...</td><td>sugestão, opção</td></tr>
+      <tr><td>Why don't you...?</td><td>sugestão em forma de pergunta</td></tr>
+      <tr><td>If I were you, I would...</td><td>conselho mais formal/pessoal</td></tr>
+      <tr><td>You ought to...</td><td>conselho forte (formal)</td></tr>
+    </table>
+    <div class="practice">
+      <div class="q">Treino: dê um conselho para essa situação — "My neighbor plays loud music every night and I can't sleep."</div>
+      <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Ver exemplo</button>
+      <div class="answer">"You should talk to your neighbor about it. You could also ask the building manager for help if it doesn't stop."</div>
+    </div>
+    <div class="tip"><b>Dica:</b> sempre justifique um pouco o conselho — não escreva só "You should talk to him", complete com uma razão ou uma segunda opção.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">5</div>
+      <h2>Past Continuous x Simple Past (ação interrompida)
+        <span class="sub">Vai cair no Listening — "estava fazendo algo quando aconteceu outra coisa"</span>
+      </h2>
+    </div>
+    <div class="item"><b>Estrutura:</b> <i>was/were + verb-ing</i> (ação em andamento) + <b>when</b> + <i>Simple Past</i> (ação que interrompeu)<br>"I <b>was cooking</b> dinner <b>when</b> the phone <b>rang</b>."</div>
+    <table class="voc">
+      <tr><th>Sujeito</th><th>Past Continuous</th></tr>
+      <tr><td>I / he / she / it</td><td>was + verb-ing</td></tr>
+      <tr><td>you / we / they</td><td>were + verb-ing</td></tr>
+    </table>
+    <div class="practice">
+      <div class="q">Treino: complete — "She ___ (walk) home when it ___ (start) to rain."</div>
+      <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Ver resposta</button>
+      <div class="answer">was walking / started</div>
+    </div>
+    <div class="tip"><b>Dica pro Listening:</b> preste atenção no "when" na frase — quase sempre ele separa a ação longa (continuous) da ação rápida que interrompe (simple past). Ouça a frase inteira antes de escrever, e toque de novo se precisar (você pode pedir pra tocar 2x).</div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">6</div>
+      <h2>Como estudar até sábado
+        <span class="sub">Um plano rápido e realista</span>
+      </h2>
+    </div>
+    <ul class="plain">
+      <li><b>Hoje/amanhã:</b> revise a tabela de verbos irregulares — treine escrevendo, não só lendo</li>
+      <li><b>No meio da semana:</b> escreva 3 frases com "used to" e 3 frases dando conselhos com "should/could"</li>
+      <li><b>Um dia antes:</b> revise Past Continuous x Simple Past e treine ouvir algo em inglês (podcast, vídeo) prestando atenção em "when"</li>
+      <li><b>No dia da prova:</b> leia cada instrução com calma antes de responder, e não deixe questão em branco — tentar vale mais que não responder</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <h2>✅ Checklist de revisão</h2>
+    <label><input type="checkbox"> Sei formar o Simple Past regular e conheço os irregulares principais</label>
+    <label><input type="checkbox"> Sei resumir um texto usando conectores (and, but, also...)</label>
+    <label><input type="checkbox"> Sei usar "used to" para hábitos do passado</label>
+    <label><input type="checkbox"> Sei dar conselhos com should/could/why don't you</label>
+    <label><input type="checkbox"> Entendo a diferença entre Past Continuous e Simple Past</label>
+    <label><input type="checkbox"> Treinei pelo menos um exercício de cada tipo acima</label>
+  </div>
+
+  <footer>All Net Educação · Intermediate 1 — Preparação para Mid-term Exam</footer>
+</div>
+</body>
+</html>
