@@ -2,435 +2,938 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Present — Entendendo de vez 🎯</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Portal de Aulas</title>
+    
+    <!-- Configurações PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1e1b4b">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Portal Aulas">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3389/3389081.png">
+
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Estilos e Cores */
         :root {
-            --primary: #4F46E5;
-            --secondary: #E0E7FF;
-            --text: #1F2937;
-            --bg: #F9FAFB;
-            --correct: #10B981;
-            --wrong: #EF4444;
+            --primary: #4f46e5;
+            --primary-dark: #3730a3;
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --danger: #ef4444;
+            --book1-color: #2563eb;
+            --book2-color: #d97706;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--bg);
-            max-width: 800px;
+            background: var(--bg-page);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            color: white;
+            padding: 1.2rem 1.5rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+        }
+
+        .header-content {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
         }
 
-        h1, h2, h3 { color: var(--primary); }
-        h1 { text-align: center; border-bottom: 2px solid var(--secondary); padding-bottom: 10px; }
-        
-        .box {
-            background-color: white; border-radius: 8px; padding: 20px; margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        .header-content h1 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
-        .highlight { background-color: #FEF3C7; padding: 15px; border-left: 4px solid #F59E0B; border-radius: 4px; font-weight: bold; }
-        .rule { background-color: #FEE2E2; padding: 15px; border-left: 4px solid #EF4444; border-radius: 4px; margin: 15px 0;}
-
-        table { width: 100%; border-collapse: collapse; margin: 15px 0; background-color: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        th, td { border: 1px solid #E5E7EB; padding: 10px; text-align: left; }
-        th { background-color: var(--primary); color: white; }
-
-        /* Botão de Áudio */
-        .btn-audio {
-            background: none; border: none; cursor: pointer; font-size: 1.2rem;
-            margin-left: 5px; padding: 0; vertical-align: middle; transition: transform 0.2s;
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
         }
-        .btn-audio:hover { transform: scale(1.2); }
 
-        /* Estilos dos Exercícios */
-        .exercise-section { background-color: #EEF2FF; padding: 25px; border-radius: 10px; border: 2px dashed var(--primary); }
-        
-        .question { margin-bottom: 20px; }
-        .question p { font-weight: 500; margin-bottom: 8px; }
-        
-        input[type="text"] { width: 100%; max-width: 400px; padding: 10px; border: 1px solid #D1D5DB; border-radius: 4px; font-size: 16px; }
-        
-        .btn-submit {
-            background-color: var(--primary); color: white; border: none; padding: 12px 24px;
-            font-size: 18px; border-radius: 6px; cursor: pointer; width: 100%; font-weight: bold; transition: background 0.3s;
+        .btn {
+            background: white;
+            color: #1e1b4b;
+            border: none;
+            padding: 0.55rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
         }
-        .btn-submit:hover { background-color: #4338CA; }
 
-        .feedback { margin-top: 8px; padding: 10px; border-radius: 4px; display: none; font-size: 14px; }
-        .feedback.correct { background-color: #D1FAE5; color: #065F46; border-left: 4px solid var(--correct); display: block;}
-        .feedback.wrong { background-color: #FEE2E2; color: #991B1B; border-left: 4px solid var(--wrong); display: block;}
-        .feedback.info { background-color: #DBEAFE; color: #1E40AF; border-left: 4px solid #3B82F6; display: block;}
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
 
-        @media (max-width: 600px) { table { font-size: 14px; } th, td { padding: 8px 4px; } input[type="text"] { width: 90%; } }
+        .btn-primary {
+            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+            color: white;
+        }
+
+        .nav-bar {
+            max-width: 1200px;
+            width: 100%;
+            margin: 1rem auto 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .nav-item {
+            cursor: pointer;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .filter-tabs {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0.8rem auto 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            gap: 0.6rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .filter-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-btn {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 0.45rem 1rem;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            background: #1e1b4b;
+            color: white;
+            border-color: #1e1b4b;
+            box-shadow: 0 2px 8px rgba(30, 27, 75, 0.3);
+        }
+
+        main {
+            max-width: 1200px;
+            width: 100%;
+            margin: 1rem auto 2rem auto;
+            padding: 0 1.5rem;
+            flex: 1;
+        }
+
+        .book-section {
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+        }
+
+        .book-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .book-section-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .book-section.sec-livro1 .book-section-header { border-bottom-color: #dbeafe; }
+        .book-section.sec-livro1 .book-section-title { color: var(--book1-color); }
+
+        .book-section.sec-livro2 .book-section-header { border-bottom-color: #fef3c7; }
+        .book-section.sec-livro2 .book-section-title { color: var(--book2-color); }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .card {
+            background: var(--bg-page);
+            border-radius: 12px;
+            padding: 1.2rem;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            background: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            border-color: var(--primary);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .card-footer {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .badge-count {
+            background: #eef2ff;
+            color: var(--primary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+
+        .btn-delete-card {
+            background: none;
+            border: none;
+            color: var(--danger);
+            cursor: pointer;
+            font-size: 0.8rem;
+            padding: 0.2rem;
+            opacity: 0.7;
+        }
+
+        .btn-delete-card:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .viewer-container {
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 85vh;
+        }
+
+        .viewer-header {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        iframe {
+            width: 100%;
+            flex: 1;
+            border: none;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(2px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            z-index: 1000;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 14px;
+            width: 100%;
+            max-width: 500px;
+            padding: 1.8rem;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+        }
+
+        .modal h2 {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: var(--text-dark);
+            font-weight: 800;
+        }
+
+        .form-group {
+            margin-bottom: 1.1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.65rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.8rem;
+            margin-top: 1.4rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+        }
+
+        .loading-spinner {
+            text-align: center;
+            padding: 4rem 1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
     </style>
 </head>
 <body>
 
-    <h1>Simple Present — Entendendo de vez 🎯</h1>
-    
-    <div class="box">
-        <p><strong>Ideia central:</strong> O Simple Present é o tempo da <strong>ROTINA</strong> e dos <strong>FATOS</strong>.</p>
-        <p>É o que você usa para falar daquilo que sempre acontece ou que é verdade. Se cabe um "geralmente", "todo dia", "sempre" ou "é assim mesmo" → é Simple Present.</p>
+    <header>
+        <div class="header-content">
+            <h1>📖 Portal de Aulas</h1>
+            <div class="header-actions">
+                <button class="btn" id="btn-install" style="display:none;" onclick="installPWA()">📲 Instalar App</button>
+                <button class="btn btn-primary" id="btn-new-lesson" style="display:none;" onclick="openModal('modal-lesson')">+ Adicionar Aula (.html)</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-bar" id="breadcrumb"></div>
+    <div class="filter-tabs" id="filter-tabs" style="display:none;"></div>
+
+    <main id="app"></main>
+
+    <!-- Modal Nova Aula -->
+    <div class="modal-overlay" id="modal-lesson">
+        <div class="modal">
+            <h2>Cadastrar Nova Aula</h2>
+            <div class="form-group">
+                <label for="lesson-title">Título da Aula</label>
+                <input type="text" id="lesson-title" placeholder="Ex: Aula 05 - Giving Advice">
+            </div>
+            <div class="form-group">
+                <label for="lesson-pages">Páginas / Informações</label>
+                <input type="text" id="lesson-pages" placeholder="Ex: Páginas 30–33 + Homework">
+            </div>
+            <div class="form-group">
+                <label for="lesson-file">Arquivo HTML da Aula</label>
+                <input type="file" id="lesson-file" accept=".html,.htm">
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('modal-lesson')">Cancelar</button>
+                <button class="btn btn-primary" id="btn-submit-lesson" onclick="createLesson()">Publicar Aula</button>
+            </div>
+        </div>
     </div>
 
-    <h2>1. Quando eu uso o Simple Present?</h2>
-    <p>Use sempre que a ação for:</p>
-    <div style="overflow-x:auto;">
-        <table>
-            <tr><th>Situação</th><th>Exemplo em inglês</th><th>Tradução</th></tr>
-            <tr>
-                <td>🔁 Rotina / hábito</td>
-                <td>I work every day. <button type="button" class="btn-audio" onclick="speak('I work every day.')">🔊</button></td>
-                <td>Eu trabalho todo dia.</td>
-            </tr>
-            <tr>
-                <td>🌍 Fato / verdade geral</td>
-                <td>Water boils at 100°C. <button type="button" class="btn-audio" onclick="speak('Water boils at 100 degrees Celsius.')">🔊</button></td>
-                <td>A água ferve a 100°C.</td>
-            </tr>
-            <tr>
-                <td>⏰ Horários fixos</td>
-                <td>The bus leaves at 7. <button type="button" class="btn-audio" onclick="speak('The bus leaves at 7.')">🔊</button></td>
-                <td>O ônibus sai às 7.</td>
-            </tr>
-            <tr>
-                <td>❤️ Gostos e opiniões</td>
-                <td>She likes coffee. <button type="button" class="btn-audio" onclick="speak('She likes coffee.')">🔊</button></td>
-                <td>Ela gosta de café.</td>
-            </tr>
-        </table>
-    </div>
-    
-    <p><strong>Palavrinhas que entregam o Simple Present (advérbios de frequência):</strong><br> 
-    always <button type="button" class="btn-audio" onclick="speak('always')">🔊</button> (sempre), 
-    usually <button type="button" class="btn-audio" onclick="speak('usually')">🔊</button> (geralmente), 
-    often <button type="button" class="btn-audio" onclick="speak('often')">🔊</button> (frequentemente), 
-    sometimes <button type="button" class="btn-audio" onclick="speak('sometimes')">🔊</button> (às vezes), 
-    never <button type="button" class="btn-audio" onclick="speak('never')">🔊</button> (nunca), 
-    every day <button type="button" class="btn-audio" onclick="speak('every day')">🔊</button> (todo dia).</p>
-
-    <div class="highlight">
-        💡 <strong>Dica de ouro:</strong> se na frase em português dá pra encaixar "todo dia" sem ficar estranho, você está no Simple Present.
-    </div>
-
-    <h2>2. A forma afirmativa e o "S MÁGICO" 🪄</h2>
-    <p>Essa é a parte que mais derruba o brasileiro. Preste atenção:<br>O verbo fica igual para quase todo mundo... <strong>MENOS para he, she, it.</strong><br>Para esses três, o verbo ganha um -S no final.</p>
-
-    <div style="overflow-x:auto;">
-        <table>
-            <tr><th>Pronome</th><th>Verbo</th></tr>
-            <tr><td>I / You / We / They</td><td>work <button type="button" class="btn-audio" onclick="speak('work')">🔊</button></td></tr>
-            <tr><td>He / She / It</td><td><strong>works ✅</strong> <button type="button" class="btn-audio" onclick="speak('works')">🔊</button></td></tr>
-        </table>
-    </div>
-
-    <p>🎵 <strong>O bizu pra nunca esquecer:</strong> "HE, SHE, IT — não esquece o S no fim!"</p>
-
-    <h2>3. As regrinhas de ortografia do -S</h2>
-    <div style="overflow-x:auto;">
-        <table>
-            <tr><th>Termina em...</th><th>O que fazer</th><th>Exemplo</th></tr>
-            <tr>
-                <td>Quase tudo</td><td>+ s</td>
-                <td>run → runs <button type="button" class="btn-audio" onclick="speak('run, runs')">🔊</button></td>
-            </tr>
-            <tr>
-                <td>-o, -ss, -sh, -ch, -x</td><td>+ es</td>
-                <td>go → goes / watch → watches <button type="button" class="btn-audio" onclick="speak('go, goes, watch, watches')">🔊</button></td>
-            </tr>
-            <tr>
-                <td>consoante + -y</td><td>tira o y, põe ies</td>
-                <td>study → studies <button type="button" class="btn-audio" onclick="speak('study, studies')">🔊</button></td>
-            </tr>
-        </table>
-    </div>
-    <p>⚠️ <strong>Cuidado:</strong> se for vogal + y, é só o -s normal! play → plays <button type="button" class="btn-audio" onclick="speak('play, plays')">🔊</button> (não "plaies").</p>
-
-    <h2>4. A forma NEGATIVA — entra o ajudante don't / doesn't</h2>
-    <p>Em português, pra negar a gente só joga um "não" (Eu não trabalho). No inglês, precisamos de um verbo ajudante (auxiliar):</p>
-    <ul>
-        <li><strong>I / You / We / They</strong> → don't + verbo → I don't work <button type="button" class="btn-audio" onclick="speak('I don\'t work')">🔊</button></li>
-        <li><strong>He / She / It</strong> → doesn't + verbo → She doesn't work <button type="button" class="btn-audio" onclick="speak('She doesn\'t work')">🔊</button></li>
-    </ul>
-
-    <div class="rule">
-        🔥 <strong>A REGRA DE OURO (cole isso na parede da sala):</strong><br>
-        Quando o DOESN'T aparece, ele "ROUBA" o S do verbo. O -S é tipo uma batata quente: só uma pessoa pode segurar. Se o doesn't já está segurando o S (do-es), o verbo fica limpo.
-        <br><br>
-        ❌ She doesn't likes coffee. (dois S? batata quente em duas mãos! errado)<br>
-        ✅ She doesn't like coffee. <button type="button" class="btn-audio" onclick="speak('She doesn\'t like coffee.')">🔊</button> (o S já está no "does", o verbo descansa)
-    </div>
-
-    <h2>5. As PERGUNTAS — o mesmo ajudante, agora na frente</h2>
-    <p>Pra perguntar, o do/does vai lá pro começo da frase:</p>
-    <ul>
-        <li><strong>Do</strong> you work here? <button type="button" class="btn-audio" onclick="speak('Do you work here?')">🔊</button></li>
-        <li><strong>Does</strong> she work here? <button type="button" class="btn-audio" onclick="speak('Does she work here?')">🔊</button></li>
-    </ul>
-    <p>A mesma regra de ouro vale: o Does já tem o S, então o verbo NÃO leva S.</p>
-    <p>❌ Does he plays soccer?<br>✅ Does he play soccer? <button type="button" class="btn-audio" onclick="speak('Does he play soccer?')">🔊</button></p>
-    
-    <p><strong>Respostas curtas (short answers):</strong><br>
-    Do you like pizza? → Yes, I do. / No, I don't. <button type="button" class="btn-audio" onclick="speak('Do you like pizza? Yes I do. No I don\'t')">🔊</button><br>
-    Does she dance? → Yes, she does. / No, she doesn't. <button type="button" class="btn-audio" onclick="speak('Does she dance? Yes she does. No she doesn\'t')">🔊</button></p>
-
-    <h2>6. Os 4 erros clássicos do brasileiro (e como matar cada um) 💀</h2>
-    <ul>
-        <li>Esquecer o S na terceira pessoa: <br>❌ <em>He play games.</em> → ✅ <strong>He plays games.</strong> <button type="button" class="btn-audio" onclick="speak('He plays games.')">🔊</button></li>
-        <li>Botar S no verbo depois de doesn't/does: <br>❌ <em>She doesn't works.</em> → ✅ <strong>She doesn't work.</strong> <button type="button" class="btn-audio" onclick="speak('She doesn\'t work.')">🔊</button></li>
-        <li>Negar sem o ajudante: <br>❌ <em>I not like fish.</em> → ✅ <strong>I don't like fish.</strong> <button type="button" class="btn-audio" onclick="speak('I don\'t like fish.')">🔊</button></li>
-        <li>Perguntar sem o do/does: <br>❌ <em>You like music?</em> → ✅ <strong>Do you like music?</strong> <button type="button" class="btn-audio" onclick="speak('Do you like music?')">🔊</button></li>
-    </ul>
-
-    <hr>
-
-    <!-- ÁREA INTERATIVA DO ALUNO -->
-    <div class="exercise-section">
-        <h2 style="text-align: center;">✍️ EXERCÍCIOS (do fácil ao avançado)</h2>
-        <p style="text-align: center;">Responda as questões abaixo e clique em "Corrigir Minhas Respostas" no final!</p>
-
-        <form id="quizForm">
-            
-            <h3>Nível 1 — O S mágico</h3>
-            <p>Complete com a forma certa do verbo.</p>
-            <div class="question">
-                <p>1. They ________ (live) in São Paulo.</p>
-                <input type="text" id="q1" autocomplete="off">
-                <div id="fb-q1" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>2. My brother ________ (watch) TV every night.</p>
-                <input type="text" id="q2" autocomplete="off">
-                <div id="fb-q2" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>3. We ________ (study) English on Mondays.</p>
-                <input type="text" id="q3" autocomplete="off">
-                <div id="fb-q3" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>4. The cat ________ (sleep) all day.</p>
-                <input type="text" id="q4" autocomplete="off">
-                <div id="fb-q4" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>5. She ________ (go) to school by bus.</p>
-                <input type="text" id="q5" autocomplete="off">
-                <div id="fb-q5" class="feedback"></div>
-            </div>
-
-            <h3>Nível 2 — Do ou Does?</h3>
-            <p>Complete com do ou does.</p>
-            <div class="question">
-                <p>6. ________ you like chocolate?</p>
-                <input type="text" id="q6" autocomplete="off">
-                <div id="fb-q6" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>7. ________ he speak Spanish?</p>
-                <input type="text" id="q7" autocomplete="off">
-                <div id="fb-q7" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>8. ________ they work here?</p>
-                <input type="text" id="q8" autocomplete="off">
-                <div id="fb-q8" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>9. ________ your mom cook on Sundays?</p>
-                <input type="text" id="q9" autocomplete="off">
-                <div id="fb-q9" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>10. ________ we have class today?</p>
-                <input type="text" id="q10" autocomplete="off">
-                <div id="fb-q10" class="feedback"></div>
-            </div>
-
-            <h3>Nível 3 — Transforme a frase</h3>
-            <p>Reescreva na negativa e na pergunta.</p>
-            <div class="question">
-                <p>11. He plays the guitar.<br>→ Negativa:</p>
-                <input type="text" id="q11" autocomplete="off">
-                <div id="fb-q11" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>12. He plays the guitar.<br>→ Pergunta:</p>
-                <input type="text" id="q12" autocomplete="off">
-                <div id="fb-q12" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>13. They drink coffee.<br>→ Negativa:</p>
-                <input type="text" id="q13" autocomplete="off">
-                <div id="fb-q13" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>14. They drink coffee.<br>→ Pergunta:</p>
-                <input type="text" id="q14" autocomplete="off">
-                <div id="fb-q14" class="feedback"></div>
-            </div>
-
-            <h3>Nível 4 — Caça ao erro 🔍</h3>
-            <p>Encontre e corrija o erro de cada frase.</p>
-            <div class="question">
-                <p>15. She don't like vegetables.</p>
-                <input type="text" id="q15" autocomplete="off">
-                <div id="fb-q15" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>16. Does he plays football?</p>
-                <input type="text" id="q16" autocomplete="off">
-                <div id="fb-q16" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>17. I works at a school.</p>
-                <input type="text" id="q17" autocomplete="off">
-                <div id="fb-q17" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>18. We not study on weekends.</p>
-                <input type="text" id="q18" autocomplete="off">
-                <div id="fb-q18" class="feedback"></div>
-            </div>
-
-            <h3>Nível 5 — Fale de você (produção livre)</h3>
-            <p>Escreva frases verdadeiras sobre você e sua família.</p>
-            <div class="question">
-                <p>19. Uma rotina sua (com every day ou always):</p>
-                <input type="text" id="q19" autocomplete="off">
-                <div id="fb-q19" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>20. Algo que você não faz (negativa com don't):</p>
-                <input type="text" id="q20" autocomplete="off">
-                <div id="fb-q20" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>21. Algo que um familiar faz (3ª pessoa, com o -S!):</p>
-                <input type="text" id="q21" autocomplete="off">
-                <div id="fb-q21" class="feedback"></div>
-            </div>
-            <div class="question">
-                <p>22. Uma pergunta para um colega:</p>
-                <input type="text" id="q22" autocomplete="off">
-                <div id="fb-q22" class="feedback"></div>
-            </div>
-
-            <button type="submit" class="btn-submit" id="btnSubmit">Corrigir Minhas Respostas ✅</button>
-        </form>
-    </div>
-
-    <!-- JAVASCRIPT: Áudio, Correção Automática e Envio Silencioso -->
     <script>
-        // Função do Áudio (Lê as frases em inglês)
-        function speak(text) {
-            let utterance = new SpeechSynthesisUtterance();
-            utterance.text = text;
-            utterance.lang = 'en-US'; // Sotaque americano
-            utterance.rate = 0.9;     // Velocidade um pouquinho mais lenta para alunos
-            window.speechSynthesis.speak(utterance);
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('Service Worker ativo!'))
+                    .catch((err) => console.log('Erro no Service Worker:', err));
+            });
         }
 
-        document.getElementById('quizForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Impede a página de recarregar
-            
-            let btn = document.getElementById('btnSubmit');
-            btn.innerText = "Corrigindo...";
-            btn.disabled = true;
+        const SUPABASE_URL = 'https://ssmumauwgmlfouljcyox.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_ziirIQJFtWDtcQXdvLMOzQ_K_RRGjfd';
+        const dbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-            // Gabarito do Professor
-            const gabarito = {
-                q1: { answer: "live", feedback: "↳ they não é he/she/it → verbo sem S." },
-                q2: { answer: "watches", feedback: "↳ my brother = he → leva S. Termina em -ch, então é +es." },
-                q3: { answer: "study", feedback: "↳ we não é he/she/it → sem S." },
-                q4: { answer: "sleeps", feedback: "↳ the cat = it → leva S. Só colar o -s normal." },
-                q5: { answer: "goes", feedback: "↳ she → leva S. Termina em -o, então é +es." },
-                q6: { answer: "do", feedback: "↳ you → Do." },
-                q7: { answer: "does", feedback: "↳ he → Does." },
-                q8: { answer: "do", feedback: "↳ they → Do." },
-                q9: { answer: "does", feedback: "↳ your mom = she → Does." },
-                q10: { answer: "do", feedback: "↳ we → Do." },
-                q11: { answer: "he doesn't play the guitar", feedback: "↳ O doesn't pegou o S, então play fica limpo." },
-                q12: { answer: "does he play the guitar", feedback: "↳ O does pegou o S, então play fica limpo. Não esqueça a interrogação!" },
-                q13: { answer: "they don't drink coffee", feedback: "↳ they → don't, sem S no verbo." },
-                q14: { answer: "do they drink coffee", feedback: "↳ they → Do. Não esqueça a interrogação!" },
-                q15: { answer: "she doesn't like vegetables", feedback: "↳ she exige doesn't, não don't." },
-                q16: { answer: "does he play football", feedback: "↳ O Does já tem o S → o verbo fica sem S." },
-                q17: { answer: "i work at a school", feedback: "↳ I nunca leva S." },
-                q18: { answer: "we don't study on weekends", feedback: "↳ precisa do ajudante: nega-se com don't." }
+        const STATIC_MODULES = [
+            { id: 'b1_1', book: 'Livro 01', title: 'BASIC 01 - MID TERM', desc: 'Primeira metade do nível Básico 01' },
+            { id: 'b1_2', book: 'Livro 01', title: 'BASIC 01 - END TERM', desc: 'Segunda metade do nível Básico 01' },
+            { id: 'b1_3', book: 'Livro 01', title: 'BASIC 02 - MID TERM', desc: 'Primeira metade do nível Básico 02' },
+            { id: 'b1_4', book: 'Livro 01', title: 'BASIC 02 - END TERM', desc: 'Segunda metade do nível Básico 02' },
+            { id: 'b2_1', book: 'Livro 02', title: 'INTERMEDIATE 01 - MID TERM', desc: 'Primeira metade do Intermediário 01' },
+            { id: 'b2_2', book: 'Livro 02', title: 'INTERMEDIATE 01 - END TERM', desc: 'Segunda metade do Intermediário 01' },
+            { id: 'b2_3', book: 'Livro 02', title: 'INTERMEDIATE 02 - MID TERM', desc: 'Primeira metade do Intermediário 02' },
+            { id: 'b2_4', book: 'Livro 02', title: 'INTERMEDIATE 02 - END TERM', desc: 'Segunda metade do Intermediário 02' }
+        ];
+
+        let allLessons = [];
+        let currentView = 'books';
+        let selectedModule = null;
+        let selectedLesson = null;
+        let activeBookFilter = 'all';
+        let deferredPrompt = null;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            const btnInstall = document.getElementById('btn-install');
+            if (btnInstall) btnInstall.style.display = 'inline-flex';
+        });
+
+        function installPWA() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        document.getElementById('btn-install').style.display = 'none';
+                    }
+                    deferredPrompt = null;
+                });
+            }
+        }
+
+        async function fetchLessons() {
+            const app = document.getElementById('app');
+            app.innerHTML = '<div class="loading-spinner">🔄 Sincronizando com o Supabase...</div>';
+
+            try {
+                const { data, error } = await dbClient
+                    .from('lessons')
+                    .select('*')
+                    .order('created_at', { ascending: true });
+
+                if (error) {
+                    console.error(error);
+                    app.innerHTML = `<div class="empty-state"><p style="color:var(--danger)">Erro no Supabase: ${error.message}</p></div>`;
+                    allLessons = [];
+                } else {
+                    allLessons = data || [];
+                    render();
+                }
+            } catch (err) {
+                console.error(err);
+                app.innerHTML = `<div class="empty-state"><p style="color:var(--danger)">Falha de conexão com a API.</p></div>`;
+            }
+        }
+
+        // Injeta automaticamente o sistema de Zoom / Lightbox nas imagens da aula
+        function enrichHtmlContent(rawHtml) {
+            const zoomCode = `
+                <style>
+                    /* Estilo para tornar imagens clicáveis e com zoom no celular */
+                    img, .book-image {
+                        cursor: zoom-in !important;
+                        transition: transform 0.2s ease, box-shadow 0.2s ease;
+                        max-width: 100% !important;
+                        height: auto !important;
+                    }
+                    img:hover, .book-image:hover {
+                        filter: brightness(0.95);
+                    }
+                    
+                    /* Overlay de Tela Cheia */
+                    #zoom-overlay {
+                        position: fixed;
+                        top: 0; left: 0; width: 100vw; height: 100vh;
+                        background: rgba(0, 0, 0, 0.92);
+                        z-index: 999999;
+                        display: none;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        backdrop-filter: blur(4px);
+                        user-select: none;
+                        touch-action: none;
+                    }
+                    #zoom-controls {
+                        position: absolute;
+                        top: 15px;
+                        display: flex;
+                        gap: 10px;
+                        z-index: 1000000;
+                    }
+                    .zoom-btn {
+                        background: rgba(255, 255, 255, 0.25);
+                        color: white;
+                        border: 1px solid rgba(255, 255, 255, 0.5);
+                        padding: 8px 16px;
+                        border-radius: 20px;
+                        font-size: 14px;
+                        font-weight: bold;
+                        cursor: pointer;
+                        backdrop-filter: blur(5px);
+                    }
+                    #zoom-img-container {
+                        width: 100%;
+                        height: 100%;
+                        overflow: auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 20px;
+                    }
+                    #zoom-target-img {
+                        max-width: 95%;
+                        max-height: 90vh;
+                        object-fit: contain;
+                        transform-origin: center center;
+                        transition: transform 0.15s ease-out;
+                        cursor: grab;
+                    }
+                </style>
+
+                <div id="zoom-overlay">
+                    <div id="zoom-controls">
+                        <button class="zoom-btn" onclick="zoomIn()">➕ Zoom In</button>
+                        <button class="zoom-btn" onclick="zoomOut()">➖ Zoom Out</button>
+                        <button class="zoom-btn" onclick="resetZoom()">🔄 100%</button>
+                        <button class="zoom-btn" style="background:#ef4444;" onclick="closeZoom()">✖ Fechar</button>
+                    </div>
+                    <div id="zoom-img-container" onclick="handleContainerClick(event)">
+                        <img id="zoom-target-img" src="" alt="Zoom">
+                    </div>
+                </div>
+
+                <script>
+                    let currentZoom = 1;
+                    let isDragging = false;
+                    let startX, startY, translateX = 0, translateY = 0;
+
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const images = document.querySelectorAll('img');
+                        images.forEach(img => {
+                            if (img.id !== 'zoom-target-img') {
+                                img.title = "Toque para ampliar e dar zoom";
+                                img.addEventListener('click', () => openZoom(img.src));
+                            }
+                        });
+                    });
+
+                    function openZoom(src) {
+                        const overlay = document.getElementById('zoom-overlay');
+                        const targetImg = document.getElementById('zoom-target-img');
+                        targetImg.src = src;
+                        currentZoom = 1.2;
+                        translateX = 0;
+                        translateY = 0;
+                        updateTransform();
+                        overlay.style.display = 'flex';
+                    }
+
+                    function closeZoom() {
+                        document.getElementById('zoom-overlay').style.display = 'none';
+                    }
+
+                    function handleContainerClick(e) {
+                        if (e.target.id === 'zoom-img-container') closeZoom();
+                    }
+
+                    function zoomIn() {
+                        currentZoom = Math.min(currentZoom + 0.4, 4);
+                        updateTransform();
+                    }
+
+                    function zoomOut() {
+                        currentZoom = Math.max(currentZoom - 0.4, 0.8);
+                        updateTransform();
+                    }
+
+                    function resetZoom() {
+                        currentZoom = 1;
+                        translateX = 0;
+                        translateY = 0;
+                        updateTransform();
+                    }
+
+                    function updateTransform() {
+                        const img = document.getElementById('zoom-target-img');
+                        img.style.transform = \`translate(\${translateX}px, \${translateY}px) scale(\${currentZoom})\`;
+                    }
+
+                    // Suporte a arrastar no Touch/Mouse
+                    const imgEl = document.getElementById('zoom-target-img');
+                    
+                    imgEl.addEventListener('mousedown', (e) => {
+                        isDragging = true;
+                        startX = e.clientX - translateX;
+                        startY = e.clientY - translateY;
+                        imgEl.style.cursor = 'grabbing';
+                    });
+                    window.addEventListener('mousemove', (e) => {
+                        if (!isDragging) return;
+                        translateX = e.clientX - startX;
+                        translateY = e.clientY - startY;
+                        updateTransform();
+                    });
+                    window.addEventListener('mouseup', () => {
+                        isDragging = false;
+                        imgEl.style.cursor = 'grab';
+                    });
+
+                    imgEl.addEventListener('touchstart', (e) => {
+                        if (e.touches.length === 1) {
+                            isDragging = true;
+                            startX = e.touches[0].clientX - translateX;
+                            startY = e.touches[0].clientY - translateY;
+                        }
+                    });
+                    window.addEventListener('touchmove', (e) => {
+                        if (!isDragging || e.touches.length !== 1) return;
+                        translateX = e.touches[0].clientX - startX;
+                        translateY = e.touches[0].clientY - startY;
+                        updateTransform();
+                    });
+                    window.addEventListener('touchend', () => isDragging = false);
+                <\/script>
+            `;
+
+            if (rawHtml.includes('</body>')) {
+                return rawHtml.replace('</body>', zoomCode + '</body>');
+            }
+            return rawHtml + zoomCode;
+        }
+
+        function openLessonInNewTab() {
+            if (!selectedLesson) return;
+            const enriched = enrichHtmlContent(selectedLesson.html_content);
+            const blob = new Blob([enriched], { type: 'text/html;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            window.open(url, '_blank');
+        }
+
+        function render() {
+            const app = document.getElementById('app');
+            const breadcrumb = document.getElementById('breadcrumb');
+            const filterTabs = document.getElementById('filter-tabs');
+            const btnNewLesson = document.getElementById('btn-new-lesson');
+
+            if (currentView === 'books') {
+                btnNewLesson.style.display = 'none';
+                filterTabs.style.display = 'flex';
+                breadcrumb.innerHTML = '<span>Painel Principal / Selecione o Livro e Termo</span>';
+
+                filterTabs.innerHTML = `
+                    <button class="tab-btn ${activeBookFilter === 'all' ? 'active' : ''}" onclick="setBookFilter('all')">🌟 Ver Todos</button>
+                    <button class="tab-btn ${activeBookFilter === 'Livro 01' ? 'active' : ''}" onclick="setBookFilter('Livro 01')">📘 LIVRO 01 (Basic)</button>
+                    <button class="tab-btn ${activeBookFilter === 'Livro 02' ? 'active' : ''}" onclick="setBookFilter('Livro 02')">📙 LIVRO 02 (Intermediate)</button>
+                `;
+
+                const book1List = STATIC_MODULES.filter(m => m.book === 'Livro 01');
+                const book2List = STATIC_MODULES.filter(m => m.book === 'Livro 02');
+
+                let html = '';
+
+                if ((activeBookFilter === 'all' || activeBookFilter === 'Livro 01') && book1List.length > 0) {
+                    html += `
+                        <section class="book-section sec-livro1">
+                            <div class="book-section-header">
+                                <div class="book-section-title">📘 LIVRO 01 — BASIC</div>
+                            </div>
+                            <div class="grid">
+                    `;
+                    book1List.forEach(mod => { html += renderModuleCard(mod); });
+                    html += `</div></section>`;
+                }
+
+                if ((activeBookFilter === 'all' || activeBookFilter === 'Livro 02') && book2List.length > 0) {
+                    html += `
+                        <section class="book-section sec-livro2">
+                            <div class="book-section-header">
+                                <div class="book-section-title">📙 LIVRO 02 — INTERMEDIATE</div>
+                            </div>
+                            <div class="grid">
+                    `;
+                    book2List.forEach(mod => { html += renderModuleCard(mod); });
+                    html += `</div></section>`;
+                }
+
+                app.innerHTML = html;
+
+            } else if (currentView === 'lessons') {
+                btnNewLesson.style.display = 'inline-flex';
+                filterTabs.style.display = 'none';
+
+                breadcrumb.innerHTML = `
+                    <span class="nav-item" onclick="viewBooks()">Painel</span> / 
+                    <span style="font-weight:700; color: ${selectedModule.book === 'Livro 01' ? 'var(--book1-color)' : 'var(--book2-color)'}">[${escapeHtml(selectedModule.book)}]</span> 
+                    <span>${escapeHtml(selectedModule.title)}</span>
+                `;
+
+                const moduleLessons = allLessons.filter(l => l.book === selectedModule.book && l.module_title === selectedModule.title);
+
+                if (moduleLessons.length === 0) {
+                    app.innerHTML = `
+                        <div class="empty-state">
+                            <p>Nenhuma aula enviada para <strong>${escapeHtml(selectedModule.title)}</strong> ainda.</p>
+                            <button class="btn btn-primary" onclick="openModal('modal-lesson')">+ Enviar Primeira Aula (.html)</button>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const sortedLessons = [...moduleLessons].sort((a, b) => {
+                    return a.title.localeCompare(b.title, undefined, { numeric: true, sensitivity: 'base' });
+                });
+
+                let html = '<div class="grid">';
+                sortedLessons.forEach(lesson => {
+                    html += `
+                        <div class="card" onclick="viewLesson('${lesson.id}')">
+                            <div class="card-header">
+                                <div class="card-title">📝 ${escapeHtml(lesson.title)}</div>
+                                <button class="btn-delete-card" onclick="deleteLesson(event, '${lesson.id}')">Excluir</button>
+                            </div>
+                            <div class="card-desc">${escapeHtml(lesson.pages || '')}</div>
+                            <div class="card-footer">
+                                <span>Abrir aula interativa &rarr;</span>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                app.innerHTML = html;
+
+            } else if (currentView === 'viewer') {
+                btnNewLesson.style.display = 'none';
+                filterTabs.style.display = 'none';
+
+                breadcrumb.innerHTML = `
+                    <span class="nav-item" onclick="viewBooks()">Painel</span> / 
+                    <span class="nav-item" onclick="viewModule('${selectedModule.id}')">${escapeHtml(selectedModule.title)}</span> / 
+                    <span>${escapeHtml(selectedLesson.title)}</span>
+                `;
+
+                app.innerHTML = `
+                    <div class="viewer-container">
+                        <div class="viewer-header">
+                            <div>
+                                <strong style="font-size:0.95rem;">${escapeHtml(selectedLesson.title)}</strong>
+                                <span style="color:var(--text-muted); font-size:0.8rem; margin-left: 0.4rem;">(${escapeHtml(selectedLesson.pages)})</span>
+                            </div>
+                            <div style="display:flex; gap:0.4rem;">
+                                <button class="btn" onclick="openLessonInNewTab()" title="Abrir em tela cheia com zoom nativo">🔍 Nova Aba</button>
+                                <button class="btn" onclick="viewModule('${selectedModule.id}')">&larr; Voltar</button>
+                            </div>
+                        </div>
+                        <iframe id="lesson-frame"></iframe>
+                    </div>
+                `;
+
+                setTimeout(() => {
+                    const frame = document.getElementById('lesson-frame');
+                    if (frame) {
+                        frame.srcdoc = enrichHtmlContent(selectedLesson.html_content);
+                    }
+                }, 50);
+            }
+        }
+
+        function renderModuleCard(mod) {
+            const count = allLessons.filter(l => l.book === mod.book && l.module_title === mod.title).length;
+            return `
+                <div class="card" onclick="viewModule('${mod.id}')">
+                    <div class="card-header">
+                        <div class="card-title">${escapeHtml(mod.title)}</div>
+                    </div>
+                    <div class="card-desc">${escapeHtml(mod.desc || '')}</div>
+                    <div class="card-footer">
+                        <span>Acessar lições &rarr;</span>
+                        <span class="badge-count">${count} aula(s)</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function setBookFilter(filter) {
+            activeBookFilter = filter;
+            render();
+        }
+
+        function viewBooks() {
+            currentView = 'books';
+            selectedModule = null;
+            selectedLesson = null;
+            render();
+        }
+
+        function viewModule(id) {
+            selectedModule = STATIC_MODULES.find(m => m.id === id);
+            currentView = 'lessons';
+            selectedLesson = null;
+            render();
+        }
+
+        function viewLesson(id) {
+            selectedLesson = allLessons.find(l => l.id === id);
+            currentView = 'viewer';
+            render();
+        }
+
+        async function createLesson() {
+            const title = document.getElementById('lesson-title').value.trim();
+            const pages = document.getElementById('lesson-pages').value.trim();
+            const fileInput = document.getElementById('lesson-file');
+            const submitBtn = document.getElementById('btn-submit-lesson');
+
+            if (!title) {
+                alert('Por favor, digite o título da aula.');
+                return;
+            }
+
+            if (!fileInput.files || fileInput.files.length === 0) {
+                alert('Por favor, selecione o arquivo .html da lição.');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Enviando ao Supabase...';
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = async function(e) {
+                const htmlContent = e.target.result;
+
+                const { data, error } = await dbClient
+                    .from('lessons')
+                    .insert([
+                        {
+                            book: selectedModule.book,
+                            module_title: selectedModule.title,
+                            title: title,
+                            pages: pages,
+                            html_content: htmlContent
+                        }
+                    ])
+                    .select();
+
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Publicar Aula';
+
+                if (error) {
+                    alert('Erro ao salvar no Supabase: ' + error.message);
+                } else {
+                    closeModal('modal-lesson');
+                    document.getElementById('lesson-title').value = '';
+                    document.getElementById('lesson-pages').value = '';
+                    fileInput.value = '';
+                    await fetchLessons();
+                }
             };
 
-            function cleanText(text) {
-                return text.toLowerCase().trim().replace(/[.,!?]/g, ""); // Ignora pontuação pra facilitar
-            }
+            reader.readAsText(file);
+        }
 
-            // Prepara os dados para o e-mail da professora
-            let emailData = new FormData();
-            emailData.append("_subject", "Nova Resposta - Exercício Simple Present");
-            emailData.append("_template", "table");
-            emailData.append("_captcha", "false"); // Remove o captcha para ser silencioso
+        async function deleteLesson(event, id) {
+            event.stopPropagation();
+            if (confirm('Deseja excluir esta aula permanentemente do Supabase?')) {
+                const { error } = await dbClient
+                    .from('lessons')
+                    .delete()
+                    .eq('id', id);
 
-            // 1. PRIMEIRO: Corrige e mostra para o aluno na hora
-            for (let i = 1; i <= 18; i++) {
-                let inputEl = document.getElementById('q' + i);
-                let feedbackEl = document.getElementById('fb-q' + i);
-                let rawAnswer = inputEl.value;
-                let userAnswer = cleanText(rawAnswer);
-                let correctAnswer = cleanText(gabarito['q' + i].answer);
-
-                // Adiciona na "caixa" do e-mail
-                emailData.append(`Questão ${i}`, rawAnswer || "(Em branco)");
-
-                feedbackEl.className = 'feedback'; // Reseta visual
-
-                if (userAnswer === "") {
-                    feedbackEl.innerHTML = "⚠️ Você deixou em branco. A resposta certa era: <strong>" + gabarito['q' + i].answer + "</strong><br>" + gabarito['q' + i].feedback;
-                    feedbackEl.classList.add('wrong');
-                } else if (userAnswer === correctAnswer || (i === 12 && userAnswer === correctAnswer + "?") || (i === 14 && userAnswer === correctAnswer + "?") || (i === 16 && userAnswer === correctAnswer + "?")) {
-                    feedbackEl.innerHTML = "✅ Acertou! <br>" + gabarito['q' + i].feedback;
-                    feedbackEl.classList.add('correct');
+                if (error) {
+                    alert('Erro ao excluir: ' + error.message);
                 } else {
-                    feedbackEl.innerHTML = "❌ Quase lá! A resposta correta é: <strong>" + gabarito['q' + i].answer + "</strong><br>" + gabarito['q' + i].feedback;
-                    feedbackEl.classList.add('wrong');
+                    await fetchLessons();
                 }
             }
+        }
 
-            // Nível 5 - Feedbacks abertos e salvar no e-mail
-            for (let i = 19; i <= 22; i++) {
-                let inputEl = document.getElementById('q' + i);
-                emailData.append(`Questão ${i} (Produção Livre)`, inputEl.value || "(Em branco)");
-            }
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
 
-            document.getElementById('fb-q19').innerHTML = "👩‍🏫 <strong>Comentário:</strong> Confira se usou o verbo sem S (ex: I wake up at 7). O professor vai analisar sua resposta!";
-            document.getElementById('fb-q19').className = 'feedback info';
-            document.getElementById('fb-q20').innerHTML = "👩‍🏫 <strong>Comentário:</strong> Confira se você usou 'don't' e o verbo normal. (ex: I don't eat meat).";
-            document.getElementById('fb-q20').className = 'feedback info';
-            document.getElementById('fb-q21').innerHTML = "👩‍🏫 <strong>Comentário:</strong> Sendo he ou she, confira se botou o S no verbo! (ex: My mother cooks).";
-            document.getElementById('fb-q21').className = 'feedback info';
-            document.getElementById('fb-q22').innerHTML = "👩‍🏫 <strong>Comentário:</strong> Tem que começar com Do ou Does! (ex: Do you like music?).";
-            document.getElementById('fb-q22').className = 'feedback info';
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
 
-            // 2. SEGUNDO: Tenta enviar o e-mail em silêncio
-            fetch("https://formsubmit.co/ajax/analicepessoa@gmail.com", {
-                method: "POST",
-                body: emailData
-            })
-            .then(response => {
-                btn.innerText = "Respostas Corrigidas! ✅";
-                btn.disabled = false; // Destrava o botão
-            })
-            .catch(error => {
-                console.error("Erro no envio do email (Antivírus/Rede)", error);
-                // Mesmo se der erro no envio, avisa ao aluno que foi corrigido
-                btn.innerText = "Respostas Corrigidas! ✅"; 
-                btn.disabled = false; // Destrava o botão para ele poder tentar de novo se quiser
-            });
-        });
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchLessons);
     </script>
 </body>
 </html>
