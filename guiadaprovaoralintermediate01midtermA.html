@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia — Intermediate 1 · Mid-Term Oral Exam A</title>
+<style>
+  :root{
+    --blue:#1d4ed8;
+    --blue-dark:#13309e;
+    --orange:#f97316;
+    --paper:#f5f7fb;
+    --ink:#1b2537;
+    --line:#d9e2f2;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    max-width:720px;
+    margin:0 auto;
+    padding:1.1rem 1rem 3rem;
+  }
+  header.top{
+    background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dark) 100%);
+    color:#fff;
+    border-radius:14px;
+    padding:1.5rem 1.2rem;
+    text-align:center;
+    margin-bottom:1.4rem;
+  }
+  header.top .tag{
+    display:inline-block;
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.4);
+    border-radius:999px;
+    padding:.2rem .8rem;
+    font-size:.78rem;
+    letter-spacing:.04em;
+    margin-bottom:.6rem;
+  }
+  header.top h1{
+    margin:0 0 .3rem;
+    font-size:clamp(1.4rem,6vw,2rem);
+    line-height:1.2;
+  }
+  header.top p{
+    margin:0;
+    font-size:.95rem;
+    opacity:.92;
+  }
+  .banner{
+    background:var(--orange);
+    color:#fff;
+    border-radius:12px;
+    padding:.8rem 1rem;
+    text-align:center;
+    font-weight:600;
+    margin-bottom:1.6rem;
+    font-size:.98rem;
+  }
+  .banner small{
+    display:block;
+    font-weight:400;
+    opacity:.92;
+    margin-top:.2rem;
+    font-size:.8rem;
+  }
+  .step{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:1.2rem 1.1rem;
+    margin-bottom:1.2rem;
+  }
+  .step-head{
+    display:flex;
+    align-items:flex-start;
+    gap:.7rem;
+    margin-bottom:.7rem;
+  }
+  .badge{
+    flex:0 0 auto;
+    width:2.1rem;
+    height:2.1rem;
+    border-radius:50%;
+    background:var(--blue);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:1rem;
+  }
+  .step-head h2{
+    margin:0;
+    font-size:1.1rem;
+    color:var(--blue-dark);
+    line-height:1.25;
+  }
+  .step-head span.sub{
+    display:block;
+    font-size:.78rem;
+    color:#5c6b8a;
+    font-weight:400;
+    margin-top:.15rem;
+  }
+  .item{
+    border-left:3px solid var(--orange);
+    background:#fff7ef;
+    padding:.65rem .8rem;
+    border-radius:0 8px 8px 0;
+    margin-bottom:.6rem;
+    font-size:.94rem;
+  }
+  .item:last-child{margin-bottom:0;}
+  .item b{color:#c2410c;}
+  .tip{
+    background:#eef4ff;
+    border-radius:8px;
+    padding:.6rem .8rem;
+    font-size:.87rem;
+    color:#25407a;
+    margin-top:.6rem;
+  }
+  .tip b{color:var(--blue-dark);}
+  .model{
+    background:#f0fdf4;
+    border:1px dashed #16a34a;
+    border-radius:10px;
+    padding:.8rem .9rem;
+    font-size:.92rem;
+    color:#14532d;
+    margin-top:.6rem;
+  }
+  .model b{color:#166534;}
+  table.voc{
+    width:100%;
+    border-collapse:collapse;
+    font-size:.88rem;
+    margin-top:.4rem;
+  }
+  table.voc th{
+    background:var(--blue);
+    color:#fff;
+    text-align:left;
+    padding:.4rem .5rem;
+    font-size:.82rem;
+  }
+  table.voc td{
+    padding:.4rem .5rem;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  table.voc tr:nth-child(even){background:#f8fafc;}
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem;
+    margin-top:.4rem;
+  }
+  .chip{
+    background:#eef4ff;
+    color:var(--blue-dark);
+    border-radius:999px;
+    padding:.28rem .7rem;
+    font-size:.82rem;
+    border:1px solid #c7d7f7;
+  }
+  ul.plain{margin:.3rem 0 0; padding-left:1.2rem;}
+  ul.plain li{margin-bottom:.3rem; font-size:.92rem;}
+  .topic-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:.65rem;
+    margin-top:.5rem;
+  }
+  .topic{
+    display:flex;
+    align-items:flex-start;
+    gap:.65rem;
+    border:1px solid #fed7aa;
+    border-left:4px solid var(--orange);
+    border-radius:10px;
+    background:#fff7ef;
+    padding:.75rem .8rem;
+  }
+  .topic-icon{font-size:1.15rem; line-height:1.35; flex:0 0 auto;}
+  .topic-text{min-width:0; font-size:.91rem;}
+  .topic-text b{display:block; color:#9a3412; margin-bottom:.1rem;}
+  .topic-text span{color:#6b5a4d; font-size:.82rem;}
+  .story-map{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:.6rem;
+    margin-top:.5rem;
+  }
+  .story-box{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:.7rem .75rem;
+    background:#f8fafc;
+    min-width:0;
+  }
+  .story-box b{display:block;color:var(--blue-dark);font-size:.86rem;margin-bottom:.15rem;}
+  .story-box span{display:block;color:#5c6b8a;font-size:.81rem;}
+  .starter-list{
+    margin:.45rem 0 0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    gap:.45rem;
+  }
+  .starter-list li{
+    padding:.55rem .7rem;
+    border-left:3px solid var(--blue);
+    border-radius:0 8px 8px 0;
+    background:#eef4ff;
+    color:#25407a;
+    font-size:.88rem;
+  }
+  .model-topic{
+    font-size:.79rem;
+    font-weight:800;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    color:#166534;
+    margin-bottom:.25rem;
+  }
+  .template{
+    background:#fff7ed;
+    border:1px dashed var(--orange);
+    border-radius:10px;
+    padding:.85rem .9rem;
+    font-size:.91rem;
+    color:#7c2d12;
+    margin-top:.65rem;
+  }
+  .template b{color:#9a3412;}
+  .checklist{
+    background:var(--card);
+    border:2px dashed var(--orange);
+    border-radius:14px;
+    padding:1.1rem;
+  }
+  .checklist h2{
+    margin-top:0;
+    font-size:1.1rem;
+    color:#c2410c;
+  }
+  .checklist label{
+    display:flex;
+    align-items:flex-start;
+    gap:.55rem;
+    font-size:.92rem;
+    margin-bottom:.55rem;
+  }
+  .checklist input{
+    margin-top:.2rem;
+    flex:0 0 auto;
+    width:1.05rem;
+    height:1.05rem;
+  }
+  footer{
+    text-align:center;
+    font-size:.78rem;
+    color:#6b7a99;
+    margin-top:1.6rem;
+  }
+  @media (max-width:400px){
+    .wrap{padding:.8rem .7rem 2.5rem;}
+    .step{padding:1rem .85rem;}
+    table.voc{font-size:.82rem;}
+    .story-map{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <span class="tag">MID-TERM ORAL EXAM A · Intermediate 1</span>
+    <h1>Guia para a Prova Oral — Tell a story about an important moment</h1>
+    <p>Um passo a passo para organizar uma experiência do passado e falar com mais confiança.</p>
+  </header>
+
+  <div class="banner">
+    🎤 Share with the teacher one of the following moments.
+    <small>Escolha apenas UM tema e conte a história com começo, meio e fim.</small>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">1</div>
+      <h2>Choose your topic
+        <span class="sub">Escolha o momento sobre o qual você consegue dar mais detalhes</span>
+      </h2>
+    </div>
+    <div class="topic-grid">
+      <div class="topic"><span class="topic-icon">📚</span><div class="topic-text"><b>My first day at the English course and how I felt.</b><span>Meu primeiro dia no curso de inglês e como eu me senti.</span></div></div>
+      <div class="topic"><span class="topic-icon">🚗</span><div class="topic-text"><b>The first time I drove a car.</b><span>A primeira vez que dirigi um carro.</span></div></div>
+      <div class="topic"><span class="topic-icon">💼</span><div class="topic-text"><b>When I got my first job.</b><span>Quando consegui meu primeiro emprego.</span></div></div>
+      <div class="topic"><span class="topic-icon">🏖️</span><div class="topic-text"><b>My best vacation.</b><span>Minhas melhores férias.</span></div></div>
+      <div class="topic"><span class="topic-icon">👶</span><div class="topic-text"><b>When my child was born.</b><span>Quando meu filho ou minha filha nasceu.</span></div></div>
+      <div class="topic"><span class="topic-icon">🍳</span><div class="topic-text"><b>The first time I cooked a meal.</b><span>A primeira vez que preparei uma refeição.</span></div></div>
+    </div>
+    <div class="tip"><b>Dica:</b> escolha um tema que realmente aconteceu com você e sobre o qual você lembra de detalhes. Você não precisa usar todos os temas.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">2</div>
+      <h2>Organize the story before speaking
+        <span class="sub">Responda mentalmente às perguntas abaixo para montar sua narrativa</span>
+      </h2>
+    </div>
+    <div class="story-map">
+      <div class="story-box"><b>WHEN?</b><span>Quando aconteceu? Quantos anos você tinha?</span></div>
+      <div class="story-box"><b>WHERE?</b><span>Onde você estava?</span></div>
+      <div class="story-box"><b>WHO?</b><span>Quem estava com você?</span></div>
+      <div class="story-box"><b>WHAT?</b><span>O que aconteceu primeiro, depois e no final?</span></div>
+      <div class="story-box"><b>HOW DID YOU FEEL?</b><span>Como você se sentiu?</span></div>
+      <div class="story-box"><b>WHY WAS IT IMPORTANT?</b><span>Por que esse momento foi marcante?</span></div>
+    </div>
+    <div class="tip"><b>Dica:</b> anote apenas palavras-chave. Na prova, conte a história naturalmente em vez de tentar decorar cada palavra.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">3</div>
+      <h2>Use the Simple Past
+        <span class="sub">A experiência já aconteceu, então os verbos principais ficam no passado</span>
+      </h2>
+    </div>
+    <table class="voc">
+      <tr><th>Presente</th><th>Passado</th><th>Exemplo</th></tr>
+      <tr><td>am / is</td><td>was</td><td>I was nervous.</td></tr>
+      <tr><td>are</td><td>were</td><td>We were excited.</td></tr>
+      <tr><td>go</td><td>went</td><td>I went to the school.</td></tr>
+      <tr><td>have</td><td>had</td><td>I had a great experience.</td></tr>
+      <tr><td>feel</td><td>felt</td><td>I felt very happy.</td></tr>
+      <tr><td>get</td><td>got</td><td>I got my first job.</td></tr>
+      <tr><td>drive</td><td>drove</td><td>I drove slowly and carefully.</td></tr>
+      <tr><td>cook</td><td>cooked</td><td>I cooked dinner for my family.</td></tr>
+      <tr><td>meet</td><td>met</td><td>I met new people.</td></tr>
+      <tr><td>enjoy</td><td>enjoyed</td><td>I enjoyed every moment.</td></tr>
+    </table>
+    <div class="tip"><b>Atenção:</b> depois de <i>did</i> ou <i>didn't</i>, use o verbo no presente: “I didn't know”, e não “I didn't knew”.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">4</div>
+      <h2>Connect the events and describe your feelings
+        <span class="sub">Use conectores para não falar frases soltas</span>
+      </h2>
+    </div>
+    <p style="margin:.2rem 0 .35rem;font-size:.93rem;"><b>Conectores para organizar a história:</b></p>
+    <div class="chips">
+      <span class="chip">First</span>
+      <span class="chip">At the beginning</span>
+      <span class="chip">Then</span>
+      <span class="chip">After that</span>
+      <span class="chip">Later</span>
+      <span class="chip">Finally</span>
+      <span class="chip">In the end</span>
+      <span class="chip">Because</span>
+      <span class="chip">But</span>
+      <span class="chip">So</span>
+    </div>
+    <p style="margin:.8rem 0 .35rem;font-size:.93rem;"><b>Sentimentos que você pode usar:</b></p>
+    <div class="chips">
+      <span class="chip">happy</span>
+      <span class="chip">excited</span>
+      <span class="chip">nervous</span>
+      <span class="chip">afraid</span>
+      <span class="chip">surprised</span>
+      <span class="chip">proud</span>
+      <span class="chip">tired</span>
+      <span class="chip">grateful</span>
+      <span class="chip">confident</span>
+      <span class="chip">relieved</span>
+    </div>
+    <ul class="starter-list">
+      <li>At first, I felt nervous, but after a few minutes I felt more confident.</li>
+      <li>I was very excited because it was an important moment for me.</li>
+      <li>In the end, I felt proud and happy.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">5</div>
+      <h2>Short models for each topic
+        <span class="sub">Use os modelos como referência e troque os detalhes pela sua própria história</span>
+      </h2>
+    </div>
+    <div class="model"><div class="model-topic">First day at the English course</div>“My first day at the English course was last year. I was nervous because I didn't know my classmates. First, the teacher introduced herself. Then, we did a speaking activity. In the end, I felt happy and more confident.”</div>
+    <div class="model"><div class="model-topic">First time driving a car</div>“The first time I drove a car, I was with an adult instructor. At first, I felt nervous, so I drove slowly and carefully. After a few minutes, I felt calmer. It was an important experience because I learned something new.”</div>
+    <div class="model"><div class="model-topic">First job</div>“I got my first job a few years ago. I worked with friendly people and learned many new tasks. On my first day, I felt nervous but excited. That job was important because it helped me become more responsible.”</div>
+    <div class="model"><div class="model-topic">Best vacation</div>“My best vacation was a trip with my family. We went to a beautiful place and stayed there for a few days. We visited interesting places, took photos and relaxed. I felt very happy because we spent time together.”</div>
+    <div class="model"><div class="model-topic">When my child was born</div>“When my child was born, I was very emotional and excited. My family was with me during that special time. I felt grateful and happy. It was one of the most important moments of my life.”</div>
+    <div class="model"><div class="model-topic">First time cooking a meal</div>“The first time I cooked a meal, I prepared food for my family. First, I organized the ingredients. Then, I cooked everything carefully. The meal wasn't perfect, but my family enjoyed it. In the end, I felt proud.”</div>
+    <div class="tip"><b>Importante:</b> não decore uma história que não é sua. Use a estrutura do modelo, mas conte seus próprios detalhes.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="badge">6</div>
+      <h2>Build your complete answer
+        <span class="sub">Siga esta ordem para não se perder durante a prova</span>
+      </h2>
+    </div>
+    <ul class="plain">
+      <li><b>1. Introdução:</b> diga qual foi o momento e quando aconteceu.</li>
+      <li><b>2. Contexto:</b> explique onde você estava e quem estava com você.</li>
+      <li><b>3. Acontecimentos:</b> conte o que aconteceu usando conectores.</li>
+      <li><b>4. Sentimentos:</b> explique como você se sentiu antes, durante ou depois.</li>
+      <li><b>5. Conclusão:</b> diga por que esse momento foi importante.</li>
+    </ul>
+    <div class="template"><b>Modelo para completar:</b><br><br>
+      “I would like to talk about ____________. It happened ____________. I was with ____________ at/in ____________. First, ____________. Then, ____________. After that, ____________. I felt ____________ because ____________. In the end, ____________. This moment was important to me because ____________.”
+    </div>
+    <div class="tip"><b>Plano B se esquecer uma palavra:</b> continue com uma palavra mais simples. O objetivo é comunicar a história com clareza.</div>
+  </div>
+
+  <div class="checklist">
+    <h2>✅ Checklist antes da prova</h2>
+    <label><input type="checkbox"> Escolhi apenas um dos seis temas</label>
+    <label><input type="checkbox"> Sei dizer quando, onde e com quem aconteceu</label>
+    <label><input type="checkbox"> Organizei a história com começo, meio e fim</label>
+    <label><input type="checkbox"> Revisei os verbos principais no Simple Past</label>
+    <label><input type="checkbox"> Usei conectores: first, then, after that, finally</label>
+    <label><input type="checkbox"> Sei explicar como me senti</label>
+    <label><input type="checkbox"> Sei dizer por que esse momento foi importante</label>
+    <label><input type="checkbox"> Treinei a resposta completa em voz alta</label>
+  </div>
+
+  <footer>All Net Educação · Intermediate 1 — Mid-Term Oral Exam A</footer>
+</div>
+</body>
+</html>
