@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulado • Intermediate 1 Mid-Term</title>
+<style>
+  :root{
+    --azul: #1e3a8a;
+    --azul-claro: #3b5bdb;
+    --laranja: #f59f00;
+    --laranja-claro: #ffe8cc;
+    --cinza: #f4f5f7;
+    --verde: #2b8a3e;
+    --vermelho: #c92a2a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--cinza);
+    margin:0;
+    padding:0;
+    color:#212529;
+    line-height:1.5;
+  }
+  .container{
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+  header{
+    background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+    color:#fff;
+    padding: 24px 16px;
+    text-align:center;
+    border-radius: 0 0 18px 18px;
+  }
+  header h1{
+    margin:0 0 6px 0;
+    font-size: 1.4rem;
+  }
+  header p{
+    margin:0;
+    font-size: 0.9rem;
+    opacity:0.9;
+  }
+  .info-box{
+    background:#fff;
+    border-radius:12px;
+    padding:14px 16px;
+    margin:16px 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    font-size:0.9rem;
+  }
+  .badge{
+    display:inline-block;
+    background: var(--laranja);
+    color:#fff;
+    font-weight:bold;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align:center;
+    line-height:30px;
+    margin-right:10px;
+    flex-shrink:0;
+  }
+  .section-title{
+    display:flex;
+    align-items:center;
+    margin: 26px 0 10px 0;
+  }
+  .section-title h2{
+    font-size:1.1rem;
+    color: var(--azul);
+    margin:0;
+  }
+  .card{
+    background:#fff;
+    border-radius:12px;
+    padding:16px;
+    margin-bottom:14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .card p{margin:0 0 8px 0;}
+  .card .story{
+    background: var(--laranja-claro);
+    border-left: 4px solid var(--laranja);
+    padding:12px;
+    border-radius:8px;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  input.blank{
+    border:none;
+    border-bottom: 2px dashed var(--azul-claro);
+    background: transparent;
+    font-family: inherit;
+    font-size: 0.95rem;
+    width: 130px;
+    padding: 2px 4px;
+    color: var(--azul);
+    font-weight:bold;
+  }
+  input.blank:focus{
+    outline:none;
+    border-bottom: 2px solid var(--laranja);
+  }
+  .verb-hint{
+    font-size:0.75rem;
+    color:#868e96;
+  }
+  details{
+    margin-top:10px;
+    background: #edf2ff;
+    border-radius: 8px;
+    padding: 8px 12px;
+  }
+  summary{
+    cursor:pointer;
+    font-weight:bold;
+    color: var(--azul-claro);
+    padding: 4px 0;
+  }
+  .gabarito-item{
+    padding: 4px 0;
+    font-size:0.9rem;
+  }
+  .gabarito-item b{
+    color: var(--verde);
+  }
+  .advice-person{
+    background: var(--cinza);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+  }
+  .advice-person b{ color: var(--azul); }
+  textarea{
+    width:100%;
+    min-height: 70px;
+    border-radius:8px;
+    border:1px solid #ced4da;
+    padding:8px;
+    font-family:inherit;
+    font-size:0.9rem;
+    resize:vertical;
+  }
+  .tips{
+    background:#fff9db;
+    border-left:4px solid var(--laranja);
+    padding:10px 12px;
+    border-radius:8px;
+    font-size:0.85rem;
+    margin-top:10px;
+  }
+  .toggle-all{
+    display:block;
+    width:100%;
+    background: var(--azul);
+    color:#fff;
+    border:none;
+    padding:12px;
+    border-radius:10px;
+    font-size:1rem;
+    font-weight:bold;
+    margin: 24px 0;
+    cursor:pointer;
+  }
+  .footer-note{
+    text-align:center;
+    font-size:0.8rem;
+    color:#868e96;
+    margin: 30px 0 10px 0;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📘 Simulado de Preparação</h1>
+  <p>Intermediate 1 — Mid-Term Exam</p>
+</header>
+
+<div class="container">
+
+  <div class="info-box">
+    Este simulado <b>não é a prova</b> — é um treino com os mesmos pontos de gramática e vocabulário que vão cair na avaliação. Tentem responder tudo <b>sem olhar o gabarito primeiro</b>, e só depois cliquem para conferir. 💪
+  </div>
+
+  <button class="toggle-all" onclick="toggleAll()">🔓 Mostrar / Ocultar todos os gabaritos</button>
+
+  <!-- SECTION 1: SIMPLE PAST -->
+  <div class="section-title">
+    <div class="badge">1</div>
+    <h2>Simple Past (verbos regulares e irregulares)</h2>
+  </div>
+
+  <div class="card">
+    <p>Complete a história com o passado simples dos verbos entre parênteses.</p>
+    <div class="story">
+      My weekend really <input class="blank" id="q1a" placeholder="(be)"> a disaster! On Saturday morning, I
+      <input class="blank" id="q1b" placeholder="(wake up)"> late and I
+      <input class="blank" id="q1c" placeholder="(miss)"> the bus to the gym. So I
+      <input class="blank" id="q1d" placeholder="(decide)"> to walk instead. On the way, it
+      <input class="blank" id="q1e" placeholder="(start)"> to rain, and I
+      <input class="blank" id="q1f" placeholder="(not/bring)"> an umbrella. When I finally
+      <input class="blank" id="q1g" placeholder="(get)"> home, I
+      <input class="blank" id="q1h" placeholder="(realize)"> I
+      <input class="blank" id="q1i" placeholder="(leave)"> my keys inside the gym locker!
+    </div>
+    <details>
+      <summary>Ver gabarito</summary>
+      <div class="gabarito-item">a) <b>was</b> &nbsp; b) <b>woke up</b> &nbsp; c) <b>missed</b> &nbsp; d) <b>decided</b></div>
+      <div class="gabarito-item">e) <b>started</b> &nbsp; f) <b>didn't bring</b> &nbsp; g) <b>got</b> &nbsp; h) <b>realized</b> &nbsp; i) <b>had left / left</b></div>
+    </details>
+    <div class="tips">💡 <b>Dica:</b> verbos regulares terminam em <b>-ed</b> (started, decided, realized). Verbos irregulares mudam de forma (be→was, wake up→woke up, get→got, leave→left). Na frase negativa, usamos <b>didn't + verbo no infinitivo</b> (didn't bring, não "didn't brought").</div>
+  </div>
+
+  <!-- SECTION 2: RESUME SUMMARY -->
+  <div class="section-title">
+    <div class="badge">2</div>
+    <h2>Leia o currículo e escreva um resumo</h2>
+  </div>
+
+  <div class="card">
+    <p><b>Maria Oliveira</b><br>
+    Address: 120 Palm Street, Miami, FL, USA<br>
+    Phone: 555-2044 | E-mail: maria.oliveira@mail.com<br><br>
+    <b>Educational Background</b><br>
+    Degree: Graduate Degree | Institution: University of Miami | Course: Marketing<br><br>
+    <b>Work Experience</b><br>
+    Position: Sales Coordinator | Company: Bright Solar | Duration: 2 years<br>
+    Duties: organize the sales team's schedule, contact new clients, prepare monthly reports, train new employees.</p>
+    <textarea placeholder="Escreva aqui o resumo, usando o passado simples..."></textarea>
+    <details>
+      <summary>Ver exemplo de resposta</summary>
+      <div class="gabarito-item">Resposta modelo: <i>Maria studied Marketing at the University of Miami. She worked as a Sales Coordinator at Bright Solar for two years. Among other things, she organized the sales team's schedule, contacted new clients, and trained new employees.</i></div>
+    </details>
+    <div class="tips">💡 <b>Dica:</b> use conectores como <i>"among other things"</i>, <i>"also"</i>, <i>"besides that"</i> para ligar as ideias, e mantenha tudo no passado simples.</div>
+  </div>
+
+  <!-- SECTION 3: PAST CONTINUOUS x SIMPLE PAST -->
+  <div class="section-title">
+    <div class="badge">3</div>
+    <h2>Past Continuous x Simple Past</h2>
+  </div>
+
+  <div class="card">
+    <p>Complete com <b>Past Continuous</b> ou <b>Simple Past</b>, conforme o contexto.</p>
+    <p>a) I <input class="blank" id="q3a" placeholder="(cook)"> dinner when the phone <input class="blank" id="q3b" placeholder="(ring)">.</p>
+    <p>b) While she <input class="blank" id="q3c" placeholder="(study)">, her brother <input class="blank" id="q3d" placeholder="(watch)"> TV.</p>
+    <p>c) They <input class="blank" id="q3e" placeholder="(walk)"> in the park when it <input class="blank" id="q3f" placeholder="(start)"> to rain.</p>
+    <p>d) He <input class="blank" id="q3g" placeholder="(drive)"> to work when he <input class="blank" id="q3h" placeholder="(see)"> the accident.</p>
+    <details>
+      <summary>Ver gabarito</summary>
+      <div class="gabarito-item">a) <b>was cooking</b> / <b>rang</b></div>
+      <div class="gabarito-item">b) <b>was studying</b> / <b>was watching</b></div>
+      <div class="gabarito-item">c) <b>were walking</b> / <b>started</b></div>
+      <div class="gabarito-item">d) <b>was driving</b> / <b>saw</b></div>
+    </details>
+    <div class="tips">💡 <b>Dica:</b> a ação mais longa (o "cenário") fica no <b>Past Continuous</b>; a ação curta que interrompe fica no <b>Simple Past</b>. Quando as duas ações acontecem ao mesmo tempo (frase b), as duas podem ficar no Past Continuous.</div>
+  </div>
+
+  <!-- SECTION 4: USED TO -->
+  <div class="section-title">
+    <div class="badge">4</div>
+    <h2>Used to (hábitos do passado)</h2>
+  </div>
+
+  <div class="card">
+    <p>Escreva 3 frases sobre hábitos que você tinha na infância/adolescência e não tem mais, usando <b>used to</b> ou <b>didn't use to</b>.</p>
+    <textarea placeholder="1) I used to...&#10;2) I didn't use to...&#10;3) I used to..."></textarea>
+    <details>
+      <summary>Ver exemplos</summary>
+      <div class="gabarito-item">- I <b>used to</b> ride my bike every afternoon.</div>
+      <div class="gabarito-item">- I <b>didn't use to</b> like vegetables.</div>
+      <div class="gabarito-item">- We <b>used to</b> spend summers at my grandparents' house.</div>
+    </details>
+    <div class="tips">💡 <b>Dica:</b> "used to" não muda com pronome (I/she/they used to...). Na negativa e na pergunta usamos "use to" (sem -d): <i>Did you use to...? / I didn't use to...</i></div>
+  </div>
+
+  <!-- SECTION 5: MODALS FOR ADVICE -->
+  <div class="section-title">
+    <div class="badge">5</div>
+    <h2>Modais para dar conselhos</h2>
+  </div>
+
+  <div class="card">
+    <p>Dê um conselho para cada pessoa, usando modais (should, shouldn't, could, ought to, had better, etc.)</p>
+
+    <div class="advice-person">
+      <b>Diana</b> – I've been offered a great job in another city, but my whole family lives here. I don't know if I should move.
+    </div>
+    <textarea placeholder="Your advice for Diana..."></textarea>
+
+    <div class="advice-person">
+      <b>Marcus</b> – My neighbor plays loud music every night and I can't sleep. I'm getting really tired, but I don't want to start a fight.
+    </div>
+    <textarea placeholder="Your advice for Marcus..."></textarea>
+
+    <div class="advice-person">
+      <b>Julia</b> – I found out my best friend has been talking behind my back. Should I confront her about it?
+    </div>
+    <textarea placeholder="Your advice for Julia..."></textarea>
+
+    <details>
+      <summary>Ver exemplos de resposta</summary>
+      <div class="gabarito-item">Diana: <i>You should make a list of pros and cons before deciding. You could also talk to your family about it.</i></div>
+      <div class="gabarito-item">Marcus: <i>You ought to talk to him calmly first. You'd better not ignore it, or it will keep happening.</i></div>
+      <div class="gabarito-item">Julia: <i>You should talk to her directly and explain how you feel. You shouldn't assume anything before hearing her side.</i></div>
+    </details>
+    <div class="tips">💡 <b>Dica:</b> vocabulário útil para dar conselhos: <i>"you should / shouldn't", "you could", "it would be a good idea to...", "you'd better", "why don't you...?", "have you thought about...?"</i></div>
+  </div>
+
+  <div class="footer-note">
+    Grupo All Net • Material de apoio para estudo — não substitui a prova oficial.
+  </div>
+
+</div>
+
+<script>
+function toggleAll(){
+  const items = document.querySelectorAll('details');
+  const anyClosed = Array.from(items).some(d => !d.open);
+  items.forEach(d => d.open = anyClosed);
+}
+</script>
+
+</body>
+</html>
