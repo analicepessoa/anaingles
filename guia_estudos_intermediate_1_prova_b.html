@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Guia interativo de preparação para a segunda chamada - Intermediate 1">
+  <title>Plano de Estudos | Intermediate 1 - Prova B</title>
+  <style>
+    :root {
+      --blue:#0757a6; --blue2:#0b76c9; --orange:#f58220; --ink:#172033;
+      --muted:#667085; --paper:#fff; --soft:#f5f8fc; --line:#dbe5f0;
+      --green:#16845b; --red:#c9364f; --yellow:#fff4d6; --shadow:0 10px 30px rgba(16,45,82,.09);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(135deg,#eef5fb 0,#f8fafc 55%,#fff6ed 100%);color:var(--ink);font:16px/1.55 Inter,Segoe UI,Arial,sans-serif}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    .skip{position:absolute;left:-9999px;top:auto}.skip:focus{left:1rem;top:1rem;z-index:100;background:#fff;padding:.7rem 1rem;border-radius:.6rem}
+    header{background:linear-gradient(120deg,#063f7a,#0874c8);color:white;padding:1.4rem clamp(1rem,5vw,4rem);box-shadow:var(--shadow)}
+    .head{max-width:1180px;margin:auto;display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .brand{display:flex;gap:.9rem;align-items:center}.mark{width:58px;height:58px;border-radius:16px;background:#fff;color:var(--blue);font-weight:900;display:grid;place-items:center;line-height:.8;box-shadow:0 6px 18px #00376655}.mark span{color:var(--orange)}
+    h1{font-size:clamp(1.35rem,3vw,2.2rem);line-height:1.1;margin:0}.subtitle{margin:.3rem 0 0;color:#d9edff}
+    .head-actions{display:flex;gap:.55rem;flex-wrap:wrap}.head-actions button{border:1px solid #ffffff66;background:#ffffff16;color:white;border-radius:.7rem;padding:.62rem .9rem;font-weight:700}
+    .head-actions button:hover{background:#ffffff28}
+    .progress-wrap{max-width:1180px;margin:.9rem auto 0;display:grid;grid-template-columns:1fr auto;gap:.7rem;align-items:center}.progress{height:10px;background:#ffffff33;border-radius:10px;overflow:hidden}.progress>span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ffc24b,#ff8a2b);transition:.35s}
+    .layout{max-width:1180px;margin:1.4rem auto 4rem;padding:0 1rem;display:grid;grid-template-columns:260px minmax(0,1fr);gap:1.2rem}
+    nav{position:sticky;top:1rem;align-self:start;background:white;border:1px solid var(--line);border-radius:18px;padding:.7rem;box-shadow:var(--shadow)}
+    nav button{width:100%;border:0;background:transparent;text-align:left;padding:.74rem .8rem;border-radius:.7rem;color:#344054;margin:.08rem 0;display:flex;gap:.7rem;align-items:center}
+    nav button:hover{background:#f2f7fc}nav button.active{background:#e7f2fd;color:var(--blue);font-weight:800}.num{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:#eef2f6;font-size:.82rem;flex:0 0 auto}.active .num{background:var(--blue);color:white}.done .num{background:var(--green);color:white}
+    main{min-width:0}.panel{display:none}.panel.active{display:block;animation:fade .2s ease}@keyframes fade{from{opacity:.4;transform:translateY(4px)}}
+    .hero,.card{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+    .hero{padding:clamp(1.2rem,4vw,2.5rem);background:linear-gradient(135deg,#fff 55%,#f2f8ff)}
+    .eyebrow{color:var(--orange);font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem}.hero h2,.section-title{font-size:clamp(1.55rem,3vw,2.15rem);line-height:1.18;margin:.35rem 0 .7rem}.lead{color:#475467;max-width:720px;font-size:1.05rem}
+    .notice{border-left:5px solid var(--orange);background:var(--yellow);padding:.85rem 1rem;border-radius:0 .8rem .8rem 0;margin:1rem 0}.notice strong{color:#7a4900}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.card{padding:1.15rem;margin:1rem 0}.card h3{margin:.1rem 0 .65rem;color:#123d68}.mini{font-size:.9rem;color:var(--muted)}
+    .day-card{border-top:5px solid var(--blue)}.day-card:nth-child(even){border-top-color:var(--orange)}.day-card .time{display:inline-block;background:#eef6ff;color:var(--blue);border-radius:20px;padding:.18rem .55rem;font-size:.8rem;font-weight:800}
+    label{font-weight:700;display:block;margin:.5rem 0 .25rem}.field,textarea,select{width:100%;border:1.5px solid #bdcbd9;border-radius:.65rem;padding:.7rem;background:white;color:var(--ink)}.field:focus,textarea:focus,select:focus{outline:3px solid #badfff;border-color:var(--blue)}textarea{min-height:145px;resize:vertical}
+    .btn{border:0;border-radius:.68rem;padding:.68rem 1rem;font-weight:800;background:var(--blue);color:white}.btn:hover{filter:brightness(1.08)}.btn.secondary{background:#eef5fb;color:var(--blue);border:1px solid #bed7ec}.btn.orange{background:var(--orange)}.btn.ghost{background:white;color:#475467;border:1px solid #cbd5e1}.btn-row{display:flex;gap:.55rem;flex-wrap:wrap;margin:.8rem 0}
+    .rule{background:#f5f8fc;border:1px solid var(--line);border-radius:.8rem;padding:.8rem;margin:.6rem 0}.rule b{color:var(--blue)}
+    table{width:100%;border-collapse:collapse;margin:.7rem 0}th,td{text-align:left;border-bottom:1px solid var(--line);padding:.7rem;vertical-align:top}th{background:#f3f7fb;color:#244b73}
+    .exercise{counter-reset:item}.q{padding:1rem;border:1px solid var(--line);border-radius:.9rem;margin:.8rem 0;background:#fff}.q-title{font-weight:750;margin-bottom:.5rem}.q label{font-weight:500;margin:.25rem 0}.q input[type=radio]{margin-right:.45rem}.feedback{display:none;margin-top:.6rem;padding:.65rem .75rem;border-radius:.55rem;font-weight:650}.feedback.show{display:block}.feedback.ok{background:#eaf8f2;color:#116643}.feedback.bad{background:#fff0f2;color:#9c2438}.feedback.info{background:#eef6ff;color:#174f83}
+    .blankline{display:inline-block;min-width:150px;border-bottom:2px solid #8aa2b8}.example{padding:.8rem 1rem;background:#f7fafc;border-radius:.8rem;border:1px dashed #b6c7d8;margin:.7rem 0}.en{color:#153e68;font-weight:650}.pt{color:var(--muted)}
+    .checklist{list-style:none;padding:0}.checklist li{margin:.45rem 0}.checklist input{margin-right:.5rem}.checklist label{display:inline;font-weight:500}.meter{height:8px;background:#e5edf5;border-radius:8px;overflow:hidden;margin:.5rem 0}.meter span{display:block;height:100%;width:0;background:var(--green);transition:.25s}
+    .chips{display:flex;flex-wrap:wrap;gap:.45rem}.chip{background:#eef5fb;border:1px solid #c9ddeb;color:#174f83;padding:.25rem .55rem;border-radius:20px;font-size:.86rem}
+    .audio-box{background:linear-gradient(135deg,#112f50,#0757a6);color:white;border-radius:1rem;padding:1.1rem}.audio-box .btn{background:white;color:var(--blue)}.audio-box select{max-width:160px}
+    details{border:1px solid var(--line);border-radius:.75rem;padding:.7rem .8rem;margin:.55rem 0;background:#fbfdff}summary{cursor:pointer;font-weight:800;color:#244b73}
+    .score{font-size:2.2rem;font-weight:900;color:var(--blue)}.tag{font-size:.77rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--orange)}
+    .footer-nav{display:flex;justify-content:space-between;gap:.7rem;margin-top:1rem}.footer-note{text-align:center;color:var(--muted);font-size:.86rem;margin:2rem 0}
+    .print-only{display:none}
+    @media(max-width:820px){.layout{grid-template-columns:1fr}nav{position:static;display:flex;overflow:auto}nav button{min-width:150px}.grid,.grid3{grid-template-columns:1fr}.head-actions{width:100%}.head-actions button{flex:1}.progress-wrap{padding:0}}
+    @media print{body{background:white}.layout{display:block;margin:0}.panel{display:block!important;break-before:page}nav,.head-actions,.progress-wrap,.interactive-only,.footer-nav{display:none!important}.card,.hero{box-shadow:none;break-inside:avoid}.print-only{display:block}header{background:white;color:#111;border-bottom:2px solid #0757a6}.subtitle{color:#444}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header>
+    <div class="head">
+      <div class="brand"><div class="mark">ALL<br><span>NET</span></div><div><h1>Intermediate 1 · Plano de Estudos</h1><p class="subtitle">Preparação para a segunda chamada — Written Exam B</p></div></div>
+      <div class="head-actions interactive-only"><button onclick="window.print()">🖨️ Imprimir</button><button onclick="exportProgress()">⬇️ Salvar progresso</button><button onclick="resetAll()">↺ Recomeçar</button></div>
+    </div>
+    <div class="progress-wrap interactive-only"><div class="progress" aria-label="Progresso geral"><span id="progressBar"></span></div><strong id="progressText">0% concluído</strong></div>
+  </header>
+
+  <div class="layout">
+    <nav aria-label="Etapas do plano">
+      <button class="active" data-tab="inicio"><span class="num">⌂</span>Comece aqui</button>
+      <button data-tab="dia1"><span class="num">1</span>Dia 1 · Tempos verbais</button>
+      <button data-tab="dia2"><span class="num">2</span>Dia 2 · Entrevista</button>
+      <button data-tab="dia3"><span class="num">3</span>Dia 3 · Cover letter</button>
+      <button data-tab="dia4"><span class="num">4</span>Dia 4 · Narrativa</button>
+      <button data-tab="dia5"><span class="num">5</span>Dia 5 · Listening</button>
+      <button data-tab="simulado"><span class="num">✓</span>Simulado final</button>
+    </nav>
+
+    <main id="conteudo">
+      <section id="inicio" class="panel active">
+        <div class="hero">
+          <div class="eyebrow">Sua rota de preparação</div>
+          <h2>Estude um bloco por dia e descubra onde ainda precisa melhorar.</h2>
+          <p class="lead">Este guia treina as mesmas habilidades da avaliação, mas usa situações e frases diferentes. Faça os exercícios sem consultar as explicações; depois corrija e revise somente seus erros.</p>
+          <div class="notice"><strong>Importante:</strong> este material não contém as respostas da prova oficial. Ele foi criado para ensinar o raciocínio necessário para resolvê-la.</div>
+          <div class="grid">
+            <div><label for="studentName">Seu nome</label><input class="field save" id="studentName" placeholder="Digite seu nome"></div>
+            <div><label for="examDate">Data da prova</label><input class="field save" id="examDate" type="date"></div>
+          </div>
+        </div>
+        <div class="grid3">
+          <article class="card day-card"><span class="time">35–45 min</span><h3>1. Past tenses</h3><p>Entender ação em andamento e ação que interrompeu.</p></article>
+          <article class="card day-card"><span class="time">30–40 min</span><h3>2. Job interview</h3><p>Criar perguntas corretas a partir das respostas.</p></article>
+          <article class="card day-card"><span class="time">40–50 min</span><h3>3. Cover letter</h3><p>Organizar uma apresentação profissional curta.</p></article>
+          <article class="card day-card"><span class="time">35–45 min</span><h3>4. Past narrative</h3><p>Narrar uma experiência com começo, meio e fim.</p></article>
+          <article class="card day-card"><span class="time">30–40 min</span><h3>5. Listening</h3><p>Ouvir, completar informações e relacionar acontecimentos.</p></article>
+          <article class="card day-card"><span class="time">45–60 min</span><h3>6. Simulado</h3><p>Resolver tudo sem consulta e avaliar a preparação.</p></article>
+        </div>
+        <div class="card">
+          <h3>Como estudar de verdade</h3>
+          <ol><li>Leia a explicação uma vez.</li><li>Feche os exemplos e faça o exercício.</li><li>Corrija e anote o motivo de cada erro.</li><li>Refaça apenas as questões erradas no dia seguinte.</li><li>Considere-se preparado quando atingir <strong>70% ou mais no simulado</strong> e concluir as duas produções escritas.</li></ol>
+        </div>
+        <div class="footer-nav"><span></span><button class="btn" onclick="go('dia1')">Começar o Dia 1 →</button></div>
+      </section>
+
+      <section id="dia1" class="panel">
+        <div class="hero"><div class="eyebrow">Dia 1 · Grammar</div><h2>Simple Past × Past Continuous</h2><p class="lead">A pergunta principal é: a ação terminou ou estava acontecendo naquele momento?</p></div>
+        <div class="grid">
+          <div class="card"><h3>Simple Past</h3><div class="rule"><b>Ação concluída.</b><br>Subject + verb in the past.</div><p class="en">I missed the bus yesterday.</p><p class="pt">Eu perdi o ônibus ontem.</p><p class="mini">Marcadores comuns: yesterday, last night, two days ago, then, suddenly.</p></div>
+          <div class="card"><h3>Past Continuous</h3><div class="rule"><b>Ação em andamento.</b><br>Subject + was/were + verb-ing.</div><p class="en">I was waiting for the bus at 7 a.m.</p><p class="pt">Eu estava esperando o ônibus às 7h.</p><p class="mini">Marcadores comuns: while, when, at that moment.</p></div>
+        </div>
+        <div class="card"><h3>Quando os dois aparecem juntos</h3><p><strong>Ação longa em andamento</strong> → Past Continuous. <strong>Ação curta que interrompe</strong> → Simple Past.</p><div class="example"><span class="en">I was walking home when it started to rain.</span><br><span class="pt">Eu estava caminhando para casa quando começou a chover.</span></div><p><b>while</b> costuma introduzir a ação em andamento. <b>when</b> costuma marcar o acontecimento que interrompe.</p></div>
+        <div class="card exercise" data-activity="past">
+          <span class="tag">Treino automático</span><h3>Escolha a forma correta.</h3>
+          <div class="q" data-answer="b"><div class="q-title">1. While Nina ___ dinner, the lights went out.</div><label><input type="radio" name="p1" value="a"> cooked</label><label><input type="radio" name="p1" value="b"> was cooking</label><label><input type="radio" name="p1" value="c"> were cooking</label><div class="feedback"></div></div>
+          <div class="q" data-answer="a"><div class="q-title">2. I ___ my keys on the kitchen table last night.</div><label><input type="radio" name="p2" value="a"> left</label><label><input type="radio" name="p2" value="b"> was leaving</label><label><input type="radio" name="p2" value="c"> leave</label><div class="feedback"></div></div>
+          <div class="q" data-answer="c"><div class="q-title">3. We ___ for the interview when the manager called us.</div><label><input type="radio" name="p3" value="a"> waited</label><label><input type="radio" name="p3" value="b"> was waiting</label><label><input type="radio" name="p3" value="c"> were waiting</label><div class="feedback"></div></div>
+          <div class="q" data-answer="b"><div class="q-title">4. The phone rang while Lucas ___ a shower.</div><label><input type="radio" name="p4" value="a"> took</label><label><input type="radio" name="p4" value="b"> was taking</label><label><input type="radio" name="p4" value="c"> were taking</label><div class="feedback"></div></div>
+          <div class="q" data-answer="a"><div class="q-title">5. They ___ the museum two hours ago.</div><label><input type="radio" name="p5" value="a"> visited</label><label><input type="radio" name="p5" value="b"> were visiting</label><label><input type="radio" name="p5" value="c"> visit</label><div class="feedback"></div></div>
+          <div class="btn-row"><button class="btn" onclick="checkActivity('past')">Corrigir</button><button class="btn secondary" onclick="clearActivity('past')">Tentar novamente</button></div><div class="feedback info result"></div>
+        </div>
+        <details><summary>Armadilhas que mais causam erro</summary><ul><li>Depois de <b>did</b>, o verbo volta à forma base: <i>Did you go?</i></li><li><i>Was</i>: I/he/she/it. <i>Were</i>: you/we/they.</li><li>Nem toda frase com <i>when</i> exige Past Continuous. Observe o sentido.</li><li>Verbos irregulares precisam ser memorizados: go → went, leave → left, bring → brought.</li></ul></details>
+        <div class="footer-nav"><button class="btn ghost" onclick="go('inicio')">← Início</button><button class="btn" onclick="go('dia2')">Dia 2 →</button></div>
+      </section>
+
+      <section id="dia2" class="panel">
+        <div class="hero"><div class="eyebrow">Dia 2 · Communication</div><h2>Job interview questions</h2><p class="lead">Na avaliação, você verá respostas e precisará construir perguntas que combinem com elas.</p></div>
+        <div class="card"><h3>Transforme a informação em pergunta</h3><table><thead><tr><th>Se a resposta fala de…</th><th>Comece com…</th><th>Exemplo diferente</th></tr></thead><tbody><tr><td>lugar</td><td>Where…?</td><td>Where did you study?</td></tr><tr><td>curso/assunto</td><td>What…?</td><td>What did you study?</td></tr><tr><td>cargo</td><td>What was…?</td><td>What was your position?</td></tr><tr><td>tarefas</td><td>What were…?</td><td>What were your responsibilities?</td></tr><tr><td>tempo</td><td>How long…?</td><td>How long did you work there?</td></tr></tbody></table><div class="notice"><strong>Regra:</strong> no passado com verbo de ação, use <i>Wh-word + did + subject + base verb</i>. Com o verbo <i>to be</i>, não use <i>did</i>: <i>What was your position?</i></div></div>
+        <div class="card exercise" data-activity="interview"><span class="tag">Treino automático</span><h3>Escolha a pergunta adequada para cada resposta.</h3>
+          <div class="q" data-answer="c"><div class="q-title">1. “I studied at Central College.”</div><label><input type="radio" name="i1" value="a"> What did you study?</label><label><input type="radio" name="i1" value="b"> When were you studying?</label><label><input type="radio" name="i1" value="c"> Where did you study?</label><div class="feedback"></div></div>
+          <div class="q" data-answer="a"><div class="q-title">2. “I studied Graphic Design.”</div><label><input type="radio" name="i2" value="a"> What did you study?</label><label><input type="radio" name="i2" value="b"> Where did you study?</label><label><input type="radio" name="i2" value="c"> What were your duties?</label><div class="feedback"></div></div>
+          <div class="q" data-answer="b"><div class="q-title">3. “I was a sales assistant.”</div><label><input type="radio" name="i3" value="a"> Where did you work?</label><label><input type="radio" name="i3" value="b"> What was your position?</label><label><input type="radio" name="i3" value="c"> What did you sell yesterday?</label><div class="feedback"></div></div>
+          <div class="q" data-answer="c"><div class="q-title">4. “I answered calls, organized files and helped customers.”</div><label><input type="radio" name="i4" value="a"> Where were the customers?</label><label><input type="radio" name="i4" value="b"> Why did you leave?</label><label><input type="radio" name="i4" value="c"> What were your responsibilities?</label><div class="feedback"></div></div>
+          <div class="btn-row"><button class="btn" onclick="checkActivity('interview')">Corrigir</button><button class="btn secondary" onclick="clearActivity('interview')">Tentar novamente</button></div><div class="feedback info result"></div>
+        </div>
+        <div class="card"><h3>Prática oral de 5 minutos</h3><p>Leia as perguntas em voz alta e responda sobre você. Grave no celular e verifique se usou frases completas.</p><div class="chips"><span class="chip">Where did you study?</span><span class="chip">What did you study?</span><span class="chip">Where did you work?</span><span class="chip">What was your position?</span><span class="chip">What were your duties?</span></div></div>
+        <div class="footer-nav"><button class="btn ghost" onclick="go('dia1')">← Dia 1</button><button class="btn" onclick="go('dia3')">Dia 3 →</button></div>
+      </section>
+
+      <section id="dia3" class="panel">
+        <div class="hero"><div class="eyebrow">Dia 3 · Writing</div><h2>How to write a cover letter</h2><p class="lead">A carta deve apresentar quem você é, sua formação, suas qualificações e seus objetivos profissionais.</p></div>
+        <div class="card"><h3>Estrutura simples em 4 partes</h3><ol><li><b>Greeting:</b> Dear Hiring Manager,</li><li><b>Introduction:</b> diga a vaga e por que está escrevendo.</li><li><b>Qualifications:</b> formação, experiência, habilidades e um exemplo.</li><li><b>Closing:</b> interesse em conversar, agradecimento e assinatura.</li></ol><div class="example"><p class="en">Dear Hiring Manager,</p><p>I am writing to apply for the position of office assistant. I completed a computer course and I have experience helping customers. I am organized, responsible and comfortable with spreadsheets.</p><p>I would be happy to discuss how I can contribute to your team. Thank you for your time.</p><p class="en">Sincerely,<br>Alex Morgan</p></div></div>
+        <div class="grid">
+          <div class="card"><h3>Useful language</h3><ul><li>I am writing to apply for…</li><li>I completed a course in…</li><li>I have experience in…</li><li>My main skills are…</li><li>My professional goal is…</li><li>Thank you for your consideration.</li></ul></div>
+          <div class="card"><h3>Evite estes erros</h3><ul><li>Não escrever como mensagem de WhatsApp.</li><li>Não usar apenas palavras soltas.</li><li>Não misturar presente e passado sem motivo.</li><li>Não terminar sem agradecimento ou assinatura.</li><li>Não copiar o modelo palavra por palavra.</li></ul></div>
+        </div>
+        <div class="card" data-activity="cover"><span class="tag">Sua produção</span><h3>Escreva uma cover letter de 80–120 palavras.</h3><p><b>Situação:</b> você quer se candidatar à vaga de <i>customer service assistant</i>. Inclua sua formação, duas habilidades, uma experiência e um objetivo profissional.</p><textarea class="save" id="coverText" placeholder="Dear Hiring Manager,&#10;&#10;I am writing to apply for..."></textarea><div class="mini"><span id="coverWords">0</span> palavras</div>
+          <ul class="checklist"><li><input type="checkbox" class="save task" id="c1"><label for="c1">Mencionei a vaga e meu interesse.</label></li><li><input type="checkbox" class="save task" id="c2"><label for="c2">Incluí formação, habilidades e experiência.</label></li><li><input type="checkbox" class="save task" id="c3"><label for="c3">Incluí meu objetivo profissional.</label></li><li><input type="checkbox" class="save task" id="c4"><label for="c4">Usei saudação, fechamento e assinatura.</label></li><li><input type="checkbox" class="save task" id="c5"><label for="c5">Revisei maiúsculas, pontuação e ortografia.</label></li></ul>
+          <button class="btn" onclick="completeWriting('cover')">Marcar produção como concluída</button><div class="feedback info result"></div>
+        </div>
+        <details><summary>Como revisar sua carta sem pedir que a IA escreva por você</summary><p>Depois de escrever, use este comando: <i>“Revise esta cover letter. Não reescreva o texto. Mostre apenas: 1) erros gramaticais, 2) palavras repetidas, 3) partes que não respondem à proposta.”</i> Corrija você mesmo após ler as explicações.</p></details>
+        <div class="footer-nav"><button class="btn ghost" onclick="go('dia2')">← Dia 2</button><button class="btn" onclick="go('dia4')">Dia 4 →</button></div>
+      </section>
+
+      <section id="dia4" class="panel">
+        <div class="hero"><div class="eyebrow">Dia 4 · Writing</div><h2>Narrating a past experience</h2><p class="lead">Uma boa narrativa deixa claro quando aconteceu, o que ocorreu, como você se sentiu e como terminou.</p></div>
+        <div class="card"><h3>Plano antes de escrever</h3><table><thead><tr><th>Parte</th><th>Pergunta-guia</th><th>Conectores</th></tr></thead><tbody><tr><td>Beginning</td><td>When and where did it happen?</td><td>Last year, One day, At first</td></tr><tr><td>Middle</td><td>What happened next? Was something in progress?</td><td>Then, While, When, Suddenly</td></tr><tr><td>Ending</td><td>How did it end? How did you feel?</td><td>Finally, In the end, After that</td></tr></tbody></table></div>
+        <div class="card exercise" data-activity="narrativeGrammar"><span class="tag">Aquecimento</span><h3>Complete a mini-história.</h3>
+          <div class="q" data-answer="a"><div class="q-title">1. Last Saturday, I ___ to a new restaurant.</div><label><input type="radio" name="n1" value="a"> went</label><label><input type="radio" name="n1" value="b"> was going</label><label><input type="radio" name="n1" value="c"> go</label><div class="feedback"></div></div>
+          <div class="q" data-answer="c"><div class="q-title">2. While we ___ for our food, the fire alarm rang.</div><label><input type="radio" name="n2" value="a"> waited</label><label><input type="radio" name="n2" value="b"> was waiting</label><label><input type="radio" name="n2" value="c"> were waiting</label><div class="feedback"></div></div>
+          <div class="q" data-answer="b"><div class="q-title">3. Everyone ___ the building calmly.</div><label><input type="radio" name="n3" value="a"> was leaving</label><label><input type="radio" name="n3" value="b"> left</label><label><input type="radio" name="n3" value="c"> leave</label><div class="feedback"></div></div>
+          <div class="btn-row"><button class="btn" onclick="checkActivity('narrativeGrammar')">Corrigir</button><button class="btn secondary" onclick="clearActivity('narrativeGrammar')">Tentar novamente</button></div><div class="feedback info result"></div>
+        </div>
+        <div class="card" data-activity="story"><span class="tag">Sua produção</span><h3>Escolha um tema e escreva 90–130 palavras.</h3><select class="save" id="storyTopic"><option value="">Escolha um tema…</option><option>My first day in a new class</option><option>A trip that did not go as planned</option><option>The first time I cooked for someone</option><option>A surprising day at work</option><option>My best vacation memory</option></select><textarea class="save" id="storyText" placeholder="Last year, I..."></textarea><div class="mini"><span id="storyWords">0</span> palavras</div>
+          <ul class="checklist"><li><input type="checkbox" class="save task" id="s1"><label for="s1">Minha história tem começo, meio e fim.</label></li><li><input type="checkbox" class="save task" id="s2"><label for="s2">Usei pelo menos quatro verbos no Simple Past.</label></li><li><input type="checkbox" class="save task" id="s3"><label for="s3">Usei Past Continuous em uma ação em andamento.</label></li><li><input type="checkbox" class="save task" id="s4"><label for="s4">Usei conectores e descrevi como me senti.</label></li></ul><button class="btn" onclick="completeWriting('story')">Marcar narrativa como concluída</button><div class="feedback info result"></div></div>
+        <div class="footer-nav"><button class="btn ghost" onclick="go('dia3')">← Dia 3</button><button class="btn" onclick="go('dia5')">Dia 5 →</button></div>
+      </section>
+
+      <section id="dia5" class="panel">
+        <div class="hero"><div class="eyebrow">Dia 5 · Listening</div><h2>Listen for actions and sequence</h2><p class="lead">Você não precisa entender cada palavra. Procure nomes, ações, marcadores de tempo e a ordem dos acontecimentos.</p></div>
+        <div class="card"><h3>Estratégia em 3 escutas</h3><ol><li><b>Primeira:</b> entenda o tema geral, sem preencher nada.</li><li><b>Segunda:</b> complete as palavras principais.</li><li><b>Terceira:</b> confirme a sequência e revise.</li></ol><p class="mini">Use fones se possível. Não leia a transcrição antes de tentar.</p></div>
+        <div class="audio-box interactive-only"><h3>🎧 Leo’s Unusual Monday</h3><p>Ouça no máximo três vezes antes de responder.</p><div class="btn-row"><button class="btn" onclick="playAudio()">▶ Ouvir texto</button><button class="btn" onclick="stopAudio()">■ Parar</button><label style="color:white">Velocidade <select id="rate"><option value="0.75">0.75×</option><option value="0.9" selected>0.9×</option><option value="1">1×</option></select></label></div><p id="playCount">Reproduções: 0</p></div>
+        <div class="card exercise" data-activity="listening"><span class="tag">Listening practice</span><h3>Escolha as informações que você ouviu.</h3>
+          <div class="q" data-answer="b"><div class="q-title">1. What was Leo doing when his alarm rang?</div><label><input type="radio" name="l1" value="a"> He was driving.</label><label><input type="radio" name="l1" value="b"> He was dreaming.</label><label><input type="radio" name="l1" value="c"> He was eating breakfast.</label><div class="feedback"></div></div>
+          <div class="q" data-answer="c"><div class="q-title">2. Why did Leo leave home quickly?</div><label><input type="radio" name="l2" value="a"> He forgot his phone.</label><label><input type="radio" name="l2" value="b"> He wanted coffee.</label><label><input type="radio" name="l2" value="c"> He had a job interview.</label><div class="feedback"></div></div>
+          <div class="q" data-answer="a"><div class="q-title">3. What happened while he was running to the bus stop?</div><label><input type="radio" name="l3" value="a"> A car splashed water on him.</label><label><input type="radio" name="l3" value="b"> He lost his résumé.</label><label><input type="radio" name="l3" value="c"> The bus driver called him.</label><div class="feedback"></div></div>
+          <div class="q" data-answer="c"><div class="q-title">4. Who helped Leo?</div><label><input type="radio" name="l4" value="a"> A police officer.</label><label><input type="radio" name="l4" value="b"> His landlord.</label><label><input type="radio" name="l4" value="c"> The bus driver.</label><div class="feedback"></div></div>
+          <div class="q" data-answer="b"><div class="q-title">5. How did the story end?</div><label><input type="radio" name="l5" value="a"> Leo missed the interview.</label><label><input type="radio" name="l5" value="b"> Leo arrived on time and got the job.</label><label><input type="radio" name="l5" value="c"> Leo returned home.</label><div class="feedback"></div></div>
+          <div class="btn-row"><button class="btn" onclick="checkActivity('listening')">Corrigir</button><button class="btn secondary" onclick="clearActivity('listening')">Tentar novamente</button></div><div class="feedback info result"></div>
+        </div>
+        <details id="transcript"><summary>Transcrição — abra somente depois de corrigir</summary><p>Leo was dreaming about a beach when his alarm suddenly rang. He looked at the clock and jumped out of bed because he had a job interview that morning. While he was running to the bus stop, a car drove through a puddle and splashed water on his shirt. Leo felt terrible, but the bus driver noticed the problem and gave him a clean jacket. In the end, Leo arrived on time, did well in the interview, and got the job.</p></details>
+        <div class="footer-nav"><button class="btn ghost" onclick="go('dia4')">← Dia 4</button><button class="btn orange" onclick="go('simulado')">Fazer simulado →</button></div>
+      </section>
+
+      <section id="simulado" class="panel">
+        <div class="hero"><div class="eyebrow">Etapa final</div><h2>Mini-simulado de preparação</h2><p class="lead">Faça sem consultar as outras abas. Separe 30 minutos e responda de uma vez.</p><div class="notice"><strong>Meta:</strong> acerte pelo menos 7 das 10 questões objetivas e conclua as duas tarefas escritas.</div></div>
+        <div class="card exercise" data-activity="mock"><span class="tag">Parte 1 · Grammar & communication</span>
+          <div class="q" data-answer="b"><div class="q-title">1. I ___ my e-mail when the computer stopped working.</div><label><input type="radio" name="m1" value="a"> checked</label><label><input type="radio" name="m1" value="b"> was checking</label><label><input type="radio" name="m1" value="c"> were checking</label><div class="feedback"></div></div>
+          <div class="q" data-answer="a"><div class="q-title">2. Sara ___ the report before lunch yesterday.</div><label><input type="radio" name="m2" value="a"> finished</label><label><input type="radio" name="m2" value="b"> was finishing</label><label><input type="radio" name="m2" value="c"> finish</label><div class="feedback"></div></div>
+          <div class="q" data-answer="c"><div class="q-title">3. While the customers ___, the manager opened another register.</div><label><input type="radio" name="m3" value="a"> waited</label><label><input type="radio" name="m3" value="b"> was waiting</label><label><input type="radio" name="m3" value="c"> were waiting</label><div class="feedback"></div></div>
+          <div class="q" data-answer="b"><div class="q-title">4. “I worked at a local bookstore.” Choose the question.</div><label><input type="radio" name="m4" value="a"> What was your position?</label><label><input type="radio" name="m4" value="b"> Where did you work?</label><label><input type="radio" name="m4" value="c"> What did you study?</label><div class="feedback"></div></div>
+          <div class="q" data-answer="a"><div class="q-title">5. “I was the store supervisor.” Choose the question.</div><label><input type="radio" name="m5" value="a"> What was your position?</label><label><input type="radio" name="m5" value="b"> Where did you work?</label><label><input type="radio" name="m5" value="c"> What were you studying?</label><div class="feedback"></div></div>
+          <div class="q" data-answer="c"><div class="q-title">6. Which sentence is best for the opening of a cover letter?</div><label><input type="radio" name="m6" value="a"> Hey! I need this job.</label><label><input type="radio" name="m6" value="b"> My life is very interesting.</label><label><input type="radio" name="m6" value="c"> I am writing to apply for the receptionist position.</label><div class="feedback"></div></div>
+          <div class="q" data-answer="a"><div class="q-title">7. Which sentence presents a qualification?</div><label><input type="radio" name="m7" value="a"> I have experience with customer service.</label><label><input type="radio" name="m7" value="b"> Thank you for reading this letter.</label><label><input type="radio" name="m7" value="c"> Dear Hiring Manager,</label><div class="feedback"></div></div>
+          <div class="q" data-answer="b"><div class="q-title">8. Choose the correct sequence.</div><label><input type="radio" name="m8" value="a"> Finally → One day → Then</label><label><input type="radio" name="m8" value="b"> One day → Then → Finally</label><label><input type="radio" name="m8" value="c"> Then → Finally → One day</label><div class="feedback"></div></div>
+          <div class="q" data-answer="c"><div class="q-title">9. Which question asks about duties?</div><label><input type="radio" name="m9" value="a"> Where did you work?</label><label><input type="radio" name="m9" value="b"> What did you study?</label><label><input type="radio" name="m9" value="c"> What were your responsibilities?</label><div class="feedback"></div></div>
+          <div class="q" data-answer="a"><div class="q-title">10. Choose the correct sentence.</div><label><input type="radio" name="m10" value="a"> When the phone rang, we were having lunch.</label><label><input type="radio" name="m10" value="b"> When the phone was ringing, we was having lunch.</label><label><input type="radio" name="m10" value="c"> When the phone ringed, we having lunch.</label><div class="feedback"></div></div>
+          <div class="btn-row"><button class="btn orange" onclick="checkActivity('mock')">Finalizar parte objetiva</button><button class="btn secondary" onclick="clearActivity('mock')">Limpar respostas</button></div><div class="feedback info result"></div>
+        </div>
+        <div class="grid">
+          <div class="card"><span class="tag">Parte 2 · Cover letter</span><h3>Planeje em 5 minutos</h3><p>Vaga: <i>office assistant</i>. Em uma folha, escreva uma carta de 80–120 palavras com formação, experiência, qualidades e planos profissionais.</p><label><input type="checkbox" class="save task" id="mockCover"> Concluí a carta sem copiar o modelo.</label></div>
+          <div class="card"><span class="tag">Parte 3 · Narrative</span><h3>Escreva em 10 minutos</h3><p>Tema: <i>A day when something unexpected happened.</i> Escreva 90–130 palavras e use Simple Past, Past Continuous e conectores.</p><label><input type="checkbox" class="save task" id="mockStory"> Concluí a narrativa e revisei os verbos.</label></div>
+        </div>
+        <div class="card"><h3>Seu resultado</h3><div class="score" id="finalScore">—</div><p id="readiness">Finalize a parte objetiva para receber a orientação.</p><div class="meter"><span id="scoreMeter"></span></div></div>
+        <div class="card"><h3>Revisão final antes da prova</h3><ul class="checklist"><li><input type="checkbox" class="save task" id="r1"><label for="r1">Sei diferenciar ação concluída e ação em andamento.</label></li><li><input type="checkbox" class="save task" id="r2"><label for="r2">Sei formar perguntas com <i>did</i> e com <i>was/were</i>.</label></li><li><input type="checkbox" class="save task" id="r3"><label for="r3">Consigo escrever uma cover letter com quatro partes.</label></li><li><input type="checkbox" class="save task" id="r4"><label for="r4">Consigo narrar um acontecimento em ordem.</label></li><li><input type="checkbox" class="save task" id="r5"><label for="r5">No listening, procuro palavras-chave e sequência.</label></li></ul></div>
+        <div class="footer-nav"><button class="btn ghost" onclick="go('dia5')">← Dia 5</button><button class="btn" onclick="go('inicio')">Voltar ao início</button></div>
+      </section>
+      <p class="footer-note">Material de preparação · Intermediate 1 · O progresso fica salvo neste navegador.</p>
+    </main>
+  </div>
+
+  <script>
+    const KEY='intermediate1_examB_study_v1';
+    const completed=new Set();
+    const answerExplanations={
+      past:['A ação de cozinhar estava em andamento quando as luzes apagaram.','“Last night” indica ação concluída; leave → left.','O sujeito “we” pede were + verb-ing.','O banho estava em andamento quando o telefone tocou.','“Two hours ago” marca ação concluída.'],
+      interview:['A resposta informa um lugar, então usamos Where.','A resposta informa o curso, então usamos What.','A resposta informa o cargo; com to be usamos What was.','A resposta lista tarefas, então perguntamos pelas responsibilities.'],
+      narrativeGrammar:['“Last Saturday” apresenta o acontecimento concluído.','A espera estava em andamento; sujeito “we” pede were waiting.','A saída aconteceu e terminou depois do alarme.'],
+      listening:['Leo was dreaming when the alarm rang.','He left quickly because of a job interview.','A car splashed water on him.','The bus driver gave him a clean jacket.','He arrived on time and got the job.'],
+      mock:['A verificação estava em andamento quando o computador parou.','Yesterday marca ação concluída.','Customers é plural: were waiting.','A resposta informa o local de trabalho.','A resposta informa o cargo.','Essa é uma abertura formal e específica.','A frase apresenta experiência profissional.','Essa ordem cria começo, desenvolvimento e final.','Responsibilities significa responsabilidades/tarefas.','A ligação interrompeu a ação que estava em andamento.']
+    };
+
+    function go(id){
+      document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));
+      document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
+      window.scrollTo({top:0,behavior:'smooth'}); saveState();
+    }
+    document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>go(b.dataset.tab)));
+
+    function checkActivity(id){
+      const box=document.querySelector(`[data-activity="${id}"]`), qs=[...box.querySelectorAll('.q')];
+      let correct=0, answered=0;
+      qs.forEach((q,i)=>{const chosen=q.querySelector('input:checked'), fb=q.querySelector('.feedback'); fb.classList.add('show');
+        if(!chosen){fb.className='feedback show bad';fb.textContent='Escolha uma resposta.';return}
+        answered++;
+        if(chosen.value===q.dataset.answer){correct++;fb.className='feedback show ok';fb.textContent='✓ Correto. '+answerExplanations[id][i]}
+        else{fb.className='feedback show bad';fb.textContent='✗ Revise. '+answerExplanations[id][i]}
+      });
+      const result=box.querySelector('.result');result.className='feedback info result show';result.textContent=`Resultado: ${correct}/${qs.length}. ${answered<qs.length?'Responda todas as questões.':correct/qs.length>=.7?'Meta atingida!':'Revise as explicações e tente novamente.'}`;
+      if(answered===qs.length && correct/qs.length>=.7) completed.add(id); else completed.delete(id);
+      if(id==='mock') showFinal(correct,qs.length); updateProgress(); saveState();
+    }
+    function clearActivity(id){
+      const box=document.querySelector(`[data-activity="${id}"]`);box.querySelectorAll('input[type=radio]').forEach(i=>i.checked=false);box.querySelectorAll('.feedback').forEach(f=>{f.className=f.classList.contains('result')?'feedback info result':'feedback';f.textContent=''});completed.delete(id);if(id==='mock'){document.getElementById('finalScore').textContent='—';document.getElementById('readiness').textContent='Finalize a parte objetiva para receber a orientação.';document.getElementById('scoreMeter').style.width='0'}updateProgress();saveState();
+    }
+    function completeWriting(id){
+      const isCover=id==='cover', text=document.getElementById(isCover?'coverText':'storyText').value.trim();
+      const words=countWords(text), min=isCover?80:90, checks=[...(document.querySelector(`[data-activity="${id}"]`).querySelectorAll('.checklist input'))];
+      const result=document.querySelector(`[data-activity="${id}"] .result`);result.className='feedback info result show';
+      if(words<min || !checks.every(c=>c.checked)){result.textContent=`Ainda não: escreva pelo menos ${min} palavras e confirme todos os itens da revisão.`;completed.delete(id)}
+      else{result.textContent='✓ Produção concluída. Guarde o texto para mostrar à professora.';result.className='feedback ok result show';completed.add(id)}
+      updateProgress();saveState();
+    }
+    function countWords(s){return s.trim()?s.trim().split(/\s+/).length:0}
+    function watchWords(id,out){const el=document.getElementById(id),o=document.getElementById(out);const run=()=>o.textContent=countWords(el.value);el.addEventListener('input',run);run()}
+    watchWords('coverText','coverWords');watchWords('storyText','storyWords');
+
+    let plays=0,utterance;
+    const listeningText='Leo was dreaming about a beach when his alarm suddenly rang. He looked at the clock and jumped out of bed because he had a job interview that morning. While he was running to the bus stop, a car drove through a puddle and splashed water on his shirt. Leo felt terrible, but the bus driver noticed the problem and gave him a clean jacket. In the end, Leo arrived on time, did well in the interview, and got the job.';
+    function playAudio(){if(!('speechSynthesis' in window)){alert('Este navegador não oferece narração. Use Chrome ou Edge.');return}speechSynthesis.cancel();utterance=new SpeechSynthesisUtterance(listeningText);utterance.lang='en-US';utterance.rate=parseFloat(document.getElementById('rate').value);speechSynthesis.speak(utterance);plays++;document.getElementById('playCount').textContent=`Reproduções: ${plays}`}
+    function stopAudio(){if('speechSynthesis' in window)speechSynthesis.cancel()}
+
+    function showFinal(correct,total){const pct=Math.round(correct/total*100);document.getElementById('finalScore').textContent=`${correct}/${total} · ${pct}%`;document.getElementById('scoreMeter').style.width=pct+'%';document.getElementById('readiness').textContent=pct>=70?'Meta atingida. Agora revise suas produções escritas e refaça apenas os pontos em que errou.':'Ainda não atingiu 70%. Volte aos blocos relacionados aos erros e tente novamente amanhã.'}
+    function updateProgress(){
+      const core=['past','interview','cover','narrativeGrammar','story','listening','mock'];
+      const tasks=[...document.querySelectorAll('.task')];const value=Math.round((core.filter(x=>completed.has(x)).length+tasks.filter(x=>x.checked).length)/(core.length+tasks.length)*100);
+      document.getElementById('progressBar').style.width=value+'%';document.getElementById('progressText').textContent=value+'% concluído';
+      const map={dia1:['past'],dia2:['interview'],dia3:['cover'],dia4:['narrativeGrammar','story'],dia5:['listening'],simulado:['mock']};
+      document.querySelectorAll('nav button').forEach(b=>{const a=map[b.dataset.tab];b.classList.toggle('done',a&&a.every(x=>completed.has(x)))})
+    }
+    function saveState(){
+      const values={};document.querySelectorAll('.save').forEach(el=>values[el.id]=el.type==='checkbox'?el.checked:el.value);
+      const radios={};document.querySelectorAll('input[type=radio]:checked').forEach(r=>radios[r.name]=r.value);
+      localStorage.setItem(KEY,JSON.stringify({values,radios,completed:[...completed]}));
+    }
+    function loadState(){
+      try{const st=JSON.parse(localStorage.getItem(KEY)||'{}');Object.entries(st.values||{}).forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.type==='checkbox'?el.checked=v:el.value=v});Object.entries(st.radios||{}).forEach(([n,v])=>{const el=document.querySelector(`input[name="${n}"][value="${v}"]`);if(el)el.checked=true});(st.completed||[]).forEach(x=>completed.add(x))}catch(e){}
+      document.querySelectorAll('.save,input[type=radio]').forEach(el=>el.addEventListener('change',()=>{saveState();updateProgress()}));document.querySelectorAll('textarea.save,input.field.save').forEach(el=>el.addEventListener('input',saveState));updateProgress();
+    }
+    function resetAll(){if(!confirm('Apagar todas as respostas e o progresso deste navegador?'))return;localStorage.removeItem(KEY);location.reload()}
+    function exportProgress(){
+      const name=document.getElementById('studentName').value||'Aluno(a)',date=new Date().toLocaleDateString('pt-BR');
+      const report=[`PLANO DE ESTUDOS - INTERMEDIATE 1`,`Aluno(a): ${name}`,`Data: ${date}`,`Progresso: ${document.getElementById('progressText').textContent}`,'',`Atividades concluídas: ${[...completed].join(', ')||'nenhuma'}`,'',`Cover letter:`,document.getElementById('coverText').value||'(não preenchida)','','Narrativa:',document.getElementById('storyText').value||'(não preenchida)'].join('\n');
+      const blob=new Blob([report],{type:'text/plain;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='meu_progresso_intermediate_1.txt';a.click();URL.revokeObjectURL(a.href)
+    }
+    loadState();
+  </script>
+</body>
+</html>
