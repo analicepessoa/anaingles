@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Basic 2 – Guia de Estudo para a Prova</title>
+<style>
+:root{--b:#1d4ed8;--o:#f97316;--bg:#f5f8ff;--t:#16213e;--card:#fff}
+@media(prefers-color-scheme:dark){:root{--bg:#0f172a;--t:#e8eefc;--card:#1b2540}}
+*{box-sizing:border-box}
+body{margin:0;font:17px/1.6 system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--t)}
+header{background:var(--b);color:#fff;padding:28px 18px;text-align:center}
+header h1{margin:0 0 6px;font-size:1.7rem}header p{margin:0;opacity:.92}
+main{max-width:760px;margin:0 auto;padding:14px}
+section{background:var(--card);border-radius:14px;padding:18px;margin:18px 0;border-left:6px solid var(--b)}
+h2{color:var(--b);margin-top:0;font-size:1.35rem}
+@media(prefers-color-scheme:dark){h2{color:#8fb0ff}}
+h3{color:var(--o);margin:18px 0 6px;font-size:1.1rem}
+.tip{background:#fff4e8;color:#5a2d00;border-left:5px solid var(--o);padding:10px 12px;border-radius:8px;margin:10px 0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.95rem}
+th,td{border:1px solid #9bb0e0;padding:6px 8px;text-align:left}th{background:var(--b);color:#fff}
+.wrap{overflow-x:auto}
+.board th{background:#222}.board{font-family:monospace}
+details{margin:6px 0 12px}
+summary{cursor:pointer;color:var(--o);font-weight:700}
+.ans{background:#e8f7ec;color:#0b3d1a;padding:8px 12px;border-radius:8px;margin-top:4px}
+button{background:var(--o);color:#fff;border:0;border-radius:10px;padding:10px 16px;font-size:1rem;font-weight:700;cursor:pointer;margin:4px 4px 4px 0}
+button.b{background:var(--b)}
+.bar{text-align:center;margin:14px 0}
+.line{border-bottom:1px solid #8aa0d0;height:28px;margin:4px 0}
+.emo{font-size:1.6rem}
+code{background:#e6ecff;color:#10205a;padding:1px 6px;border-radius:5px}
+.f{display:block;width:100%;font:inherit;padding:8px;border:2px solid #9bb0e0;border-radius:8px;margin:2px 0 8px;background:var(--card);color:var(--t)}
+.blank{font:inherit;border:0;border-bottom:2px solid var(--o);background:transparent;color:var(--b);font-weight:700;text-align:center}
+select{font:inherit;margin-right:4px}
+.pv{display:block;white-space:pre-wrap;color:#0b2a9a;font-weight:600;border-bottom:1px solid #777;padding:2px 0;margin:2px 0 8px}
+span.pv{display:inline-block;min-width:60px;margin:0 2px}
+@media print{header{background:none;color:#000}.bar,button{display:none}section{break-inside:avoid;border:1px solid #999}body{font-size:13px}}
+</style></head><body>
+<header><h1>Basic 2 – Guia de Estudo para a Prova</h1>
+<p>Estude com calma, faça os exercícios e só depois confira as respostas. 🍀</p></header>
+<main>
+<div class="bar"><p><input class="f" id="nome" placeholder="Seu nome" style="max-width:320px"></p><button onclick="document.querySelectorAll('details').forEach(d=>d.open=true)">Mostrar todas as respostas</button>
+<button class="b" onclick="document.querySelectorAll('details').forEach(d=>d.open=false)">Esconder respostas</button>
+<button onclick="window.print()">📄 Salvar em PDF</button>
+<p style="font-size:.85rem;margin:4px">Escreva suas respostas aqui no site (elas ficam salvas neste aparelho). Depois toque em "Salvar em PDF", escolha "Salvar como PDF" e envie pelo WhatsApp: o PDF sai com o seu nome e as suas respostas.</p></div>
+
+<section><h2>Como a prova funciona</h2>
+<p><b>Reading</b> (leitura de um quadro de horários + verbos) · <b>Writing</b> (dar direções + falar das férias) · <b>Listening</b> (lugares turísticos + um anúncio de transporte). Aqui você treina o <b>mesmo tipo</b> de exercício, com outro conteúdo.</p></section>
+
+<section><h2>1. Reading: quadro de horários</h2>
+<p>A prova pede <b>respostas completas</b>. Isso significa uma frase inteira, não só uma palavra.</p>
+<div class="tip">Modelo: <code>The ___'s destination is ___.</code> · <code>The ___'s gate/platform is ___.</code> · <code>The ___ is on time / delayed / boarding.</code><br>O <b>'s</b> mostra posse: <i>the bus's destination</i> = o destino do ônibus.</div>
+<div class="wrap"><table class="board"><tr><th>BUS</th><th>TIME</th><th>DESTINATION</th><th>PLATFORM</th><th>STATUS</th></tr>
+<tr><td>LN 120</td><td>7:15</td><td>Boston</td><td>P4</td><td>Boarding</td></tr>
+<tr><td>TR 450</td><td>7:30</td><td>Chicago</td><td>P2</td><td>On time</td></tr>
+<tr><td>KP 880</td><td>8:05</td><td>Denver</td><td>P6</td><td>Delayed</td></tr>
+<tr><td>TR 450</td><td>9:10</td><td>Dallas</td><td>P9</td><td>On time</td></tr></table></div>
+<h3>Bus TR 450 (7:30)</h3>
+<p>a) What is the bus's destination?</p><input class="f" placeholder="Escreva uma frase completa"><details><summary>Resposta</summary><div class="ans">The bus's destination is Chicago.</div></details>
+<p>b) What is the bus's platform?</p><input class="f" placeholder="Escreva uma frase completa"><details><summary>Resposta</summary><div class="ans">The bus's platform is P2.</div></details>
+<p>c) What is the bus's status?</p><input class="f" placeholder="Escreva uma frase completa"><details><summary>Resposta</summary><div class="ans">The bus is on time.</div></details>
+<h3>Bus KP 880</h3>
+<p>a) What is the bus's destination?</p><input class="f" placeholder="Escreva uma frase completa"><details><summary>Resposta</summary><div class="ans">The bus's destination is Denver.</div></details>
+<p>b) What is the bus's platform?</p><input class="f" placeholder="Escreva uma frase completa"><details><summary>Resposta</summary><div class="ans">The bus's platform is P6.</div></details>
+<p>c) What is the bus's status?</p><input class="f" placeholder="Escreva uma frase completa"><details><summary>Resposta</summary><div class="ans">The bus is delayed.</div></details>
+<div class="tip">Atenção: o mesmo número pode aparecer duas vezes, com horários diferentes. Veja a <b>linha certa</b>, confira o horário e o destino.</div></section>
+
+<section><h2>2. Simple Present ou Present Continuous?</h2>
+<div class="wrap"><table><tr><th></th><th>Simple Present</th><th>Present Continuous</th></tr>
+<tr><td>Uso</td><td>rotina, hábito, fato</td><td>agora, ou algo temporário</td></tr>
+<tr><td>Palavras</td><td>every day, always, usually</td><td>now, at the moment, this month, temporarily</td></tr>
+<tr><td>Forma</td><td>I work · he work<b>s</b></td><td>I <b>am</b> working · he <b>is</b> working</td></tr>
+<tr><td>Negativa</td><td>I do not / he does not work</td><td>I am not · he is not working</td></tr></table></div>
+<div class="tip"><b>Verbos de estado</b> quase nunca ficam no continuous: <i>be, want, need, think (opinião), know, like</i>. Ex.: "I <b>want</b> water", não "I am wanting".<br>"get / become" mostram mudança em andamento, então ficam no continuous: <i>I am getting tired</i>.</div>
+<h3>Exercício: complete com a forma correta</h3>
+<p>Lucas <input class="blank" size="9" aria-label="lacuna"> (be – negative) a patient student, to be honest. His teacher says he <input class="blank" size="9" aria-label="lacuna"> (need) to study more, and now he <input class="blank" size="9" aria-label="lacuna"> (try) a new method. Every morning he <input class="blank" size="9" aria-label="lacuna"> (read) for 30 minutes. At the moment he <input class="blank" size="9" aria-label="lacuna"> (prepare) for an important test. He <input class="blank" size="9" aria-label="lacuna"> (think) that he <input class="blank" size="9" aria-label="lacuna"> (get) better at English. His sister <input class="blank" size="9" aria-label="lacuna"> (help) him this month, and she <input class="blank" size="9" aria-label="lacuna"> (explain) the grammar every night. But Lucas <input class="blank" size="9" aria-label="lacuna"> (want) to be independent, so he <input class="blank" size="9" aria-label="lacuna"> (learn) to study alone.</p>
+<details><summary>Respostas</summary><div class="ans">is not (isn't) · needs · is trying · reads · is preparing · thinks · is getting · is helping · explains · wants · is learning<br><small>Why? every morning/every night = rotina; at the moment/this month = temporário; needs, thinks, wants = verbos de estado.</small></div></details></section>
+
+<section><h2>3. Writing: dando direções</h2>
+<div class="wrap"><table><tr><th>Expressão</th><th>Pronúncia aproximada</th></tr>
+<tr><td>Go straight</td><td>gôu strêit</td></tr><tr><td>Turn left / right</td><td>târn léft / ráit</td></tr>
+<tr><td>at the corner</td><td>ét dã kórner</td></tr><tr><td>next to · across from</td><td>nécst tu · acrós fróm</td></tr>
+<tr><td>between … and …</td><td>bitúin … énd</td></tr><tr><td>in front of · behind</td><td>in frânt óv · biráind</td></tr>
+<tr><td>It is two blocks from here.</td><td>it iz tu blóks fróm rír</td></tr></table></div>
+<h3>Modelo (outro lugar)</h3>
+<div class="ans">The nearest bank is two blocks from here. Go straight on Main Street, turn left at the corner, and it is next to the post office.</div>
+<div class="tip">O que o professor corrige: <b>Grammar</b> (preposições de lugar, frases completas, verbos) e <b>Lexis</b> (expressões de direção e lugares da cidade).</div>
+<h3>Pratique (escreva e depois compare com o modelo)</h3>
+<p>a) The nearest bakery.</p><textarea class="f" rows="2" placeholder="Escreva sua resposta aqui"></textarea>
+<p>b) The nearest bus station.</p><textarea class="f" rows="2" placeholder="Escreva sua resposta aqui"></textarea>
+<p>c) The nearest library.</p><textarea class="f" rows="2" placeholder="Escreva sua resposta aqui"></textarea>
+<p>d) The nearest bank.</p><textarea class="f" rows="2" placeholder="Escreva sua resposta aqui"></textarea>
+<details><summary>Exemplo para (b)</summary><div class="ans">The nearest bus station is three blocks from here. Turn right on this street, go straight and it is across from the bakery.</div></details>
+<p><small>Comece escrevendo onde você está (a escola, sua casa), assim fica mais fácil.</small></p></section>
+
+<section><h2>4. Writing: planos para as férias</h2>
+<p>Responda as 3 perguntas em um texto curto: Where? Transportation? Activities?</p>
+<div class="tip"><b>Planos futuros</b>: <code>I'm going to + verbo</code> ou <code>I'm + verbo-ing</code>. Ex.: I'm going to visit… / I'm visiting… / I'm taking a bus.</div>
+<h3>Modelo</h3>
+<div class="ans">Next vacation, I'm going to Gramado with my family. We're taking a bus because it is cheaper than a plane. In Gramado, we're visiting a chocolate museum, walking in the park and eating pizza. I'm very excited!</div>
+<h3>Sua vez</h3><textarea class="f" rows="5" placeholder="Escreva seu texto aqui"></textarea>
+<div class="tip"><b>Erros comuns</b>: "I going" (faltou <i>am</i>) · "I'm go to" (correto: <i>I'm going to</i>) · "in bus" (correto: <i>by bus</i> ou <i>taking a bus</i>) · texto muito curto. Escreva pelo menos 4 frases, com início e fim.</div></section>
+
+<section><h2>5. Listening: lugares turísticos</h2>
+<p>Passo 1: ligue cada imagem ao nome. Passo 2: ouça e marque os que aparecem.</p>
+<p class="emo">🦁 🐠 🏰 🌉 🏟️ 📚</p>
+<input class="f" placeholder="Escreva os 6 nomes na ordem das imagens"><p><b>Banco de palavras:</b> zoo · aquarium · castle · bridge · stadium · library</p>
+<details><summary>Respostas do passo 1</summary><div class="ans">🦁 zoo · 🐠 aquarium · 🏰 castle · 🌉 bridge · 🏟️ stadium · 📚 library</div></details>
+<p>Toque em ouvir (pode ouvir duas vezes) e marque o que escutou:</p>
+<button onclick="say('Welcome to Riverton! This weekend, you can visit the old castle, walk across the famous bridge, and watch a football match at the stadium. Then relax with a coffee near the river.')">▶ Ouvir</button>
+<label><input type="checkbox"> zoo</label> <label><input type="checkbox"> aquarium</label> <label><input type="checkbox"> castle</label> <label><input type="checkbox"> bridge</label> <label><input type="checkbox"> stadium</label> <label><input type="checkbox"> library</label>
+<details><summary>Resposta</summary><div class="ans">castle, bridge, stadium</div></details></section>
+
+<section><h2>6. Listening: anúncio de transporte</h2>
+<p>Ouça o anúncio <b>três vezes</b>. Depois marque T (true) ou F (false).</p>
+<button onclick="say('Attention, passengers. Train 5120 to Chicago is delayed. There is a signal problem on the tracks. The train is not being replaced. The technicians are fixing it now. Boarding is expected to start in ten minutes at platform 3.',0.85)">▶ Ouvir (devagar)</button>
+<p><select><option></option><option>T</option><option>F</option></select> The train number is 5120.<br><select><option></option><option>T</option><option>F</option></select> The train's destination is Detroit.<br><select><option></option><option>T</option><option>F</option></select> The train's status is canceled.<br><select><option></option><option>T</option><option>F</option></select> There is a problem on the tracks.<br><select><option></option><option>T</option><option>F</option></select> The train is being replaced.<br><select><option></option><option>T</option><option>F</option></select> Boarding is expected to start in five minutes.<br><select><option></option><option>T</option><option>F</option></select> The boarding platform is 3.</p>
+<details><summary>Respostas</summary><div class="ans">T · F · F · T · F · F · T<br><small>Dica: leia as frases ANTES de ouvir e sublinhe números, lugares e tempo. Esses são os detalhes que mudam.</small></div></details>
+<div class="tip">Números: 15 = fifteen (fif-tín, termina forte) · 50 = fifty (fif-ti). Fique atento a <b>-teen</b> e <b>-ty</b>!</div></section>
+
+<section><h2>Dicas finais</h2>
+<p>✅ Leia as instruções com calma · ✅ Use frases completas · ✅ Revise os verbos (am/is/are, -s, -ing) · ✅ Confira as respostas com atenção · ✅ Se não souber, tente escrever mesmo assim, as respostas de Writing são avaliadas por partes. Boa prova! 💙🧡</p></section>
+</main>
+<script>
+function say(t,r){try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=r||.9;speechSynthesis.speak(u)}catch(e){alert('Seu navegador não tem áudio. Peça ao professor para ler em voz alta.')}}
+
+var F=function(){return document.querySelectorAll('input.f,input.blank,textarea,select,input[type=checkbox]')};
+try{F().forEach(function(e,i){var v=localStorage.getItem('b2_'+i);if(v!==null){if(e.type=='checkbox')e.checked=v=='1';else e.value=v}
+e.addEventListener('input',function(){try{localStorage.setItem('b2_'+i,e.type=='checkbox'?(e.checked?'1':'0'):e.value)}catch(x){}})})}catch(e){}
+var made=[];
+window.addEventListener('beforeprint',function(){F().forEach(function(e){if(e.type=='checkbox')return;
+var sp=document.createElement(e.matches('textarea,input.f')?'div':'span');sp.className='pv';sp.textContent=e.value||'';
+e.style.display='none';e.after(sp);made.push([e,sp])})});
+window.addEventListener('afterprint',function(){made.forEach(function(m){m[0].style.display='';m[1].remove()});made=[]});
+</script></body></html>
