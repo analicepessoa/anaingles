@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project 1 – Basic 2 – Guia passo a passo</title>
+<style>
+:root{--bg:#eef6f8;--card:#fff;--ink:#14323a;--soft:#4a6670;--sea:#0f7b8a;--sea2:#d6eef1;--warn:#c8431f;--warnbg:#fff0e8;--sun:#ffc93c;--line:#b9d3d8}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1d22;--card:#162a31;--ink:#e8f3f5;--soft:#a5c0c7;--sea:#5cc7d6;--sea2:#1c3a42;--warn:#ff9a78;--warnbg:#3a2018;--sun:#ffc93c;--line:#2f5059}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:760px;margin:0 auto;padding:16px 16px 60px}
+h1,h2,h3{font-family:"Trebuchet MS",system-ui,sans-serif;line-height:1.2}
+h1{font-size:2.2rem;margin:.2em 0}
+h2{font-size:1.5rem;margin:0 0 .6em}
+h3{font-size:1.1rem;margin:1.2em 0 .3em;color:var(--sea)}
+.ticket{background:var(--sea);color:#fff;border-radius:14px;padding:22px 22px 18px;margin:14px 0;position:relative}
+.ticket p{margin:.2em 0;color:#e3f6f8}
+.ticket h1{color:#fff}
+.ticket:after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;border-bottom:3px dashed var(--bg)}
+.alert{background:var(--warnbg);border:3px solid var(--warn);border-radius:12px;padding:16px 18px;margin:20px 0}
+.alert h2{color:var(--warn);margin-bottom:.3em}
+.alert ul{margin:.4em 0;padding-left:1.2em}
+.alert .pt{border-top:1px dashed var(--warn);margin-top:12px;padding-top:10px}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:22px 0}
+.pt{color:var(--soft);font-size:.95em}
+.tip{background:var(--sea2);border-left:5px solid var(--sea);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:color-mix(in srgb,var(--sun) 22%,var(--card));border:1px solid var(--sun);border-radius:8px;padding:10px 14px;margin:14px 0}
+.ex b:first-child{display:block}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:var(--sea2)}
+.table-wrap{overflow-x:auto}
+li{margin:.25em 0}
+label{display:block;margin:.35em 0;cursor:pointer}
+input[type=checkbox]{width:1.1em;height:1.1em;margin-right:.5em;accent-color:var(--sea)}
+.script{font-family:Georgia,serif;background:var(--card);border:2px dashed var(--sea);border-radius:10px;padding:12px 16px;margin:12px 0}
+nav a{display:inline-block;margin:3px 6px 3px 0;padding:4px 10px;border:1px solid var(--line);border-radius:20px;color:var(--ink);text-decoration:none;font-size:.9rem;background:var(--card)}
+nav a:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+</style>
+</head>
+<body>
+<main>
+
+<header class="ticket">
+<p>Basic 2 · Units 1 and 2</p>
+<h1>Project 1: Our Travel Agency</h1>
+<p>Guia passo a passo para fazer em casa</p>
+</header>
+
+<div class="alert" role="alert">
+<h2>⚠️ IMPORTANT – READ FIRST!</h2>
+<p><b>This project is 100% by VIDEO.</b></p>
+<ul>
+<li>📅 Deadline: <b>Tuesday, November 3rd, 2026 (03/11/2026)</b>. This is the <b>ONLY</b> day to deliver.</li>
+<li>❌ No late deliveries without a valid justification.</li>
+<li>🎥 There will be <b>no presentation</b> in class. Your video is your project.</li>
+<li>📝 Your <b>project page will also be checked</b>. Complete Step 1 and Step 2 up to the script.</li>
+<li>🗣️ Together with your video, you will do a <b>short oral test</b> (also by video).</li>
+</ul>
+<div class="pt">
+<p><b>⚠️ IMPORTANTE – LEIA PRIMEIRO!</b> Este projeto é <b>100% em vídeo</b>.</p>
+<ul>
+<li>📅 Entrega: <b>terça-feira, 03/11/2026</b>, único dia de entrega.</li>
+<li>❌ Não aceito entrega depois dessa data sem justificativa.</li>
+<li>🎥 <b>Não haverá apresentação</b> em sala. O vídeo vale como o projeto feito.</li>
+<li>📝 A <b>página do projeto também será conferida</b>: faça os exercícios até chegar no script.</li>
+<li>🗣️ Junto com o vídeo, você fará uma <b>provinha oral</b>, também em vídeo.</li>
+</ul>
+</div>
+</div>
+
+<nav aria-label="Atalhos">
+<a href="#como">Como funciona</a>
+<a href="#step1">Step 1</a>
+<a href="#step2">Step 2</a>
+<a href="#step3">Step 3: vídeo</a>
+<a href="#oral">Provinha oral</a>
+<a href="#entrega">Checklist final</a>
+</nav>
+
+<section id="como">
+<h2>O que você vai fazer</h2>
+<p>Você é dono(a) de uma <b>agência de viagens</b>. Vai criar <b>2 pacotes de férias</b> e gravar um vídeo vendendo esses pacotes. Tudo o que você precisa já foi estudado nas Units 1 e 2: aeroporto, hotel, pontos turísticos e o Present Continuous.</p>
+<p class="pt">Não precisa ser perfeito. Frases simples e bem faladas valem mais do que frases difíceis e decoradas sem entender.</p>
+<div class="table-wrap">
+<table>
+<tr><th>Etapa</th><th>O que fazer</th></tr>
+<tr><td>Step 1</td><td>Preencher a página do livro: cidades, hotéis e atividades</td></tr>
+<tr><td>Step 2</td><td>Escrever o script dos 2 pacotes na página do livro</td></tr>
+<tr><td>Step 3</td><td>Gravar o vídeo lendo/falando o seu script</td></tr>
+<tr><td>Provinha oral</td><td>Gravar a fala sobre o seu lugar dos sonhos</td></tr>
+</table>
+</div>
+</section>
+
+<section id="step1">
+<h2>Step 1: Gathering information</h2>
+<p class="pt">Juntando as informações. Aqui você escolhe o que sua agência vai oferecer.</p>
+
+<h3>Exercício 1: Cities and places to visit</h3>
+<p>Escolha <b>2 cidades</b> (uma para cada pacote). Para cada cidade, escreva alguns lugares para visitar. Pode ser no Brasil ou em outro país.</p>
+<div class="ex"><b>Exemplo:</b>
+City: <b>Rio de Janeiro</b><br>
+Places to visit: <b>Christ the Redeemer, Copacabana Beach, Sugarloaf Mountain</b></div>
+<p><b>Vocabulário útil:</b> beach, museum, park, church, historic center, mountain, waterfall, shopping mall, zoo, market, square, castle.</p>
+<div class="tip">💡 Escolha cidades que você conhece ou sobre as quais consegue pesquisar rápido. Pesquise no Google: "<i>[nome da cidade] tourist attractions</i>".</div>
+
+<h3>Exercício 2: Hotels and accommodation</h3>
+<p>Escolha <b>2 opções de hotel</b> (Option 1 e Option 2). Para cada uma, preencha três linhas:</p>
+<div class="table-wrap">
+<table>
+<tr><th>Linha</th><th>Significa</th><th>Exemplos</th></tr>
+<tr><td>Type of Hotel</td><td>Tipo de hotel</td><td>luxury hotel, resort, hostel, family hotel, beach hotel, boutique hotel</td></tr>
+<tr><td>Accommodation</td><td>Tipo de quarto</td><td>single room, double room, family room, suite, room with ocean view</td></tr>
+<tr><td>Hotel Facilities</td><td>O que o hotel tem</td><td>swimming pool, gym, restaurant, free Wi-Fi, breakfast included, spa, parking, air conditioning</td></tr>
+</table>
+</div>
+<div class="ex"><b>Exemplo (Option 1):</b>
+Type of Hotel: <b>luxury hotel</b><br>
+Accommodation: <b>double room with ocean view</b><br>
+Hotel Facilities: <b>swimming pool, gym, free Wi-Fi, breakfast included</b></div>
+
+<h3>Exercício 3: Leisure activities</h3>
+<p>Escreva <b>atividades de lazer</b> para cada pacote (Option 1 e Option 2). Duas ou três por pacote já está ótimo.</p>
+<p><b>Ideias:</b> go sightseeing · visit museums · go to the beach · go hiking · take a boat tour · go shopping · try local food · take photos · ride a bike · go to the theme park.</p>
+<div class="ex"><b>Exemplo:</b> Option 1: go to the beach, try local food, go sightseeing.</div>
+<div class="tip">💡 Combine a atividade com o lugar. Montanha pede <i>go hiking</i>; praia pede <i>go to the beach</i>.</div>
+</section>
+
+<section id="step2">
+<h2>Step 2: Creating the script</h2>
+<p class="pt">Criando o script. Agora você transforma suas anotações em um texto para falar no vídeo.</p>
+<p>Para <b>cada pacote</b> (Vacation Package 1 e 2), escreva um pequeno texto com <b>3 partes</b>, como pede o livro:</p>
+<ol>
+<li><b>The place:</b> fale do lugar e dê uma descrição curta.</li>
+<li><b>The hotel:</b> fale do hotel, do quarto e do que o hotel tem.</li>
+<li><b>The activities:</b> fale do que o turista pode fazer.</li>
+</ol>
+
+<h3>Frases prontas para usar</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Para…</th><th>Use…</th></tr>
+<tr><td>Começar</td><td>Welcome to All Net Travel! / Today I’m going to present…</td></tr>
+<tr><td>Apresentar o lugar</td><td><i>[City]</i> is a beautiful city in <i>[country]</i>. It has… / There are many…</td></tr>
+<tr><td>Falar do hotel</td><td>You will stay at a <i>[type of hotel]</i>. You will have a <i>[room]</i>. The hotel has…</td></tr>
+<tr><td>Atividades</td><td>You can… / Tourists can… / In this package, you can…</td></tr>
+<tr><td>Fechar</td><td>Book now! / Come with us! / Thank you!</td></tr>
+</table>
+</div>
+
+<h3>Modelo para completar</h3>
+<div class="script">
+Welcome to All Net Travel! This is Vacation Package 1: ______ (city).<br>
+______ is a ______ (beautiful / big / historic / quiet) city in ______. It has ______ and ______.<br>
+You will stay at a ______ (type of hotel). You will have a ______ (room). The hotel has ______, ______ and ______.<br>
+In this package, you can ______, ______ and ______.<br>
+Book now!
+</div>
+
+<h3>Exemplo completo</h3>
+<div class="script">
+Welcome to All Net Travel! This is Vacation Package 1: Rio de Janeiro.<br>
+Rio is a beautiful city in Brazil. It has amazing beaches and a famous statue, Christ the Redeemer.<br>
+You will stay at a luxury hotel in Copacabana. You will have a double room with ocean view. The hotel has a swimming pool, a gym and free Wi-Fi. Breakfast is included.<br>
+In this package, you can go to the beach, go sightseeing and try local food.<br>
+Book now!
+</div>
+
+<div class="tip">💡 <b>Dicas:</b> escreva frases curtas · use palavras que você sabe pronunciar · leia o script em voz alta antes de gravar · cada pacote deve ter de 5 a 7 frases.</div>
+<p class="pt">Atenção: o Package 2 deve ser <b>diferente</b> do Package 1 (outra cidade, outro hotel e outras atividades).</p>
+</section>
+
+<section id="step3">
+<h2>Step 3: Your video</h2>
+<p class="pt">Não haverá apresentação em sala. O seu vídeo é a apresentação.</p>
+<h3>O que mostrar no vídeo</h3>
+<ul>
+<li>Apresente-se: <i>Hello! My name is…</i></li>
+<li>Apresente o <b>Vacation Package 1</b> e depois o <b>Vacation Package 2</b>.</li>
+<li>Termine com um <i>Thank you!</i></li>
+</ul>
+<p><b>Duração sugerida:</b> de 2 a 3 minutos no total.</p>
+<h3>Dicas de gravação</h3>
+<ul>
+<li>📱 Grave com o celular <b>deitado</b> (na horizontal).</li>
+<li>💡 Fique em um lugar com <b>boa luz</b> e pouco barulho.</li>
+<li>🙂 Seu rosto deve aparecer no vídeo.</li>
+<li>🐢 Fale devagar e com calma. Se errar, pode regravar!</li>
+<li>📄 Pode ter o script por perto, mas tente olhar para a câmera de vez em quando.</li>
+<li>🖼️ Opcional: mostre fotos dos lugares (no celular, no papel ou no computador).</li>
+</ul>
+</section>
+
+<section id="oral">
+<h2>🗣️ Oral Test: My Dream Destination</h2>
+<p class="pt">Provinha oral: o lugar dos seus sonhos</p>
+<p>Depois do vídeo do projeto, grave uma fala sobre o <b>seu lugar dos sonhos</b>. Fale por <b>pelo menos 1 minuto</b>. Aqui você fala com suas próprias palavras, sem ler um texto pronto.</p>
+<h3>Fale sobre:</h3>
+<ul>
+<li>Where is it? (city/country)</li>
+<li>Why do you want to go there?</li>
+<li>What can you see and do there?</li>
+<li>Where would you stay? (type of hotel)</li>
+<li>Who would you go with?</li>
+</ul>
+<h3>Frases de apoio</h3>
+<ul>
+<li>My dream place is…</li>
+<li>It’s in… It’s a beautiful city / beach / island.</li>
+<li>I want to go there because…</li>
+<li>There are many… (beaches, museums, restaurants).</li>
+<li>I would like to visit… / I would like to stay in a… hotel.</li>
+<li>I would go with my family / my friends / my husband / my wife.</li>
+</ul>
+<div class="ex"><b>Exemplo para começar:</b>
+My dream place is Paris, in France. I want to go there because I love history and food. There are many museums and restaurants. I would like to visit the Eiffel Tower. I would stay in a small hotel near the river, and I would go with my best friend.</div>
+<div class="tip">💡 Se ficar sem ideias, use as perguntas acima como roteiro, uma de cada vez. Falar devagar também ajuda a completar 1 minuto!</div>
+<p class="pt">Você será avaliado em: vocabulário, gramática, fluência e pronúncia. Quem usa as 5 partes do roteiro se sai melhor.</p>
+</section>
+
+<section id="entrega">
+<h2>✅ Checklist final</h2>
+<p>Antes de entregar, confira (toque nos itens):</p>
+<label><input type="checkbox"> Step 1 completo (cidades, hotéis e atividades)</label>
+<label><input type="checkbox"> Step 2 completo (script dos 2 pacotes na página)</label>
+<label><input type="checkbox"> Vídeo do projeto gravado (Package 1 e Package 2)</label>
+<label><input type="checkbox"> Provinha oral gravada (mínimo 1 minuto)</label>
+<label><input type="checkbox"> Meu rosto aparece e dá para ouvir bem</label>
+<label><input type="checkbox"> Entrego na <b>terça-feira, 03/11/2026</b></label>
+<div class="alert">
+<p><b>📅 Lembre-se: Tuesday, November 3rd, 2026 is the ONLY delivery day.</b><br><span class="pt">Terça-feira, 03/11/2026, único dia de entrega. Sem justificativa, não será aceito depois.</span></p>
+</div>
+<p><b>Good luck! 🍀 Boa sorte!</b></p>
+</section>
+
+</main>
+</body>
+</html>
